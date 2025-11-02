@@ -288,23 +288,23 @@ const createFileInputHTML = (options = {}) => {
 
 export const toolTemplates = {
   merge: () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Merge PDFs</h2>
-    <p class="mb-6 text-gray-400">Combine whole files, or select specific pages to merge into a new document.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Mesclar PDFs</h2>
+    <p class="mb-6 text-gray-400">Combine arquivos inteiros ou selecione páginas específicas para mesclar em um novo documento.</p>
     ${createFileInputHTML({ multiple: true, showControls: true })} 
 
     <div id="merge-options" class="hidden mt-6">
         <div class="flex gap-2 p-1 rounded-lg bg-gray-900 border border-gray-700 mb-4">
-            <button id="file-mode-btn" class="flex-1 btn bg-indigo-600 text-white font-semibold py-2 rounded-md">File Mode</button>
-            <button id="page-mode-btn" class="flex-1 btn text-gray-300 font-semibold py-2 rounded-md">Page Mode</button>
+            <button id="file-mode-btn" class="flex-1 btn bg-indigo-600 text-white font-semibold py-2 rounded-md">Modo Arquivo</button>
+            <button id="page-mode-btn" class="flex-1 btn text-gray-300 font-semibold py-2 rounded-md">Modo Página</button>
         </div>
 
         <div id="file-mode-panel">
             <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-                <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
+                <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
                 <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                    <li>Click and drag the <i data-lucide="grip-vertical" class="inline-block w-3 h-3"></i> icon to change the order of the files.</li>
-                    <li>In the "Pages" box for each file, you can specify ranges (e.g., "1-3, 5") to merge only those pages.</li>
-                    <li>Leave the "Pages" box blank to include all pages from that file.</li>
+                    <li>Clique e arraste o ícone <i data-lucide="grip-vertical" class="inline-block w-3 h-3"></i> para mudar a ordem dos arquivos.</li>
+                    <li>No campo "Páginas" de cada arquivo, você pode especificar intervalos (ex.: "1-3, 5") para mesclar apenas essas páginas.</li>
+                    <li>Deixe o campo "Páginas" vazio para incluir todas as páginas do arquivo.</li>
                 </ul>
             </div>
             <ul id="file-list" class="space-y-2"></ul>
@@ -312,86 +312,86 @@ export const toolTemplates = {
 
         <div id="page-mode-panel" class="hidden">
              <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-                <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
+                <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
                  <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                    <li>All pages from your uploaded PDFs are shown below.</li>
-                    <li>Simply drag and drop the individual page thumbnails to create the exact order you want for your new file.</li>
+                    <li>Todas as páginas dos PDFs enviados aparecem abaixo.</li>
+                    <li>Arraste e solte as miniaturas de páginas para criar exatamente a ordem desejada para o novo arquivo.</li>
                 </ul>
             </div>
              <div id="page-merge-preview" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 p-4 bg-gray-900 rounded-lg border border-gray-700 min-h-[200px]"></div>
         </div>
         
-        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Merge PDFs</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Mesclar PDFs</button>
     </div>
 `,
 
   split: () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Split PDF</h2>
-    <p class="mb-6 text-gray-400">Extract pages from a PDF using various methods.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Dividir PDF</h2>
+    <p class="mb-6 text-gray-400">Extrair páginas de um PDF usando vários métodos.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
     <div id="split-options" class="hidden mt-6">
         
-        <label for="split-mode" class="block mb-2 text-sm font-medium text-gray-300">Split Mode</label>
+        <label for="split-mode" class="block mb-2 text-sm font-medium text-gray-300">Modo de Divisão</label>
         <select id="split-mode" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5 mb-4">
-            <option value="range">Extract by Page Range (Default)</option>
-            <option value="even-odd">Split by Even/Odd Pages</option>
-            <option value="all">Split All Pages into Separate Files</option>
-            <option value="visual">Select Pages Visually</option>
+            <option value="range">Extrair por intervalo de páginas (padrão)</option>
+            <option value="even-odd">Dividir por páginas pares/ímpares</option>
+            <option value="all">Dividir todas as páginas em arquivos separados</option>
+            <option value="visual">Selecionar páginas visualmente</option>
         </select>
 
         <div id="range-panel">
             <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-                <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
+                <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
                 <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                    <li>Enter page numbers separated by commas (e.g., 2, 8, 14).</li>
-                    <li>Enter page ranges using a hyphen (e.g., 5-10).</li>
-                    <li>Combine them for complex selections (e.g., 1-3, 7, 12-15).</li>
+                    <li>Informe números de páginas separados por vírgula (ex.: 2, 8, 14).</li>
+                    <li>Informe intervalos usando hífen (ex.: 5-10).</li>
+                    <li>Combine ambos para seleções complexas (ex.: 1-3, 7, 12-15).</li>
                 </ul>
             </div>
-            <p class="mb-2 font-medium text-white">Total Pages: <span id="total-pages"></span></p>
-            <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Enter page range:</label>
-            <input type="text" id="page-range" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="e.g., 1-5, 8">
+            <p class="mb-2 font-medium text-white">Total de Páginas: <span id="total-pages"></span></p>
+            <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Informe o intervalo de páginas:</label>
+            <input type="text" id="page-range" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="ex.: 1-5, 8">
         </div>
 
         <div id="even-odd-panel" class="hidden">
             <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-                <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
-                <p class="text-xs text-gray-400 mt-1">This will create a new PDF containing only the even or only the odd pages from your original document.</p>
+                <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
+                <p class="text-xs text-gray-400 mt-1">Cria um novo PDF contendo apenas as páginas pares ou apenas as ímpares do documento original.</p>
             </div>
             <div class="flex gap-4">
                 <label class="flex-1 flex items-center justify-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
                     <input type="radio" name="even-odd-choice" value="odd" checked class="hidden">
-                    <span class="font-semibold text-white">Odd Pages Only</span>
+                    <span class="font-semibold text-white">Apenas Ímpares</span>
                 </label>
                 <label class="flex-1 flex items-center justify-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
                     <input type="radio" name="even-odd-choice" value="even" class="hidden">
-                    <span class="font-semibold text-white">Even Pages Only</span>
+                    <span class="font-semibold text-white">Apenas Pares</span>
                 </label>
             </div>
         </div>
         
         <div id="visual-select-panel" class="hidden">
              <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-                <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
-                <p class="text-xs text-gray-400 mt-1">Click on the page thumbnails below to select them. Click again to deselect. All selected pages will be extracted.</p>
+                <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
+                <p class="text-xs text-gray-400 mt-1">Clique nas miniaturas de página abaixo para selecionar. Clique novamente para desmarcar. Todas as páginas selecionadas serão extraídas.</p>
             </div>
              <div id="page-selector-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 p-4 bg-gray-900 rounded-lg border border-gray-700 min-h-[150px]"></div>
         </div>
 
         <div id="all-pages-panel" class="hidden p-3 bg-gray-900 rounded-lg border border-gray-700">
-            <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
-            <p class="text-xs text-gray-400 mt-1">This mode will create a separate PDF file for every single page in your document and download them together in one ZIP archive.</p>
+            <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
+            <p class="text-xs text-gray-400 mt-1">Este modo cria um arquivo PDF separado para cada página do documento e baixa todos juntos em um arquivo ZIP.</p>
         </div>
         
         <div id="zip-option-wrapper" class="hidden mt-4">
             <label class="flex items-center gap-2 text-sm font-medium text-gray-300">
                 <input type="checkbox" id="download-as-zip" class="w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
-                Download pages as individual files in a ZIP
+                Baixar páginas como arquivos individuais em um ZIP
             </label>
         </div>
         
-        <button id="process-btn" class="btn-gradient w-full mt-6">Split PDF</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Dividir PDF</button>
 
     </div>
 `,
@@ -872,19 +872,19 @@ export const toolTemplates = {
     <div id="header-footer-options" class="hidden mt-6 space-y-4">
         
         <div class="p-4 bg-gray-900 border border-gray-700 rounded-lg">
-            <h3 class="text-lg font-semibold text-white mb-3">Formatting Options</h3>
+            <h3 class="text-lg font-semibold text-white mb-3">Opções de Formatação</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                    <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Page Range (optional)</label>
-                    <input type="text" id="page-range" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="e.g., 1-3, 5">
-                    <p class="text-xs text-gray-400 mt-1">Total pages: <span id="total-pages">0</span></p>
+                    <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Intervalo de páginas (opcional)</label>
+                    <input type="text" id="page-range" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="ex.: 1-3, 5">
+                    <p class="text-xs text-gray-400 mt-1">Total de páginas: <span id="total-pages">0</span></p>
                 </div>
                 <div>
-                    <label for="font-size" class="block mb-2 text-sm font-medium text-gray-300">Font Size</label>
+                    <label for="font-size" class="block mb-2 text-sm font-medium text-gray-300">Tamanho da Fonte</label>
                     <input type="number" id="font-size" value="10" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                 </div>
                 <div>
-                    <label for="font-color" class="block mb-2 text-sm font-medium text-gray-300">Font Color</label>
+                    <label for="font-color" class="block mb-2 text-sm font-medium text-gray-300">Cor da Fonte</label>
                     <input type="color" id="font-color" value="#000000" class="w-full h-[42px] bg-gray-700 border border-gray-600 rounded-lg p-1 cursor-pointer">
                 </div>
             </div>
@@ -892,42 +892,42 @@ export const toolTemplates = {
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-                <label for="header-left" class="block mb-2 text-sm font-medium text-gray-300">Header Left</label>
+                <label for="header-left" class="block mb-2 text-sm font-medium text-gray-300">Cabeçalho Esquerdo</label>
                 <input type="text" id="header-left" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
             <div>
-                <label for="header-center" class="block mb-2 text-sm font-medium text-gray-300">Header Center</label>
+                <label for="header-center" class="block mb-2 text-sm font-medium text-gray-300">Cabeçalho Central</label>
                 <input type="text" id="header-center" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
             <div>
-                <label for="header-right" class="block mb-2 text-sm font-medium text-gray-300">Header Right</label>
+                <label for="header-right" class="block mb-2 text-sm font-medium text-gray-300">Cabeçalho Direito</label>
                 <input type="text" id="header-right" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-                <label for="footer-left" class="block mb-2 text-sm font-medium text-gray-300">Footer Left</label>
+                <label for="footer-left" class="block mb-2 text-sm font-medium text-gray-300">Rodapé Esquerdo</label>
                 <input type="text" id="footer-left" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
             <div>
-                <label for="footer-center" class="block mb-2 text-sm font-medium text-gray-300">Footer Center</label>
+                <label for="footer-center" class="block mb-2 text-sm font-medium text-gray-300">Rodapé Central</label>
                 <input type="text" id="footer-center" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
             <div>
-                <label for="footer-right" class="block mb-2 text-sm font-medium text-gray-300">Footer Right</label>
+                <label for="footer-right" class="block mb-2 text-sm font-medium text-gray-300">Rodapé Direito</label>
                 <input type="text" id="footer-right" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
         </div>
     </div>
-    <button id="process-btn" class="hidden btn-gradient w-full mt-6">Apply Header & Footer</button>
+    <button id="process-btn" class="hidden btn-gradient w-full mt-6">Aplicar Cabeçalho & Rodapé</button>
 `,
 
   'image-to-pdf': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Image to PDF Converter</h2>
-        <p class="mb-6 text-gray-400">Combine multiple images into a single PDF. Drag and drop to reorder.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Imagem para PDF</h2>
+        <p class="mb-6 text-gray-400">Combine múltiplas imagens em um único PDF. Arraste e solte para reordenar.</p>
         ${createFileInputHTML({ multiple: true, accept: 'image/jpeg,image/png,image/webp', showControls: true })}
         <ul id="image-list" class="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"></ul>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Convert to PDF</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Converter para PDF</button>
     `,
 
   'change-permissions': () => `
@@ -1616,47 +1616,47 @@ export const toolTemplates = {
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                     <div>
-                        <label for="font-family-select" class="block mb-1 text-xs font-medium text-gray-400">Font Style</label>
+                        <label for="font-family-select" class="block mb-1 text-xs font-medium text-gray-400">Estilo da Fonte</label>
                         <select id="font-family-select" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm">
-                            <option value="'Great Vibes', cursive">Signature</option>
-                            <option value="'Kalam', cursive">Handwritten</option>
-                            <option value="'Dancing Script', cursive">Script</option>
+                            <option value="'Great Vibes', cursive">Assinatura</option>
+                            <option value="'Kalam', cursive">Manuscrita</option>
+                            <option value="'Dancing Script', cursive">Caligrafia</option>
                             <option value="'Lato', sans-serif">Regular</option>
                             <option value="'Merriweather', serif">Formal</option>
                         </select>
                     </div>
                      <div>
-                        <label for="font-size-slider" class="block mb-1 text-xs font-medium text-gray-400">Font Size (<span id="font-size-value">48</span>px)</label>
+                        <label for="font-size-slider" class="block mb-1 text-xs font-medium text-gray-400">Tamanho da Fonte (<span id="font-size-value">48</span>px)</label>
                         <input type="range" id="font-size-slider" min="24" max="72" value="32" class="w-full">
                     </div>
                     <div>
-                        <label for="font-color-picker" class="block mb-1 text-xs font-medium text-gray-400">Color</label>
+                        <label for="font-color-picker" class="block mb-1 text-xs font-medium text-gray-400">Cor</label>
                         <input type="color" id="font-color-picker" value="#22c55e" class="w-full h-[38px] bg-gray-700 border border-gray-600 rounded-lg p-1 cursor-pointer">
                     </div>
                 </div>
 
-                <div id="font-preview" class="p-4 h-[80px] bg-transparent rounded-md flex items-center justify-center text-4xl" style="font-family: 'Great Vibes', cursive; font-size: 32px; color: #22c55e;">Your Name</div>
+                <div id="font-preview" class="p-4 h-[80px] bg-transparent rounded-md flex items-center justify-center text-4xl" style="font-family: 'Great Vibes', cursive; font-size: 32px; color: #22c55e;">Seu Nome</div>
                  
                 <div class="flex justify-end mt-4">
-                    <button id="save-type-btn" class="btn-gradient px-4 py-2 text-sm rounded-lg">Save Signature</button>
+                    <button id="save-type-btn" class="btn-gradient px-4 py-2 text-sm rounded-lg">Salvar Assinatura</button>
                 </div>
             </div>
 
             <div id="upload-panel" class="hidden">
                 <input type="file" id="signature-upload-input" accept="image/png" class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700">
-                *png files only
+                *apenas arquivos PNG
             </div>
             
             <hr class="border-gray-700 my-4">
-            <h4 class="text-md font-semibold text-white mb-2">Your Saved Signatures</h4>
+            <h4 class="text-md font-semibold text-white mb-2">Assinaturas Salvas</h4>
             <div id="saved-signatures-container" class="flex flex-wrap gap-2 bg-gray-800 p-2 rounded-md min-h-[50px]">
-                <p class="text-xs text-gray-500 text-center w-full">Your saved signatures will appear here. Click one to select it.</p>
+                <p class="text-xs text-gray-500 text-center w-full">Suas assinaturas salvas aparecerão aqui. Clique em uma para selecionar.</p>
             </div>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-4 mb-4 p-3 bg-gray-900 rounded-lg border border-gray-700">
             <button id="prev-page-sign" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50"><i data-lucide="chevron-left"></i></button>
-            <span class="text-white font-medium">Page <span id="current-page-display-sign">1</span> of <span id="total-pages-display-sign">1</span></span>
+            <span class="text-white font-medium">Página <span id="current-page-display-sign">1</span> de <span id="total-pages-display-sign">1</span></span>
             <button id="next-page-sign" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50"><i data-lucide="chevron-right"></i></button>
             <div class="border-l border-gray-600 h-6 mx-2 hidden sm:block"></div>
             <button id="zoom-out-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600"><i data-lucide="zoom-out"></i></button>
@@ -1981,42 +1981,42 @@ export const toolTemplates = {
     <div id="file-display-area" class="mt-4 space-y-2"></div>
 
     <div id="attachment-options" class="hidden mt-8">
-      <h3 class="text-lg font-semibold text-white mb-3">Upload Files to Attach</h3>
-      <p class="mb-4 text-gray-400">Select one or more files to embed within the PDF. You can attach any file type (images, documents, spreadsheets, etc.).</p>
+      <h3 class="text-lg font-semibold text-white mb-3">Enviar Arquivos para Anexar</h3>
+      <p class="mb-4 text-gray-400">Selecione um ou mais arquivos para incorporar no PDF. Você pode anexar qualquer tipo de arquivo (imagens, documentos, planilhas etc.).</p>
       
       <label for="attachment-files-input" class="w-full flex justify-center items-center px-6 py-10 bg-gray-900 text-gray-400 rounded-lg border-2 border-dashed border-gray-600 hover:bg-gray-800 hover:border-gray-500 cursor-pointer transition-colors">
         <div class="text-center">
           <svg class="mx-auto h-12 w-12" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <span class="mt-2 block text-sm font-medium">Click to upload files</span>
-          <span class="mt-1 block text-xs">Any file type, multiple files allowed</span>
+          <span class="mt-2 block text-sm font-medium">Clique para enviar arquivos</span>
+          <span class="mt-1 block text-xs">Qualquer tipo de arquivo, múltiplos permitidos</span>
         </div>
         <input id="attachment-files-input" name="attachment-files" type="file" class="sr-only" multiple>
       </label>
 
       <div id="attachment-file-list" class="mt-4 space-y-2"></div>
 
-      <button id="process-btn" class="hidden btn-gradient w-full mt-6" disabled>Embed Files & Download</button>
+      <button id="process-btn" class="hidden btn-gradient w-full mt-6" disabled>Incorporar Arquivos & Baixar</button>
     </div>
   `,
 
   'sanitize-pdf': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Sanitize PDF</h2>
-    <p class="mb-6 text-gray-400">Remove potentially sensitive or unnecessary information from your PDF before sharing. Select the items you want to remove.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Sanitizar PDF</h2>
+    <p class="mb-6 text-gray-400">Remova informações potencialmente sensíveis ou desnecessárias do seu PDF antes de compartilhar. Selecione os itens que deseja remover.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
 
     <div id="sanitize-pdf-options" class="hidden mt-6 space-y-4 p-4 bg-gray-900 border border-gray-700 rounded-lg">
-        <h3 class="text-lg font-semibold text-white mb-3">Sanitization Options</h3>
+        <h3 class="text-lg font-semibold text-white mb-3">Opções de Sanitização</h3>
     <div>
-            <strong class="font-semibold text-yellow-200">Note:</strong>
-            Removing <code class="bg-gray-700 px-1 rounded text-white">Embedded Fonts</code> may break text rendering! Text may not display correctly or at all. Only use if you're sure the PDF viewer has substitute fonts.
+            <strong class="font-semibold text-yellow-200">Observação:</strong>
+            Remover <code class="bg-gray-700 px-1 rounded text-white">Fontes Embutidas</code> pode quebrar a renderização de texto! O texto pode não exibir corretamente ou nem aparecer. Use apenas se tiver certeza de que o visualizador possui fontes substitutas.
     </div>
         <div class="mb-4">
-            <h4 class="text-sm font-semibold text-gray-400 mb-2">Essential Security</h4>
+            <h4 class="text-sm font-semibold text-gray-400 mb-2">Segurança Essencial</h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="flatten-forms" name="sanitizeOption" value="flatten-forms" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Flatten Form Fields</span>
+                    <span class="text-white">Achatar Campos de Formulário</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-metadata" name="sanitizeOption" value="metadata" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
