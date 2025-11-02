@@ -110,7 +110,7 @@ async function changePage(offset: any) {
 
 function updatePageInfo() {
   document.getElementById('page-info').textContent =
-    `Page ${cropperState.currentPageNum} of ${cropperState.pdfDoc.numPages}`;
+    `Página ${cropperState.currentPageNum} de ${cropperState.pdfDoc.numPages}`;
 }
 
 function enableControls() {

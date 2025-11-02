@@ -80,6 +80,15 @@ function translateMessage(text: any): any {
   if (text.startsWith('Rendering page previews')) {
     return text.replace('Rendering page previews', 'Renderizando prévias de páginas');
   }
+  if (text.startsWith('Rendering Page ')) {
+    return text.replace('Rendering Page ', 'Renderizando Página ');
+  }
+  if (text.startsWith('Rendering page ')) {
+    return text.replace('Rendering page ', 'Renderizando página ');
+  }
+  if (text.startsWith('Loading page ')) {
+    return text.replace('Loading page ', 'Carregando página ');
+  }
   if (text.startsWith('Processing page ')) {
     return text.replace('Processing page ', 'Processando página ').replace(' of ', ' de ');
   }

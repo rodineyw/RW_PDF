@@ -103,12 +103,12 @@ async function updateAnalysisUI() {
       const img = document.createElement('img');
       img.src = thumbCanvas.toDataURL();
       img.className = 'rounded border border-gray-600';
-      img.title = `Page ${pageNum}`;
+      img.title = `Página ${pageNum}`;
       thumbnailsContainer.appendChild(img);
     }
   } else {
     analysisText.textContent =
-      'No blank pages found at this sensitivity level.';
+      'Nenhuma página em branco encontrada neste nível de sensibilidade.';
     previewContainer.classList.remove('hidden');
   }
 }

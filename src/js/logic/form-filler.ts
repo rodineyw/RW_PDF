@@ -287,7 +287,7 @@ export async function setupFormFiller() {
 
     if (fields.length === 0) {
       formContainer.innerHTML =
-        '<p class="text-center text-gray-400">This PDF contains no form fields.</p>';
+        '<p class="text-center text-gray-400">Este PDF não contém campos de formulário.</p>';
       processBtn.classList.add('hidden');
     } else {
       fields.forEach((field: any) => {
