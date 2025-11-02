@@ -5,6 +5,7 @@ import { state } from '../state.js';
 import Tesseract from 'tesseract.js';
 import { PDFDocument as PDFLibDocument, StandardFonts, rgb } from 'pdf-lib';
 import { icons, createIcons } from 'lucide';
+import { tMessage, tProgress } from '../i18n.js';
 
 let searchablePdfBytes: any = null;
 
@@ -71,11 +72,11 @@ function updateProgress(status: any, progress: any) {
 
   if (!progressBar || !progressStatus || !progressLog) return;
 
-  progressStatus.textContent = status;
+  progressStatus.textContent = tProgress(status);
   // Tesseract's progress can sometimes exceed 1, so we cap it at 100%.
   progressBar.style.width = `${Math.min(100, progress * 100)}%`;
 
-  const logMessage = `Status: ${status}`;
+  const logMessage = tProgress(`Status: ${status}`);
   progressLog.textContent += logMessage + '\n';
   progressLog.scrollTop = progressLog.scrollHeight;
 }
@@ -93,8 +94,8 @@ async function runOCR() {
 
   if (selectedLangs.length === 0) {
     showAlert(
-      'No Languages Selected',
-      'Please select at least one language for OCR.'
+      tMessage('Nenhum idioma selecionado'),
+      tMessage('Por favor, selecione pelo menos um idioma para OCR.')
     );
     return;
   }
@@ -127,7 +128,7 @@ async function runOCR() {
 
     for (let i = 1; i <= pdf.numPages; i++) {
       updateProgress(
-        `Processing page ${i} of ${pdf.numPages}`,
+        tProgress(`Processando página ${i} de ${pdf.numPages}`),
         (i - 1) / pdf.numPages
       );
       const page = await pdf.getPage(i);
@@ -198,12 +199,12 @@ async function runOCR() {
             });
           } catch (error) {
             // If drawing fails despite sanitization, log and skip this word
-            console.warn(`Could not draw text "${text}":`, error);
+            console.warn(tMessage(`Não foi possível desenhar o texto "${text}":`), error);
           }
         });
       }
 
-      fullText += data.text + '\n\n';
+      fullText += tMessage(data.text) + '\n\n';
     }
 
     await worker.terminate();
@@ -214,7 +215,7 @@ async function runOCR() {
 
     createIcons({ icons });
     // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'HTMLEleme... Remove this comment to see the full error message
-    document.getElementById('ocr-text-output').value = fullText.trim();
+    document.getElementById('ocr-text-output').value = tMessage(fullText.trim());
 
     document
       .getElementById('download-searchable-pdf')

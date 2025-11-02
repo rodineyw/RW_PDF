@@ -3,6 +3,7 @@ import { showLoader, hideLoader, showAlert } from '../ui';
 import { readFileAsArrayBuffer, downloadFile } from '../utils/helpers';
 import { state } from '../state';
 import JSZip from 'jszip';
+import { tMessage, tProgress } from '../i18n';
 
 let qpdfInstance: any = null;
 
@@ -10,16 +11,16 @@ async function initializeQpdf() {
   if (qpdfInstance) {
     return qpdfInstance;
   }
-  showLoader('Initializing optimization engine...');
+  showLoader(tProgress('Inicializando motor de otimização...'));
   try {
     qpdfInstance = await createModule({
       locateFile: () => '/qpdf.wasm',
     });
   } catch (error) {
-    console.error('Failed to initialize qpdf-wasm:', error);
+    console.error(tMessage('Falha ao inicializar qpdf-wasm:'), error);
     showAlert(
-      'Initialization Error',
-      'Could not load the optimization engine. Please refresh the page and try again.'
+      tMessage('Erro na Inicialização'),
+      tMessage('Não foi possível carregar o motor de otimização. Por favor, atualize a página e tente novamente.')
     );
     throw error;
   } finally {
@@ -34,11 +35,11 @@ export async function linearizePdf() {
     (file: File) => file.type === 'application/pdf'
   );
   if (!pdfFiles || pdfFiles.length === 0) {
-    showAlert('No PDF Files', 'Please upload at least one PDF file.');
+    showAlert(tMessage('Nenhum Arquivo PDF'), tMessage('Por favor, envie pelo menos um arquivo PDF.'));
     return;
   }
 
-  showLoader('Optimizing PDFs for web view (linearizing)...');
+  showLoader(tProgress('Otimizando PDFs para visualização web (linearizando)...'));
   const zip = new JSZip(); // Create a JSZip instance
   let qpdf: any;
   let successCount = 0;
@@ -52,7 +53,7 @@ export async function linearizePdf() {
       const inputPath = `/input_${i}.pdf`;
       const outputPath = `/output_${i}.pdf`;
 
-      showLoader(`Optimizing ${file.name} (${i + 1}/${pdfFiles.length})...`);
+      showLoader(tProgress(`Otimizando ${file.name} (${i + 1}/${pdfFiles.length})...`));
 
       try {
         const fileBuffer = await readFileAsArrayBuffer(file);
@@ -67,16 +68,16 @@ export async function linearizePdf() {
         const outputFile = qpdf.FS.readFile(outputPath, { encoding: 'binary' });
         if (!outputFile || outputFile.length === 0) {
           console.error(
-            `Linearization resulted in an empty file for ${file.name}.`
+            tMessage(`Linearização resultou em um arquivo vazio para ${file.name}.`)
           );
-          throw new Error(`Processing failed for ${file.name}.`);
+          throw new Error(tMessage(`Processamento falhou para ${file.name}.`));
         }
 
-        zip.file(`linearized-${file.name}`, outputFile, { binary: true });
+        zip.file(tMessage(`linearized-${file.name}`), outputFile, { binary: true });
         successCount++;
       } catch (fileError: any) {
         errorCount++;
-        console.error(`Failed to linearize ${file.name}:`, fileError);
+        console.error(tMessage(`Falha na linearização de ${file.name}:`), fileError);
         // Optionally add an error marker/file to the zip? For now, we just skip.
       } finally {
         // Clean up WASM filesystem for this file
@@ -91,7 +92,7 @@ export async function linearizePdf() {
           }
         } catch (cleanupError) {
           console.warn(
-            `Failed to cleanup WASM FS for ${file.name}:`,
+            tMessage(`Falha ao limpar o sistema de arquivos WASM para ${file.name}: `),
             cleanupError
           );
         }
@@ -99,23 +100,23 @@ export async function linearizePdf() {
     }
 
     if (successCount === 0) {
-      throw new Error('No PDF files could be linearized.');
+      throw new Error(tMessage('Nenhum arquivo PDF pôde ser linearizado.'));
     }
 
-    showLoader('Generating ZIP file...');
+    showLoader(tProgress('Gerando arquivo ZIP...'));
     const zipBlob = await zip.generateAsync({ type: 'blob' });
     downloadFile(zipBlob, 'linearized-pdfs.zip');
 
-    let alertMessage = `${successCount} PDF(s) linearized successfully.`;
+    let alertMessage = tMessage(`${successCount} PDF(s) linearizados com sucesso.`);
     if (errorCount > 0) {
-      alertMessage += ` ${errorCount} file(s) failed.`;
+      alertMessage += tMessage(` ${errorCount} arquivo(s) falhou.`);
     }
-    showAlert('Processing Complete', alertMessage);
+    showAlert(tMessage('Processamento Concluído'), alertMessage);
   } catch (error: any) {
-    console.error('Linearization process error:', error);
+    console.error(tMessage('Erro no Processamento'), error);
     showAlert(
-      'Linearization Failed',
-      `An error occurred: ${error.message || 'Unknown error'}.`
+      tMessage('Processamento Falhou'),
+      tMessage(`Ocorreu um erro: ${error.message || 'Erro desconhecido'}.`)
     );
   } finally {
     hideLoader();

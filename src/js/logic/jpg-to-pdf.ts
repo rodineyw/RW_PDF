@@ -3,6 +3,7 @@ import { downloadFile, readFileAsArrayBuffer } from '../utils/helpers.js';
 import { state } from '../state.js';
 
 import { PDFDocument as PDFLibDocument } from 'pdf-lib';
+import { tMessage, tProgress } from '../i18n.js';
 
 /**
  * Takes any image byte array and uses the browser's canvas to convert it
@@ -26,7 +27,7 @@ function sanitizeImageAsJpeg(imageBytes: any) {
       canvas.toBlob(
         async (jpegBlob) => {
           if (!jpegBlob) {
-            return reject(new Error('Canvas toBlob conversion failed.'));
+            return reject(new Error('Falha ao converter a imagem para JPEG.'));
           }
           const arrayBuffer = await jpegBlob.arrayBuffer();
           resolve(new Uint8Array(arrayBuffer));
@@ -41,7 +42,7 @@ function sanitizeImageAsJpeg(imageBytes: any) {
       URL.revokeObjectURL(imageUrl);
       reject(
         new Error(
-          'The provided file could not be loaded as an image. It may be corrupted.'
+          'O arquivo fornecido não pôde ser carregado como uma imagem. Ele pode estar corrompido.'
         )
       );
     };
@@ -52,10 +53,10 @@ function sanitizeImageAsJpeg(imageBytes: any) {
 
 export async function jpgToPdf() {
   if (state.files.length === 0) {
-    showAlert('No Files', 'Please select at least one JPG file.');
+    showAlert('Nenhum Arquivo', 'Por favor, selecione pelo menos um arquivo JPG.');
     return;
   }
-  showLoader('Creating PDF from JPGs...');
+  showLoader(tProgress('Criando PDF a partir de JPGs...'));
   try {
     const pdfDoc = await PDFLibDocument.create();
 
@@ -68,18 +69,18 @@ export async function jpgToPdf() {
       } catch (e) {
         // @ts-expect-error TS(2554) FIXME: Expected 2 arguments, but got 1.
         showAlert(
-          `Direct JPG embedding failed for ${file.name}, attempting to sanitize...`
+          tMessage(`A inserção direta do JPG para ${file.name} falhou, tentando sanitizar...`)
         );
         try {
           const sanitizedBytes = await sanitizeImageAsJpeg(originalBytes);
           jpgImage = await pdfDoc.embedJpg(sanitizedBytes as Uint8Array);
         } catch (fallbackError) {
           console.error(
-            `Failed to process ${file.name} after sanitization:`,
+            tMessage(`Falha ao processar ${file.name} após a sanitização:`),
             fallbackError
           );
           throw new Error(
-            `Could not process "${file.name}". The file may be corrupted.`
+            tMessage(`Não foi possível processar "${file.name}". O arquivo pode estar corrompido.`)
           );
         }
       }
@@ -99,8 +100,8 @@ export async function jpgToPdf() {
       'from_jpgs.pdf'
     );
   } catch (e) {
-    console.error(e);
-    showAlert('Conversion Error', e.message);
+    console.error(tMessage('Erro na Conversão'), e);
+    showAlert(tMessage('Erro na Conversão'), tMessage(e.message));
   } finally {
     hideLoader();
   }

@@ -2,9 +2,10 @@ import { showLoader, hideLoader, showAlert } from '../ui.ts';
 import { downloadFile, readFileAsArrayBuffer } from '../utils/helpers.ts';
 import { state } from '../state.ts';
 
-import { PDFDocument as PDFLibDocument } from 'pdf-lib';
+import { error, PDFDocument as PDFLibDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import Sortable from 'sortablejs';
+import { tMessage, tProgress } from '../i18n.ts';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -148,7 +149,7 @@ async function renderPageMergeThumbnails() {
       for (let i = 1; i <= pdfjsDoc.numPages; i++) {
         currentPageNumber++;
         showLoader(
-          `Rendering page previews: ${currentPageNumber}/${totalPages}`
+          tProgress(`Processando páginas: ${currentPageNumber}/${totalPages}`)
         );
         const page = await pdfjsDoc.getPage(i);
         const viewport = page.getViewport({ scale: 0.3 });
@@ -201,8 +202,8 @@ async function renderPageMergeThumbnails() {
 
     initializePageThumbnailsSortable();
   } catch (error) {
-    console.error('Error rendering page thumbnails:', error);
-    showAlert('Error', 'Failed to render page thumbnails');
+    console.error(tMessage('Erro ao Renderizar Miniaturas das Páginas:'), error);
+    showAlert(tMessage('Erro'), tMessage('Falha ao renderizar miniaturas das páginas'));
   } finally {
     hideLoader();
     mergeState.isRendering = false;
@@ -210,7 +211,7 @@ async function renderPageMergeThumbnails() {
 }
 
 export async function merge() {
-  showLoader('Merging PDFs...');
+  showLoader(tProgress('Mesclando PDFs...'));
   try {
     const newPdfDoc = await PDFLibDocument.create();
 
@@ -266,12 +267,12 @@ export async function merge() {
       new Blob([new Uint8Array(mergedPdfBytes)], { type: 'application/pdf' }),
       'merged.pdf'
     );
-    showAlert('Success', 'PDFs merged successfully!');
+    showAlert(tMessage('Sucesso'), tMessage('PDFs mesclados com sucesso!'));
   } catch (e) {
-    console.error('Merge error:', e);
+    console.error(tMessage('Erro ao Mesclar PDFs:'), e);
     showAlert(
-      'Error',
-      'Failed to merge PDFs. Please check that all files are valid and not password-protected.'
+      tMessage('Erro'),
+      tMessage('Falha ao mesclar PDFs. Por favor, verifique se todos os arquivos são válidos e não estão protegidos por senha.')
     );
   } finally {
     hideLoader();
@@ -285,7 +286,7 @@ export async function setupMergeTool() {
 
   const wasInPageMode = mergeState.activeMode === 'page';
 
-  showLoader('Loading PDF documents...');
+  showLoader(tProgress('Carregando PDFs...'));
   try {
     for (const file of state.files) {
       if (!mergeState.pdfDocs[file.name]) {
@@ -299,8 +300,8 @@ export async function setupMergeTool() {
       }
     }
   } catch (error) {
-    console.error('Error loading PDFs:', error);
-    showAlert('Error', 'Failed to load one or more PDF files');
+    console.error(tMessage('Erro ao Carregar PDFs:'), error);
+    showAlert(tMessage('Erro'), tMessage('Falha ao carregar um ou mais arquivos PDF'));
     return;
   } finally {
     hideLoader();

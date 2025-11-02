@@ -1,6 +1,6 @@
 import createModule from '@neslinesli93/qpdf-wasm';
 import { showLoader, hideLoader, showAlert } from '../ui';
-import { tTitle } from '../i18n';
+import { tProgress, tTitle } from '../i18n';
 import { tMessage } from '../i18n';
 
 const STANDARD_SIZES = {
