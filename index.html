@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RW PDF - Kit de Ferramentas PDF Personalizado</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link href="/src/css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body class="antialiased">
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-30">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            id="home-logo"
+          >
+            <img
+              src="/logo.svg"
+              alt="RW PDF Logo"
+              class="h-8 w-8"
+            />
+            <span class="text-white font-bold text-xl ml-2">
+              <a href="index.html">RW PDF</a>
+            </span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="./contact.html" class="nav-link">Contato</a>
+            <a href="index.html#tools-header" class="nav-link">Ferramentas</a>
+          </div>
+
+          <!-- Mobile Hamburger Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-colors"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menu</span>
+              <!-- Hamburger Icon -->
+              <svg
+                id="menu-icon"
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <!-- Close Icon -->
+              <svg
+                id="close-icon"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-800 border-t border-gray-700"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 text-center">
+          <a href="index.html" class="mobile-nav-link">Início</a>
+          <a href="./contact.html" class="mobile-nav-link">Contato</a>
+          <a href="index.html#tools-header" class="mobile-nav-link"
+            >Ferramentas</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div id="app" class="min-h-screen container mx-auto p-4 md:p-8">
+      <section id="hero-section" class="text-center py-20">
+        <h1 class="text-4xl md:text-7xl font-bold text-white mb-4">
+          O <span class="marker-slanted"> Kit PDF </span> para sua
+          empresa<span
+            class="text-4xl md:text-6xl text-transparent bg-clip-text"
+            style="background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text;"
+            >.</span
+          >
+        </h1>
+        <p class="text-lg mb-8" style="color: var(--color-text-muted);">Rápido, Seguro e Totalmente Gratuito para sua equipe.</p>
+        <div
+          class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mb-8"
+        >
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg hero-badge text-sm font-medium backdrop-blur-sm"
+          >
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Sem cadastro
+          </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg hero-badge text-sm font-medium backdrop-blur-sm"
+          >
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Uso ilimitado
+          </span>
+          <span
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg hero-badge text-sm font-medium backdrop-blur-sm"
+          >
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Funciona offline
+          </span>
+        </div>
+
+        <div class="flex flex-col items-center gap-4">
+          <a
+            href="#tools-header"
+            class="btn-gradient inline-block rounded-full"
+            >Começar Agora — Gratuito</a
+          >
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="features-section" class="py-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+          Por que <span class="marker-slanted">RW PDF?</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="user-plus"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Sem cadastro</h3>
+            </div>
+            <p class="text-gray-400 pl-14">
+              Comece na hora, sem contas ou e-mails.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="shield"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Sem upload</h3>
+            </div>
+            <p class="text-gray-400 pl-14">
+              100% client-side: seus arquivos nunca saem do seu dispositivo.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="badge-dollar-sign"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Gratuito para sempre</h3>
+            </div>
+            <p class="text-gray-400 pl-14">
+              Todas as ferramentas, sem testes, sem paywalls.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="infinity"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Sem limites</h3>
+            </div>
+            <p class="text-gray-400 pl-14">
+              Use o quanto quiser, sem limites escondidos.
+            </p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="layers"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Processamento em lote</h3>
+            </div>
+            <p class="text-gray-400 pl-14">Processe PDFs ilimitados de uma vez.</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center gap-4 mb-3">
+              <i
+                data-lucide="zap"
+                class="w-10 h-10 text-indigo-400 flex-shrink-0"
+              ></i>
+              <h3 class="text-xl font-bold text-white">Super rápido</h3>
+            </div>
+            <p class="text-gray-400 pl-14">
+              Processe PDFs instantaneamente, sem esperas ou atrasos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <div id="tools-header" class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+          Comece com as <span class="marker-slanted ml-2"> Ferramentas</span>
+        </h2>
+        <p class="text-gray-400">Clique em uma ferramenta para abrir o seletor de arquivos</p>
+      </div>
+
+      <div id="grid-view">
+        <div class="mb-8 max-w-lg mx-auto">
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+            </span>
+            <input
+              type="text"
+              id="search-bar"
+              class="w-full pl-10 pr-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Busque uma ferramenta (ex.: 'dividir', 'organizar'...)"
+            />
+            <span
+              class="absolute inset-y-0 right-0 flex items-center rounded-lg pr-2"
+            >
+              <kbd id="shortcut" class="bg-gray-800 px-1 rounded-lg"></kbd>
+            </span>
+          </div>
+        </div>
+
+        <div
+          id="tool-grid"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6"
+        ></div>
+      </div>
+
+      <div
+        id="tool-interface"
+        class="hidden w-full max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-2xl p-6 md:p-8 border border-gray-700"
+      >
+        <button
+          id="back-to-grid"
+          class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 mb-6 font-semibold"
+        >
+          <i data-lucide="arrow-left" class="cursor-pointer"></i>
+          <span class="cursor-pointer"> Voltar às Ferramentas </span>
+        </button>
+        <div id="tool-content"></div>
+      </div>
+
+      <div
+        id="loader-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+      >
+        <div
+          class="bg-gray-800 p-8 rounded-lg flex flex-col items-center gap-4 border border-gray-700 shadow-xl"
+        >
+          <div class="solid-spinner"></div>
+          <p id="loader-text" class="text-white text-lg font-medium">
+            Processando...
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="alert-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+      >
+        <div
+          class="bg-gray-800 max-w-sm w-full p-6 rounded-lg border border-gray-700 shadow-xl text-center"
+        >
+          <h3 id="alert-title" class="text-xl font-bold text-white mb-2">
+            Alert
+          </h3>
+          <p id="alert-message" class="text-gray-300 mb-6 whitespace-pre-line">
+            This is an alert message.
+          </p>
+          <button
+            id="alert-ok"
+            class="btn bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="preview-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-40 p-4"
+      >
+        <div
+          class="bg-white text-black rounded-lg shadow-xl w-full max-w-4xl h-[90vh] flex flex-col"
+        >
+          <div class="p-4 border-b flex justify-between items-center">
+            <h3 class="text-xl font-bold">Pré-visualização do Documento</h3>
+            <div class="flex gap-4">
+              <button
+                id="preview-download-btn"
+                class="btn bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700"
+              >
+                Baixar como PDF
+              </button>
+              <button
+                id="preview-close-btn"
+                class="btn bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-gray-700"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+          <div id="preview-content" class="p-8 overflow-y-auto flex-grow"></div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <footer class="mt-16 border-t-2 border-gray-700 py-8">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left"
+        >
+          <div class="mb-8 md:mb-0">
+            <div class="flex items-center justify-center md:justify-start mb-4">
+              <img
+                src="/logo.svg"
+                alt="Bento PDF Logo"
+                class="h-10 w-10 mr-3"
+              />
+              <span class="text-xl font-bold text-white">RW PDF</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+             &copy; 2025 RW PDF. Todos os direitos reservados.
+            </p>
+          </div>
+
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Jurídico</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="./terms.html" class="hover:text-indigo-400"
+                  >Termos e Condições</a
+                >
+              </li>
+              <li>
+                <a href="./privacy.html" class="hover:text-indigo-400"
+                  >Política de Privacidade</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Siga-nos</h3>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://github.com/rodineyw"
+                class="text-gray-400 hover:text-indigo-400"
+              >
+                <i data-lucide="GitHub"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rodineyw/"
+                class="text-gray-400 hover:text-indigo-400"
+              >
+                <i data-lucide="linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.ts"></script>
+    <script type="module" src="src/js/mobileMenu.ts"></script>
+  </body>
+</html>

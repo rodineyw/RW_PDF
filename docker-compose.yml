@@ -1,0 +1,12 @@
+services:
+  rodpdf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SIMPLE_MODE: false
+    image: rodpdf:latest
+    container_name: rodpdf
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
