@@ -1,5 +1,7 @@
 import createModule from '@neslinesli93/qpdf-wasm';
 import { showLoader, hideLoader, showAlert } from '../ui';
+import { tTitle } from '../i18n';
+import { tMessage } from '../i18n';
 
 const STANDARD_SIZES = {
   A4: { width: 595.28, height: 841.89 },
@@ -11,7 +13,7 @@ const STANDARD_SIZES = {
 };
 
 export function getStandardPageName(width: any, height: any) {
-  const tolerance = 1; // Allow for minor floating point variations
+  const tolerance = 1; // Permitir pequenas variações de ponto flutuante
   for (const [name, size] of Object.entries(STANDARD_SIZES)) {
     if (
       (Math.abs(width - size.width) < tolerance &&
@@ -35,7 +37,7 @@ export function convertPoints(points: any, unit: any) {
       result = (points / 72) * 25.4;
       break;
     case 'px':
-      result = points * (96 / 72); // Assuming 96 DPI
+      result = points * (96 / 72); // Assumindo 96 DPI
       break;
     default: // 'pt'
       result = points;
@@ -52,7 +54,7 @@ export const hexToRgb = (hex: any) => {
         g: parseInt(result[2], 16) / 255,
         b: parseInt(result[3], 16) / 255,
       }
-    : { r: 0, g: 0, b: 0 }; // Default to black
+    : { r: 0, g: 0, b: 0 }; // Padrão para preto
 };
 
 export const formatBytes = (bytes: any, decimals = 1) => {
@@ -123,7 +125,7 @@ export function parsePageRanges(rangeString: any, totalPages: any) {
     }
   }
 
-  // @ts-expect-error TS(2362) FIXME: The left-hand side of an arithmetic operation must... Remove this comment to see the full error message
+  // @ts-expect-error TS(2362) FIXME: O lado esquerdo de uma operação aritmética deve ser válido.
   return Array.from(indices).sort((a, b) => a - b);
 }
 
@@ -135,18 +137,18 @@ export function parsePageRanges(rangeString: any, totalPages: any) {
  */
 export function formatIsoDate(isoDateString) {
   if (!isoDateString || typeof isoDateString !== 'string') {
-    return isoDateString; // Return original value if it's not a valid string
+    return isoDateString; // Retornar valor original se não for uma string válida
   }
   try {
     const date = new Date(isoDateString);
-    // Check if the date object is valid
+    // Verificar se o objeto de data é válido
     if (isNaN(date.getTime())) {
-      return isoDateString; // Return original string if the date is invalid
+      return isoDateString; // Retornar string original se a data for inválida
     }
     return date.toLocaleString();
   } catch (e) {
-    console.error('Could not parse ISO date:', e);
-    return isoDateString; // Return original string on any error
+    console.error('Não foi possível analisar data ISO:', e);
+    return isoDateString; // Retornar string original em qualquer erro
   }
 }
 
@@ -159,16 +161,16 @@ let qpdfInstance: any = null;
 export async function initializeQpdf() {
   if (qpdfInstance) return qpdfInstance;
 
-  showLoader('Initializing PDF engine...');
+  showLoader(tProgress('Iniciando o motor PDF...'));
   try {
     qpdfInstance = await createModule({
       locateFile: () => '/qpdf.wasm',
     });
   } catch (error) {
-    console.error('Failed to initialize qpdf-wasm:', error);
+    console.error('Falha ao inicializar qpdf-wasm:', error);
     showAlert(
-      'Initialization Error',
-      'Could not load the PDF engine. Please refresh the page and try again.'
+      tTitle('Erro de Inicialização'),
+      tMessage('Não foi possível carregar o motor PDF. Por favor, recarregue a página e tente novamente.')
     );
     throw error;
   } finally {

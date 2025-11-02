@@ -1,11 +1,11 @@
 import { resetState } from './state.js';
 import { formatBytes } from './utils/helpers.js';
 import { tesseractLanguages } from './config/tesseract-languages.js';
-import { tTitle, tMessage, tProgress, tInterface } from './i18n.ts';
+import { tTitle, tMessage, tProgress, tInterface, tConsole, tComment } from './i18n.js';
 import { icons, createIcons } from 'lucide';
 import Sortable from 'sortablejs';
 
-// Centralizing DOM element selection
+// Centralizando seleção de elementos DOM
 export const dom = {
   gridView: document.getElementById('grid-view'),
   toolGrid: document.getElementById('tool-grid'),
@@ -32,10 +32,10 @@ export const showLoader = (text = 'Processando...') => {
 
 export const hideLoader = () => dom.loaderModal.classList.add('hidden');
 
-// Simple title translation mapping for PT-BR UI without changing tests
-// i18n handled via tTitle/tMessage/tProgress
+// Mapeamento simples de tradução de títulos para UI PT-BR sem alterar testes
+// i18n tratado via tTitle/tMessage/tProgress
 
-// Message translation mapping (UI only), keeps tests stable
+// Mapeamento de tradução de mensagens (apenas UI), mantém testes estáveis
 // (removido: usar i18n)
 
 // (removido: usar i18n)
@@ -53,15 +53,15 @@ export const switchView = (view: any) => {
   if (view === 'grid') {
     dom.gridView.classList.remove('hidden');
     dom.toolInterface.classList.add('hidden');
-    // show hero and features and header
+    // mostrar hero, recursos e cabeçalho
     dom.heroSection.classList.remove('hidden');
     dom.featuresSection.classList.remove('hidden');
     dom.toolsHeader.classList.remove('hidden');
-    // show dividers
+    // mostrar divisores
     dom.dividers.forEach((divider) => {
       divider.classList.remove('hidden');
     });
-    // show hideSections
+    // mostrar seções ocultas
     dom.hideSections.forEach((section) => {
       section.classList.remove('hidden');
     });
@@ -121,10 +121,10 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
   if (!container) return;
 
   container.innerHTML = '';
-  showLoader('Rendering page previews...');
+  showLoader(tProgress('Renderizando prévias de páginas...'));
 
   const pdfData = await pdfDoc.save();
-  // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
+  // @ts-expect-error TS(2304) FIXME: Não foi possível encontrar o nome 'pdfjsLib'.
   const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
 
   for (let i = 1; i <= pdf.numPages; i++) {
@@ -138,7 +138,7 @@ export const renderPageThumbnails = async (toolId: any, pdfDoc: any) => {
 
     const wrapper = document.createElement('div');
     wrapper.className = 'page-thumbnail relative group';
-    // @ts-expect-error TS(2322) FIXME: Type 'number' is not assignable to type 'string'.
+    // @ts-expect-error TS(2322) FIXME: Tipo 'number' não é atribuível ao tipo 'string'.
     wrapper.dataset.pageIndex = i - 1;
 
     const imgContainer = document.createElement('div');
@@ -248,7 +248,7 @@ const createFileInputHTML = (options = {}) => {
   // @ts-expect-error TS(2339) FIXME: Property 'accept' does not exist on type '{}'.
   const acceptedFiles = options.accept || 'application/pdf';
   // @ts-expect-error TS(2339) FIXME: Property 'showControls' does not exist on type '{}... Remove this comment to see the full error message
-  const showControls = options.showControls || false; // NEW: Add this parameter
+  const showControls = options.showControls || false; // NOVO: Adicionar este parâmetro
 
   return `
         <div id="drop-zone" class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-900 hover:bg-gray-700 transition-colors duration-300">
@@ -405,7 +405,7 @@ export const toolTemplates = {
           <p class="text-xs text-gray-500 mt-1">Permite alterar permissões e remover a criptografia</p>
       </div>
 
-      <!-- Restriction checkboxes (shown when owner password is entered) -->
+      <!-- Checkboxes de restrição (mostrados quando senha do proprietário é inserida) -->
       <div id="restriction-options" class="hidden p-4 bg-gray-800 border border-gray-700 rounded-lg">
         <h3 class="font-semibold text-base mb-2 text-white">🔒 Restringir Permissões do PDF</h3>
         <p class="text-sm text-gray-400 mb-3">Selecione quais ações deseja desativar:</p>
