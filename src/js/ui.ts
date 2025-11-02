@@ -1,4 +1,4 @@
-import { resetState } from './state.js';
+import { resetState, restoreScrollPosition } from './state.js';
 import { formatBytes } from './utils/helpers.js';
 import { tesseractLanguages } from './config/tesseract-languages.js';
 import { tTitle, tMessage, tProgress, tInterface, tConsole, tComment } from './i18n.js';
@@ -67,6 +67,9 @@ export const switchView = (view: any) => {
     });
 
     resetState();
+    
+    // Restaurar posição do scroll após resetar o estado
+    restoreScrollPosition();
   } else {
     dom.gridView.classList.add('hidden');
     dom.toolInterface.classList.remove('hidden');
