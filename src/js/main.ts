@@ -97,18 +97,18 @@ const init = () => {
         (divider as HTMLElement).style.display = 'none';
       });
 
-      document.title = 'BentoPDF - PDF Tools';
+      document.title = 'RW PDF - Ferramentas PDF';
 
       const toolsHeader = document.getElementById('tools-header');
       if (toolsHeader) {
         const title = toolsHeader.querySelector('h2');
         const subtitle = toolsHeader.querySelector('p');
         if (title) {
-          title.textContent = 'PDF Tools';
+          title.textContent = 'Ferramentas PDF';
           title.className = 'text-4xl md:text-5xl font-bold text-white mb-3';
         }
         if (subtitle) {
-          subtitle.textContent = 'Select a tool to get started';
+          subtitle.textContent = 'Selecione uma ferramenta para começar';
           subtitle.className = 'text-lg text-gray-400';
         }
       }
