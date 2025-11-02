@@ -84,11 +84,11 @@ async function displayPageAsImage(num: any) {
       updatePageInfo();
       enableControls();
       hideLoader();
-      showAlert('Ready', 'Please select an area to crop.');
+      showAlert('Pronto', 'Por favor, selecione uma área para recortar.');
     };
   } catch (error) {
-    console.error('Error rendering page:', error);
-    showAlert('Error', 'Failed to render page.');
+    console.error('Erro ao renderizar página:', error);
+    showAlert('Erro', 'Falha ao renderizar página.');
     hideLoader();
   }
 }
@@ -285,7 +285,7 @@ export async function setupCropperTool() {
           const currentCrop =
             cropperState.pageCrops[cropperState.currentPageNum];
           if (!currentCrop) {
-            showAlert('No Crop Area', 'Please select an area to crop first.');
+            showAlert('Nenhum área de recorte', 'Por favor, selecione uma área para recortar primeiro.');
             return;
           }
           // Apply the active page's crop to all pages
@@ -305,13 +305,13 @@ export async function setupCropperTool() {
 
         if (Object.keys(finalCropData).length === 0) {
           showAlert(
-            'No Crop Area',
-            'Please select an area on at least one page to crop.'
+            'Nenhum área de recorte',
+            'Por favor, selecione uma área em pelo menos uma página para recortar.'
           );
           return;
         }
 
-        showLoader('Applying crop...');
+        showLoader('Aplicando recorte...');
 
         try {
           let finalPdfBytes;
@@ -333,16 +333,16 @@ export async function setupCropperTool() {
             new Blob([finalPdfBytes], { type: 'application/pdf' }),
             fileName
           );
-          showAlert('Success', 'Crop complete! Your download has started.');
+          showAlert('Sucesso', 'Recorte concluído! O download foi iniciado.');
         } catch (e) {
           console.error(e);
-          showAlert('Error', 'An error occurred during cropping.');
+          showAlert('Erro', 'Ocorreu um erro durante o recorte.');
         } finally {
           hideLoader();
         }
       });
   } catch (error) {
-    console.error('Error setting up cropper tool:', error);
-    showAlert('Error', 'Failed to load PDF for cropping.');
+    console.error('Erro ao configurar ferramenta de recorte:', error);
+    showAlert('Erro', 'Falha ao carregar PDF para recorte.');
   }
 }

@@ -503,10 +503,10 @@ export async function setupSignTool() {
 
 export async function applyAndSaveSignatures() {
   if (signState.placedSignatures.length === 0) {
-    showAlert('No Signatures Placed', 'Please place at least one signature.');
+    showAlert('Nenhuma Assinatura Colocada', 'Por favor, coloque pelo menos uma assinatura.');
     return;
   }
-  showLoader('Applying signatures...');
+  showLoader('Aplicando assinaturas...');
   try {
     const pages = state.pdfDoc.getPages();
     for (const sig of signState.placedSignatures) {
@@ -541,7 +541,7 @@ export async function applyAndSaveSignatures() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Failed to apply signatures.');
+    showAlert('Erro', 'Não foi possível aplicar as assinaturas.');
   } finally {
     hideLoader();
   }

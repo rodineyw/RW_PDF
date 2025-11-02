@@ -8,11 +8,11 @@ import { PDFName } from 'pdf-lib';
 
 export async function sanitizePdf() {
   if (!state.pdfDoc) {
-    showAlert('Error', 'No PDF document loaded.');
+    showAlert('Erro', 'Nenhum PDF foi carregado.');
     return;
   }
 
-  showLoader('Sanitizing PDF...');
+  showLoader('Sanitizando PDF...');
   try {
     const pdfDoc = state.pdfDoc;
 
@@ -62,7 +62,7 @@ export async function sanitizePdf() {
             changesMade = true;
           }
         } catch (removeError) {
-          console.warn('Could not remove AcroForm:', removeError.message);
+          console.warn('Não foi possível remover AcroForm:', removeError.message);
         }
       }
     }
@@ -95,7 +95,7 @@ export async function sanitizePdf() {
               changesMade = true;
             }
           } catch (e) {
-            console.warn('Could not access Names/JavaScript:', e.message);
+            console.warn('Não foi possível acessar Names/JavaScript:', e.message);
           }
         }
 
@@ -138,7 +138,7 @@ export async function sanitizePdf() {
                       changesMade = true;
                     }
                   } catch (e) {
-                    console.warn('Could not read action:', e.message);
+                    console.warn('Não foi possível ler ação:', e.message);
                   }
                 }
 
@@ -147,11 +147,11 @@ export async function sanitizePdf() {
                   changesMade = true;
                 }
               } catch (e) {
-                console.warn('Could not process annotation for JS:', e.message);
+                console.warn('Não foi possível processar anotação para JS:', e.message);
               }
             }
           } catch (e) {
-            console.warn('Could not remove page actions:', e.message);
+            console.warn('Não foi possível remover ações da página:', e.message);
           }
         }
 
@@ -179,16 +179,16 @@ export async function sanitizePdf() {
                     changesMade = true;
                   }
                 } catch (e) {
-                  console.warn('Could not process field for JS:', e.message);
+                  console.warn('Não foi possível processar campo para JS:', e.message);
                 }
               }
             }
           }
         } catch (e) {
-          console.warn('Could not process form fields for JS:', e.message);
+          console.warn('Não foi possível processar campos do formulário para JS:', e.message);
         }
       } catch (e) {
-        console.warn(`Could not remove JavaScript: ${e.message}`);
+        console.warn('Não foi possível remover JavaScript:', e.message);
       }
     }
 
@@ -205,7 +205,7 @@ export async function sanitizePdf() {
               changesMade = true;
             }
           } catch (e) {
-            console.warn('Could not access Names/EmbeddedFiles:', e.message);
+            console.warn('Não foi possível acessar Names/EmbeddedFiles:', e.message);
           }
         }
 
@@ -248,7 +248,8 @@ export async function sanitizePdf() {
             }
           } catch (pageError) {
             console.warn(
-              `Could not process page for attachments: ${pageError.message}`
+              'Não foi possível processar página para anexos:',
+              pageError.message
             );
           }
         }
@@ -263,7 +264,7 @@ export async function sanitizePdf() {
           changesMade = true;
         }
       } catch (e) {
-        console.warn(`Could not remove embedded files: ${e.message}`);
+        console.warn('Não foi possível remover arquivos incrustados:', e.message);
       }
     }
 
@@ -295,15 +296,15 @@ export async function sanitizePdf() {
                   changesMade = true;
                 }
               } catch (e) {
-                console.warn('Could not access Resources:', e.message);
+                console.warn('Não foi possível acessar Resources:', e.message);
               }
             }
           } catch (e) {
-            console.warn('Could not remove page layers:', e.message);
+            console.warn('Não foi possível remover camadas da página:', e.message);
           }
         }
       } catch (e) {
-        console.warn(`Could not remove layers: ${e.message}`);
+        console.warn('Não foi possível remover camadas:', e.message);
       }
     }
 
@@ -363,7 +364,7 @@ export async function sanitizePdf() {
                         linksRemoved++;
                       }
                     } catch (e) {
-                      console.warn('Could not read action:', e.message);
+                      console.warn('Não foi possível ler ação:', e.message);
                     }
                   }
 
@@ -378,7 +379,7 @@ export async function sanitizePdf() {
                   annotsToKeep.push(ref);
                 }
               } catch (e) {
-                console.warn('Could not process annotation:', e.message);
+                console.warn('Não foi possível processar anotação:', e.message);
                 annotsToKeep.push(ref);
               }
             }
@@ -394,7 +395,10 @@ export async function sanitizePdf() {
             }
           } catch (pageError) {
             console.warn(
-              `Could not process page ${pageIndex + 1} for links: ${pageError.message}`
+              'Não foi possível processar página',
+              pageIndex + 1,
+              'para links:',
+              pageError.message
             );
           }
         }
@@ -410,7 +414,7 @@ export async function sanitizePdf() {
                 changesMade = true;
               }
             } catch (e) {
-              console.warn('Could not access Names/Dests:', e.message);
+              console.warn('Não foi possível acessar Names/Dests:', e.message);
             }
           }
 
@@ -419,10 +423,10 @@ export async function sanitizePdf() {
             changesMade = true;
           }
         } catch (e) {
-          console.warn('Could not remove named destinations:', e.message);
+          console.warn('Não foi possível remover destinos nomeados:', e.message);
         }
       } catch (e) {
-        console.warn(`Could not remove links: ${e.message}`);
+        console.warn('Não foi possível remover links:', e.message);
       }
     }
 
@@ -444,7 +448,7 @@ export async function sanitizePdf() {
               changesMade = true;
             }
           } catch (e) {
-            console.warn('Could not remove page StructParents:', e.message);
+            console.warn('Não foi possível remover page StructParents:', e.message);
           }
         }
 
@@ -453,7 +457,7 @@ export async function sanitizePdf() {
           changesMade = true;
         }
       } catch (e) {
-        console.warn(`Could not remove structure tree: ${e.message}`);
+        console.warn('Não foi possível remover árvore de estrutura:', e.message);
       }
     }
 
@@ -471,7 +475,7 @@ export async function sanitizePdf() {
           changesMade = true;
         }
       } catch (e) {
-        console.warn(`Could not remove MarkInfo: ${e.message}`);
+        console.warn('Não foi possível remover MarkInfo:', e.message);
       }
     }
 
@@ -527,28 +531,29 @@ export async function sanitizePdf() {
                         // changesMade = true;
                       } catch (e) {
                         console.warn(
-                          `Could not process font ${fontKey}:`,
+                          'Não foi possível processar font:',
+                          fontKey,
                           e.message
                         );
                       }
                     }
                   } catch (e) {
                     console.warn(
-                      'Could not access font dictionary:',
+                      'Não foi possível acessar dicionário de fontes:',
                       e.message
                     );
                   }
                 }
               } catch (e) {
                 console.warn(
-                  'Could not access Resources for fonts:',
+                  'Não foi possível acessar Resources para fontes:',
                   e.message
                 );
               }
             }
           } catch (e) {
             console.warn(
-              `Could not remove fonts from page ${pageIndex + 1}:`,
+              `Não foi possível remover fontes da página ${pageIndex + 1}:`,
               e.message
             );
           }
@@ -559,14 +564,14 @@ export async function sanitizePdf() {
           changesMade = true;
         }
       } catch (e) {
-        console.warn(`Could not remove fonts: ${e.message}`);
+        console.warn('Não foi possível remover fontes:', e.message);
       }
     }
 
     if (!changesMade) {
       showAlert(
         'No Changes',
-        'No items were selected for removal or none were found in the PDF.'
+        'Nenhum item foi selecionado para remoção ou nenhum foi encontrado no PDF.'
       );
       hideLoader();
       return;
@@ -577,10 +582,10 @@ export async function sanitizePdf() {
       new Blob([sanitizedPdfBytes], { type: 'application/pdf' }),
       'sanitized.pdf'
     );
-    showAlert('Success', 'PDF has been sanitized and downloaded.');
+    showAlert('Success', 'PDF foi sanitizado e baixado.');
   } catch (e) {
     console.error('Sanitization Error:', e);
-    showAlert('Error', `An error occurred during sanitization: ${e.message}`);
+    showAlert('Error', `Erro ao sanitizar PDF: ${e.message}`);
   } finally {
     hideLoader();
   }

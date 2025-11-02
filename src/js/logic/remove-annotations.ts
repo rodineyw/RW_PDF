@@ -71,7 +71,7 @@ export function removeAnnotationsFromDoc(
 }
 
 export async function removeAnnotations() {
-  showLoader('Removing annotations...');
+  showLoader('Removendo anotações...');
   try {
     const totalPages = state.pdfDoc.getPageCount();
     let targetPageIndices = [];
@@ -111,7 +111,7 @@ export async function removeAnnotations() {
     }
 
     if (targetPageIndices.length === 0)
-      throw new Error('No valid pages were selected.');
+      throw new Error('Nenhuma página válida foi selecionada.');
 
     const typesToRemove = new Set(
       Array.from(document.querySelectorAll('.annot-checkbox:checked')).map(
@@ -120,7 +120,7 @@ export async function removeAnnotations() {
     );
 
     if (typesToRemove.size === 0)
-      throw new Error('Please select at least one annotation type to remove.');
+      throw new Error('Por favor, selecione pelo menos um tipo de anotação para remover.');
 
     removeAnnotationsFromDoc(state.pdfDoc, targetPageIndices, typesToRemove);
 
@@ -132,8 +132,8 @@ export async function removeAnnotations() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'Error',
-      e.message || 'Could not remove annotations. Please check your page range.'
+      'Erro',
+      e.message || 'Não foi possível remover as anotações. Por favor, verifique o intervalo de páginas.'
     );
   } finally {
     hideLoader();

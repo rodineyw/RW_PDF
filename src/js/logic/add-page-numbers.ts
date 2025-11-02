@@ -5,7 +5,7 @@ import { state } from '../state.js';
 import { rgb, StandardFonts } from 'pdf-lib';
 
 export async function addPageNumbers() {
-  showLoader('Adding page numbers...');
+  showLoader('Adicionando números de página...');
   try {
     // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'HTMLEleme... Remove this comment to see the full error message
     const position = document.getElementById('position').value;
@@ -127,10 +127,10 @@ export async function addPageNumbers() {
       new Blob([newPdfBytes], { type: 'application/pdf' }),
       'paginated.pdf'
     );
-    showAlert('Success', 'Page numbers added successfully!');
+    showAlert('Sucesso', 'Números de página adicionados com sucesso!');
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Could not add page numbers.');
+    showAlert('Erro', 'Não foi possível adicionar números de página.');
   } finally {
     hideLoader();
   }

@@ -24,7 +24,7 @@ export async function setupAlternateMergeTool() {
   fileList.innerHTML = '';
   alternateMergeState.pdfDocs = {};
 
-  showLoader('Loading PDF documents...');
+  showLoader('Carregando documentos PDF...');
   try {
     for (const file of state.files) {
       const pdfBytes = await readFileAsArrayBuffer(file);
@@ -69,8 +69,8 @@ export async function setupAlternateMergeTool() {
     });
   } catch (error) {
     showAlert(
-      'Error',
-      'Failed to load one or more PDF files. They may be corrupted or password-protected.'
+      'Erro',
+      'Falha ao carregar um ou mais arquivos PDF. Eles podem estar corrompidos ou protegidos por senha.'
     );
     console.error(error);
   } finally {
@@ -81,13 +81,13 @@ export async function setupAlternateMergeTool() {
 export async function alternateMerge() {
   if (Object.keys(alternateMergeState.pdfDocs).length < 2) {
     showAlert(
-      'Not Enough Files',
-      'Please upload at least two PDF files to alternate and mix.'
+      'Nenhum arquivo',
+      'Por favor, carregue pelo menos dois arquivos PDF para alternar e misturar.'
     );
     return;
   }
 
-  showLoader('Alternating and mixing pages...');
+  showLoader('Alternando e misturando páginas...');
   try {
     const newPdfDoc = await PDFDocument.create();
     const fileList = document.getElementById('alternate-file-list');
@@ -115,10 +115,10 @@ export async function alternateMerge() {
       new Blob([new Uint8Array(mergedPdfBytes)], { type: 'application/pdf' }),
       'alternated-mixed.pdf'
     );
-    showAlert('Success', 'PDFs have been mixed successfully!');
+    showAlert('Sucesso', 'PDFs foram misturados com sucesso!');
   } catch (e) {
     console.error('Alternate Merge error:', e);
-    showAlert('Error', 'An error occurred while mixing the PDFs.');
+    showAlert('Erro', 'Ocorreu um erro ao misturar os PDFs.');
   } finally {
     hideLoader();
   }

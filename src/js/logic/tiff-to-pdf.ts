@@ -6,10 +6,10 @@ import { decode } from 'tiff';
 
 export async function tiffToPdf() {
   if (state.files.length === 0) {
-    showAlert('No Files', 'Please select at least one TIFF file.');
+    showAlert('Nenhum arquivo', 'Por favor, selecione pelo menos um arquivo TIFF.');
     return;
   }
-  showLoader('Converting TIFF to PDF...');
+  showLoader('Convertendo TIFF para PDF...');
   try {
     const pdfDoc = await PDFLibDocument.create();
     for (const file of state.files) {
@@ -23,7 +23,7 @@ export async function tiffToPdf() {
         const ctx = canvas.getContext('2d');
 
         if (!ctx) {
-          throw new Error('Failed to get canvas context');
+          throw new Error('Falha ao obter contexto de canvas.');
         }
 
         const imageData = ctx.createImageData(ifd.width, ifd.height);
@@ -86,8 +86,8 @@ export async function tiffToPdf() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'Error',
-      'Failed to convert TIFF to PDF. One of the files may be invalid or corrupted.'
+      'Erro',
+      'Falha ao converter TIFF para PDF. Um dos arquivos pode estar inválido ou corrompido.'
     );
   } finally {
     hideLoader();

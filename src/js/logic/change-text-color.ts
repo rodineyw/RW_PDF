@@ -60,7 +60,11 @@ async function updateTextColorPreview() {
     }
     context.putImageData(imageData, 0, 0);
   } catch (error) {
-    console.error('Error updating preview:', error);
+    console.error('Erro ao atualizar pré-visualização:', error);
+    showAlert(
+      'Erro',
+      error.message || 'Não foi possível atualizar a pré-visualização. Por favor, tente novamente.'
+    );
   } finally {
     isRenderingPreview = false;
   }
@@ -99,7 +103,7 @@ export async function setupTextColorTool() {
 
 export async function changeTextColor() {
   if (!state.pdfDoc) {
-    showAlert('Error', 'PDF not loaded.');
+    showAlert('Erro', 'PDF não carregado.');
     return;
   }
 
@@ -108,7 +112,7 @@ export async function changeTextColor() {
   const { r, g, b } = hexToRgb(colorHex);
   const darknessThreshold = 120;
 
-  showLoader('Changing text color...');
+  showLoader('Alterando cor do texto...');
   try {
     const newPdfDoc = await PDFLibDocument.create();
     // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
@@ -117,7 +121,7 @@ export async function changeTextColor() {
     ).promise;
 
     for (let i = 1; i <= pdf.numPages; i++) {
-      showLoader(`Processing page ${i} of ${pdf.numPages}...`);
+      showLoader(`Processando página ${i} de ${pdf.numPages}...`);
       const page = await pdf.getPage(i);
       const viewport = page.getViewport({ scale: 2.0 }); // High resolution for quality
 
@@ -169,8 +173,8 @@ export async function changeTextColor() {
       'text-color-changed.pdf'
     );
   } catch (e) {
-    console.error(e);
-    showAlert('Error', 'Could not change text color.');
+    console.error('Erro ao alterar cor do texto:', e);
+    showAlert('Erro', 'Não foi possível alterar a cor do texto. Por favor, tente novamente.');  
   } finally {
     hideLoader();
   }

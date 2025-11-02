@@ -10,10 +10,10 @@ export async function reversePages() {
     (file: File) => file.type === 'application/pdf'
   );
   if (!pdfDocs.length) {
-    showAlert('Error', 'PDF not loaded.');
+    showAlert('Erro', 'Nenhum PDF foi carregado.');
     return;
   }
-  showLoader('Reversing page order...');
+  showLoader('Revertendo ordem de páginas...');
   try {
     const zip = new JSZip();
     for (let j = 0; j < pdfDocs.length; j++) {
@@ -32,14 +32,14 @@ export async function reversePages() {
 
       const newPdfBytes = await newPdf.save();
       const originalName = file.name.replace(/\.pdf$/i, '');
-      const fileName = `${originalName}_reversed.pdf`;
+      const fileName = `${originalName}_revertido.pdf`;
       zip.file(fileName, newPdfBytes);
     }
     const zipBlob = await zip.generateAsync({ type: 'blob' });
     downloadFile(zipBlob, 'reversed_pdfs.zip');
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Could not reverse the PDF pages.');
+    showAlert('Erro', 'Não foi possível reverter as páginas do PDF.');
   } finally {
     hideLoader();
   }

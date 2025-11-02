@@ -4,7 +4,7 @@ import { state } from '../state.js';
 import JSZip from 'jszip';
 
 export async function pdfToPng() {
-  showLoader('Converting to PNG...');
+  showLoader('Convertendo para PNG...');
   try {
     // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
     const pdf = await pdfjsLib.getDocument(
@@ -22,13 +22,13 @@ export async function pdfToPng() {
       const blob = await new Promise((resolve) =>
         canvas.toBlob(resolve, 'image/png')
       );
-      zip.file(`page_${i}.png`, blob as Blob);
+      zip.file(`pagina_${i}.png`, blob as Blob);
     }
     const zipBlob = await zip.generateAsync({ type: 'blob' });
     downloadFile(zipBlob, 'converted_pngs.zip');
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Failed to convert PDF to PNG.');
+    showAlert('Erro', 'Falha ao converter PDF para PNG.');
   } finally {
     hideLoader();
   }

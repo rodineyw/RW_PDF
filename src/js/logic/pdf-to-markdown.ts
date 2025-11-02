@@ -3,7 +3,7 @@ import { downloadFile, readFileAsArrayBuffer } from '../utils/helpers.js';
 import { state } from '../state.js';
 
 export async function pdfToMarkdown() {
-  showLoader('Converting to Markdown...');
+  showLoader('Convertendo para Markdown...');
   try {
     const file = state.files[0];
     const arrayBuffer = await readFileAsArrayBuffer(file);
@@ -24,8 +24,8 @@ export async function pdfToMarkdown() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'Conversion Error',
-      'Failed to convert PDF. It may be image-based or corrupted.'
+      'Erro de Conversão',
+      'Falha ao converter PDF. Pode ser baseado em imagem ou corrompido.'
     );
   } finally {
     hideLoader();

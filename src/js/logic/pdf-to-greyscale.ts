@@ -6,10 +6,10 @@ import { PDFDocument as PDFLibDocument } from 'pdf-lib';
 
 export async function pdfToGreyscale() {
   if (!state.pdfDoc) {
-    showAlert('Error', 'PDF not loaded.');
+    showAlert('Erro', 'PDF não foi carregado.');
     return;
   }
-  showLoader('Converting to greyscale...');
+  showLoader('Convertendo para tons de cinza...');
   try {
     const newPdfDoc = await PDFLibDocument.create();
     const pdfBytes = await state.pdfDoc.save();
@@ -61,7 +61,7 @@ export async function pdfToGreyscale() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Could not convert to greyscale.');
+    showAlert('Erro', 'Não foi possível converter para tons de cinza.');
   } finally {
     hideLoader();
   }

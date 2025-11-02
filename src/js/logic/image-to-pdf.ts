@@ -36,7 +36,7 @@ function sanitizeImageAsJpeg(imageBytes: any) {
     };
     img.onerror = () => {
       URL.revokeObjectURL(imageUrl);
-      reject(new Error('File could not be loaded as an image.'));
+      reject(new Error('Arquivo não pode ser carregado como uma imagem.'));
     };
     img.src = imageUrl;
   });
@@ -68,7 +68,7 @@ function sanitizeImageAsPng(imageBytes: any) {
     };
     img.onerror = () => {
       URL.revokeObjectURL(imageUrl);
-      reject(new Error('File could not be loaded as an image.'));
+      reject(new Error('Arquivo não pode ser carregado como uma imagem.'));
     };
     img.src = imageUrl;
   });
@@ -76,10 +76,10 @@ function sanitizeImageAsPng(imageBytes: any) {
 
 export async function imageToPdf() {
   if (state.files.length === 0) {
-    showAlert('No Files', 'Please select at least one image file.');
+    showAlert('Nenhum Arquivo Selecionado', 'Por favor, selecione pelo menos um arquivo de imagem.');
     return;
   }
-  showLoader('Converting images to PDF...');
+  showLoader('Convertendo imagens para PDF...');
   try {
     const pdfDoc = await PDFLibDocument.create();
     const imageList = document.getElementById('image-list');
@@ -132,7 +132,7 @@ export async function imageToPdf() {
 
     if (pdfDoc.getPageCount() === 0) {
       throw new Error(
-        'No valid images could be processed. Please check your files.'
+        'Nenhuma imagem válida pôde ser processada. Por favor, verifique seus arquivos.'
       );
     }
 
@@ -143,7 +143,7 @@ export async function imageToPdf() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', e.message || 'Failed to create PDF from images.');
+    showAlert('Erro', e.message || 'Falha ao criar PDF a partir de imagens.');
   } finally {
     hideLoader();
   }

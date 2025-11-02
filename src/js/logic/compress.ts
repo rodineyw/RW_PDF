@@ -35,7 +35,8 @@ async function performSmartCompression(arrayBuffer: any, settings: any) {
       pdfDoc.setCreator('');
       pdfDoc.setProducer('');
     } catch (e) {
-      console.warn('Could not remove metadata:', e);
+      console.warn('Não foi possível remover metadados:', e);
+      showAlert('Erro', 'Não foi possível remover metadados. Por favor, tente novamente.');
     }
   }
 

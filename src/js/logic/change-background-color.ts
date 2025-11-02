@@ -6,7 +6,7 @@ import { PDFDocument as PDFLibDocument, rgb } from 'pdf-lib';
 
 export async function changeBackgroundColor() {
   if (!state.pdfDoc) {
-    showAlert('Error', 'PDF not loaded.');
+    showAlert('Nenhum arquivo', 'PDF não carregado.');
     return;
   }
 
@@ -14,7 +14,7 @@ export async function changeBackgroundColor() {
   const colorHex = document.getElementById('background-color').value;
   const color = hexToRgb(colorHex);
 
-  showLoader('Changing background color...');
+  showLoader('Alterando cor de fundo...');
   try {
     const newPdfDoc = await PDFLibDocument.create();
 
@@ -48,7 +48,7 @@ export async function changeBackgroundColor() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Could not change the background color.');
+    showAlert('Erro', 'Não foi possível alterar a cor de fundo.');
   } finally {
     hideLoader();
   }

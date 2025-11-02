@@ -5,15 +5,15 @@ let attachments: File[] = [];
 
 export async function addAttachments() {
   if (!state.pdfDoc) {
-    showAlert('Error', 'Main PDF is not loaded.');
+    showAlert('Erro', 'O PDF principal não está carregado.');
     return;
   }
   if (attachments.length === 0) {
-    showAlert('No Files', 'Please select at least one file to attach.');
+    showAlert('Nenhum Arquivo', 'Por favor, selecione pelo menos um arquivo para anexar.');
     return;
   }
 
-  showLoader('Embedding files into PDF...');
+  showLoader('Anexando arquivos ao PDF...');
   try {
     const pdfDoc = state.pdfDoc;
 
@@ -38,12 +38,12 @@ export async function addAttachments() {
     );
 
     showAlert(
-      'Success',
-      `${attachments.length} file(s) attached successfully.`
+      'Sucesso',
+      `${attachments.length} arquivo(s) anexado(s) com sucesso.`
     );
   } catch (error: any) {
-    console.error('Error attaching files:', error);
-    showAlert('Error', `Failed to attach files: ${error.message}`);
+    console.error('Erro ao anexar arquivos:', error);
+    showAlert('Erro', `Falha ao anexar arquivos: ${error.message}`);
   } finally {
     hideLoader();
     clearAttachments();
@@ -84,7 +84,7 @@ export function setupAddAttachmentsTool() {
   ) as HTMLButtonElement;
 
   if (!optionsDiv || !attachmentInput || !fileListDiv || !processBtn) {
-    console.error('Attachment tool UI elements not found.');
+    console.error('Ferramenta de Anexo de Arquivos UI elementos não encontrados.');
     return;
   }
 

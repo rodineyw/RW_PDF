@@ -13,7 +13,7 @@ export async function combineToSinglePage() {
   const addSeparator = document.getElementById('add-separator').checked;
   const backgroundColor = hexToRgb(backgroundColorHex);
 
-  showLoader('Combining pages...');
+  showLoader('Combinando páginas...');
   try {
     const sourceDoc = state.pdfDoc;
     const newDoc = await PDFLibDocument.create();
@@ -70,8 +70,8 @@ export async function combineToSinglePage() {
       'combined-page.pdf'
     );
   } catch (e) {
-    console.error(e);
-    showAlert('Error', 'An error occurred while combining pages.');
+    console.error('Erro ao combinar páginas:', e);
+    showAlert('Erro', 'Ocorreu um erro ao combinar as páginas. Por favor, tente novamente.'); 
   } finally {
     hideLoader();
   }

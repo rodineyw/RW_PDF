@@ -10,12 +10,12 @@ export async function addBlankPage() {
   const pageCountInput = document.getElementById('page-count').value;
 
   if (pageNumberInput.trim() === '') {
-    showAlert('Invalid Input', 'Please enter a page number.');
+    showAlert('Número de Página Inválido', 'Por favor, insira um número de página.');
     return;
   }
 
   if (pageCountInput.trim() === '') {
-    showAlert('Invalid Input', 'Please enter the number of pages to insert.');
+    showAlert('Número de Páginas Inválido', 'Por favor, insira o número de páginas a inserir.');
     return;
   }
 
@@ -24,21 +24,21 @@ export async function addBlankPage() {
   const totalPages = state.pdfDoc.getPageCount();
   if (isNaN(position) || position < 0 || position > totalPages) {
     showAlert(
-      'Invalid Input',
-      `Please enter a number between 0 and ${totalPages}.`
+      'Número de Página Inválido',
+      `Por favor, insira um número de página entre 0 e ${totalPages}.`
     );
     return;
   }
 
   if (isNaN(pageCount) || pageCount < 1) {
     showAlert(
-      'Invalid Input',
-      'Please enter a valid number of pages (1 or more).'
+      'Número de Páginas Inválido',
+      'Por favor, insira um número válido de páginas (1 ou mais).'
     );
     return;
   }
 
-  showLoader(`Adding ${pageCount} blank page${pageCount > 1 ? 's' : ''}...`);
+  showLoader(`Adicionando ${pageCount} página${pageCount > 1 ? 's' : ''} em branco...`);
   try {
     const newPdf = await PDFLibDocument.create();
     const { width, height } = state.pdfDoc.getPage(0).getSize();
@@ -69,7 +69,7 @@ export async function addBlankPage() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', `Could not add blank page${pageCount > 1 ? 's' : ''}.`);
+    showAlert('Erro', `Não foi possível adicionar a página${pageCount > 1 ? 's' : ''} em branco.`);
   } finally {
     hideLoader();
   }

@@ -98,7 +98,7 @@ async function setupFileInput(inputId: any, docKey: any, displayId: any) {
 
   const handleFile = async (file: any) => {
     if (!file || file.type !== 'application/pdf')
-      return showAlert('Invalid File', 'Please select a valid PDF file.');
+      return showAlert('Arquivo inválido', 'Por favor, selecione um arquivo PDF válido.');
 
     const displayDiv = document.getElementById(displayId);
     displayDiv.textContent = '';
@@ -132,8 +132,8 @@ async function setupFileInput(inputId: any, docKey: any, displayId: any) {
       }
     } catch (e) {
       showAlert(
-        'Error',
-        'Could not load PDF. It may be corrupt or password-protected.'
+        'Erro',
+        'Não foi possível carregar o PDF. Ele pode estar corrompido ou protegido por senha.'
       );
       console.error(e);
     } finally {

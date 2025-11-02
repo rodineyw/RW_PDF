@@ -35,7 +35,7 @@ async function isPageBlank(page: PDFPageProxy, threshold: number) {
 
 async function analyzePages() {
   if (!state.pdfDoc) return;
-  showLoader('Analyzing for blank pages...');
+  showLoader('Analisando páginas em branco...');
 
   const pdfBytes = await state.pdfDoc.save();
   const pdf = await pdfjsLib.getDocument({ data: pdfBytes }).promise;
@@ -121,7 +121,7 @@ export async function setupRemoveBlankPagesTool() {
 }
 
 export async function removeBlankPages() {
-  showLoader('Removing blank pages...');
+  showLoader('Removendo páginas em branco...');
   try {
     const sensitivity = parseInt(
       (document.getElementById('sensitivity-slider') as HTMLInputElement).value
@@ -141,8 +141,8 @@ export async function removeBlankPages() {
     if (indicesToKeep.length === 0) {
       hideLoader();
       showAlert(
-        'No Content Found',
-        'All pages were identified as blank at the current sensitivity setting. No new file was created. Try lowering the sensitivity if you believe this is an error.'
+        'Nenhum Conteúdo Encontrado',
+        'Nenhuma página foi identificada como em branco no nível de sensibilidade atual. Nenhum novo arquivo foi criado. Tente diminuir a sensibilidade se você acredita que este é um erro.'
       );
       return;
     }
@@ -150,8 +150,8 @@ export async function removeBlankPages() {
     if (indicesToKeep.length === state.pdfDoc.getPageCount()) {
       hideLoader();
       showAlert(
-        'No Pages Removed',
-        'No pages were identified as blank at the current sensitivity level.'
+        'Nenhuma Página Removida',
+        'Nenhuma página foi identificada como em branco no nível de sensibilidade atual. Nenhum novo arquivo foi criado. Tente aumentar a sensibilidade se você acredita que este é um erro.'
       );
       return;
     }
@@ -167,7 +167,7 @@ export async function removeBlankPages() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Could not remove blank pages.');
+    showAlert('Erro', 'Não foi possível remover as páginas em branco.');
   } finally {
     hideLoader();
   }

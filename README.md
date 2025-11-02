@@ -2,11 +2,8 @@
 
 **RW PDF** é um toolkit de PDF voltado à privacidade, 100% client-side, que permite manipular, editar, mesclar e processar arquivos PDF diretamente no navegador. Não há processamento no servidor, garantindo que seus arquivos permaneçam seguros e privados.
 
-Mantido por **RW Consultoria** — autor e codificador: **Ródiney**.
+Mantido por **RW Consultoria** — autor e codificador: **Alam** e  **Ródiney W.**.
 
-## ⭐ Repositório
-
-GitHub: https://github.com/rodineyw/RW_PDF
 
 ---
 
@@ -23,69 +20,69 @@ GitHub: https://github.com/rodineyw/RW_PDF
 
 O RW PDF oferece um conjunto completo de ferramentas para lidar com PDFs.
 
-### Organize & Manage PDFs
+### Organizar & Gerenciar PDFs
 
-| Tool Name                 | Description                                                                |
-| :------------------------ | :------------------------------------------------------------------------- |
-| **Merge PDFs**            | Combine multiple PDF files into one.                                       |
-| **Split PDFs**            | Extract specific pages or divide a document into smaller files.            |
-| **Organize Pages**        | Reorder, duplicate, or delete pages with a simple drag-and-drop interface. |
-| **Extract Pages**         | Save a specific range of pages as a new PDF.                               |
-| **Delete Pages**          | Remove unwanted pages from your document.                                  |
-| **Rotate PDF**            | Rotate individual or all pages in a document.                              |
-| **N-Up PDF**              | Combine multiple pages onto a single page.                                 |
-| **View PDF**              | A powerful, integrated PDF viewer.                                         |
-| **Alternate & Mix pages** | Merge pages by alternating pages from each PDF.                            |
-| **Posterize PDF**         | Split a PDF into multiple smaller pages for print.                         |
+| Nome da Ferramenta        | Descrição                                                                      |
+| :------------------------ | :----------------------------------------------------------------------------- |
+| **Mesclar PDFs**          | Combinar múltiplos arquivos PDF em um só.                                     |
+| **Dividir PDFs**          | Extrair páginas específicas ou dividir um documento em arquivos menores.      |
+| **Organizar Páginas**     | Reordenar, duplicar ou excluir páginas com uma interface simples de arrastar. |
+| **Extrair Páginas**       | Salvar um intervalo específico de páginas como um novo PDF.                   |
+| **Excluir Páginas**       | Remover páginas indesejadas do seu documento.                                 |
+| **Rotacionar PDF**        | Rotacionar páginas individuais ou todas as páginas de um documento.           |
+| **N-Up PDF**              | Combinar múltiplas páginas em uma única página.                               |
+| **Visualizar PDF**        | Um visualizador de PDF poderoso e integrado.                                  |
+| **Alternar e Misturar**   | Mesclar páginas alternando páginas de cada PDF.                               |
+| **Posterizar PDF**        | Dividir um PDF em múltiplas páginas menores para impressão.                   |
 
-### Edit & Modify PDFs
+### Editar & Modificar PDFs
 
-| Tool Name              | Description                                                 |
-| :--------------------- | :---------------------------------------------------------- |
-| **PDF Editor**         | A comprehensive editor to modify your PDFs.                 |
-| **Add Page Numbers**   | Easily add page numbers with customizable formatting.       |
-| **Add Watermark**      | Add text or image watermarks to protect your documents.     |
-| **Header & Footer**    | Add customizable headers and footers.                       |
-| **Crop PDF**           | Crop specific pages or the entire document.                 |
-| **Invert Colors**      | Invert the colors of your PDF pages for better readability. |
-| **Change Background**  | Modify the background color of your PDF.                    |
-| **Change Text Color**  | Change the color of text content within the PDF.            |
-| **Fill Forms**         | Fill out PDF forms directly in your browser.                |
-| **Flatten PDF**        | Flatten form fields and annotations into static content.    |
-| **Remove Annotations** | Remove comments, highlights, and other annotations.         |
-| **Remove Blank Pages** | Auto detect and remove blank pages in a PDF.                |
+| Nome da Ferramenta        | Descrição                                                           |
+| :------------------------ | :------------------------------------------------------------------ |
+| **Editor de PDF**         | Um editor abrangente para modificar seus PDFs.                     |
+| **Adicionar Numeração**   | Adicionar facilmente números de página com formatação personalizável. |
+| **Adicionar Marca D'água** | Adicionar marcas d'água de texto ou imagem para proteger documentos. |
+| **Cabeçalho e Rodapé**    | Adicionar cabeçalhos e rodapés personalizáveis.                    |
+| **Cortar PDF**            | Cortar páginas específicas ou todo o documento.                    |
+| **Inverter Cores**        | Inverter as cores das páginas do PDF para melhor legibilidade.     |
+| **Alterar Fundo**         | Modificar a cor de fundo do seu PDF.                               |
+| **Alterar Cor do Texto**  | Alterar a cor do conteúdo de texto dentro do PDF.                  |
+| **Preencher Formulários** | Preencher formulários PDF diretamente no seu navegador.            |
+| **Achatar PDF**           | Achatar campos de formulário e anotações em conteúdo estático.     |
+| **Remover Anotações**     | Remover comentários, destaques e outras anotações.                 |
+| **Remover Páginas Vazias** | Detectar automaticamente e remover páginas em branco de um PDF.    |
 
-### Convert to PDF
+### Converter para PDF
 
-| Tool Name           | Description                                                     |
-| :------------------ | :-------------------------------------------------------------- |
-| **Image to PDF**    | Convert JPG, PNG, WebP, SVG, BMP, HEIC, and TIFF images to PDF. |
-| **Markdown to PDF** | Convert `.md` files into professional PDF documents.            |
-| **Text to PDF**     | Convert plain text files into a PDF.                            |
+| Nome da Ferramenta    | Descrição                                                           |
+| :-------------------- | :------------------------------------------------------------------ |
+| **Imagem para PDF**   | Converter imagens JPG, PNG, WebP, SVG, BMP, HEIC e TIFF para PDF.  |
+| **Markdown para PDF** | Converter arquivos `.md` em documentos PDF profissionais.          |
+| **Texto para PDF**    | Converter arquivos de texto simples em PDF.                        |
 
-### Convert from PDF
+### Converter de PDF
 
-| Tool Name            | Description                                                                    |
-| :------------------- | :----------------------------------------------------------------------------- |
-| **PDF to Image**     | Convert PDF pages to JPG, PNG, WebP, BMP, or TIFF formats.                     |
-| **PDF to Greyscale** | Convert a color PDF into a black-and-white version.                            |
-| **OCR PDF**          | Make scanned PDFs searchable and copyable using Optical Character Recognition. |
+| Nome da Ferramenta    | Descrição                                                                      |
+| :-------------------- | :----------------------------------------------------------------------------- |
+| **PDF para Imagem**   | Converter páginas de PDF para formatos JPG, PNG, WebP, BMP ou TIFF.           |
+| **PDF para Escala de Cinza** | Converter um PDF colorido em uma versão preto e branco.            |
+| **OCR PDF**           | Tornar PDFs digitalizados pesquisáveis e copiáveis usando Reconhecimento Óptico de Caracteres. |
 
-### Secure & Optimize PDFs
+### Proteger & Otimizar PDFs
 
-| Tool Name              | Description                                                        |
-| :--------------------- | :----------------------------------------------------------------- |
-| **Compress PDF**       | Reduce file size while maintaining quality.                        |
-| **Repair PDF**         | Attempt to repair and recover data from a corrupted PDF.           |
-| **Encrypt PDF**        | Add a password to protect your PDF from unauthorized access.       |
-| **Decrypt PDF**        | Remove password protection from a PDF (password required).         |
-| **Change Permissions** | Set or modify user permissions for printing, copying, and editing. |
-| **Sign PDF**           | Add your digital signature to a document.                          |
-| **Redact Content**     | Permanently remove sensitive content from your PDFs.               |
-| **Edit Metadata**      | View and modify PDF metadata (author, title, keywords, etc.).      |
-| **Remove Metadata**    | Strip all metadata from your PDF for privacy.                      |
-| **Linearize PDF**      | Optimize PDF for fast web view.                                    |
-| **Sanitize PDF**       | Remove potentially unwanted or malicous files from PDF.            |
+| Nome da Ferramenta    | Descrição                                                           |
+| :-------------------- | :------------------------------------------------------------------ |
+| **Comprimir PDF**     | Reduzir o tamanho do arquivo mantendo a qualidade.                 |
+| **Reparar PDF**       | Tentar reparar e recuperar dados de um PDF corrompido.             |
+| **Criptografar PDF**  | Adicionar uma senha para proteger seu PDF de acesso não autorizado. |
+| **Descriptografar PDF** | Remover proteção por senha de um PDF (senha necessária).         |
+| **Alterar Permissões** | Definir ou modificar permissões de usuário para impressão, cópia e edição. |
+| **Assinar PDF**       | Adicionar sua assinatura digital a um documento.                   |
+| **Redigir Conteúdo**  | Remover permanentemente conteúdo sensível dos seus PDFs.           |
+| **Editar Metadados**  | Visualizar e modificar metadados do PDF (autor, título, palavras-chave, etc.). |
+| **Remover Metadados** | Remover todos os metadados do seu PDF para privacidade.            |
+| **Linearizar PDF**    | Otimizar PDF para visualização rápida na web.                      |
+| **Sanitizar PDF**     | Remover arquivos potencialmente indesejados ou maliciosos do PDF.  |
 
 ---
 

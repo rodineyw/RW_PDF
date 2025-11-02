@@ -265,8 +265,8 @@ async function runOCR() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'OCR Error',
-      'An error occurred during the OCR process. The worker may have failed to load. Please try again.'
+      'Erro de OCR',
+      'Ocorreu um erro durante o processo de OCR. O worker pode ter falhado ao carregar. Por favor, tente novamente.'
     );
     document.getElementById('ocr-options').classList.remove('hidden');
     document.getElementById('ocr-progress').classList.add('hidden');

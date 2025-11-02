@@ -85,7 +85,7 @@ const init = () => {
               <span class="text-white font-bold text-lg">BentoPDF</span>
             </div>
             <p class="text-gray-400 text-sm">
-              &copy; 2025 BentoPDF. All rights reserved.
+              &copy; 2025 RW Consultoria. Todos os direitos reservados.
             </p>
           </div>
         `;
@@ -97,7 +97,7 @@ const init = () => {
         (divider as HTMLElement).style.display = 'none';
       });
 
-      document.title = 'RW PDF - Ferramentas PDF';
+      document.title = 'RW Consultoria - Kit de Ferramentas PDF';
 
       const toolsHeader = document.getElementById('tools-header');
       if (toolsHeader) {

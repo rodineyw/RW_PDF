@@ -6,10 +6,10 @@ import { PDFDocument as PDFLibDocument } from 'pdf-lib';
 
 export async function pngToPdf() {
   if (state.files.length === 0) {
-    showAlert('No Files', 'Please select at least one PNG file.');
+    showAlert('Nenhum Arquivo', 'Por favor, selecione pelo menos um arquivo PNG.');
     return;
   }
-  showLoader('Creating PDF from PNGs...');
+  showLoader('Criando PDF a partir de PNGs...');
   try {
     const pdfDoc = await PDFLibDocument.create();
     for (const file of state.files) {
@@ -31,8 +31,8 @@ export async function pngToPdf() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'Error',
-      'Failed to create PDF from PNG images. Ensure all files are valid PNGs.'
+      'Erro',
+      'Falha ao criar PDF a partir de PNGs. Verifique se todos os arquivos são válidos PNGs.'
     );
   } finally {
     hideLoader();

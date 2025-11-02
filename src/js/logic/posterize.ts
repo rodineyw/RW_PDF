@@ -15,7 +15,7 @@ async function renderPosterizePreview(pageNum: number) {
   if (!posterizeState.pdfJsDoc) return;
 
   posterizeState.currentPage = pageNum;
-  showLoader(`Rendering preview for page ${pageNum}...`);
+  showLoader(`Renderizando pré-visualização para página ${pageNum}...`);
 
   const canvas = document.getElementById(
     'posterize-preview-canvas'
@@ -143,7 +143,7 @@ export async function setupPosterizeTool() {
 }
 
 export async function posterize() {
-  showLoader('Posterizing PDF...');
+  showLoader('Processando PDF...');
   try {
     const rows =
       parseInt(
@@ -277,10 +277,10 @@ export async function posterize() {
       new Blob([new Uint8Array(newPdfBytes)], { type: 'application/pdf' }),
       'posterized.pdf'
     );
-    showAlert('Success', 'Your PDF has been posterized.');
+    showAlert('Sucesso', 'Seu PDF foi processado.');
   } catch (e) {
     console.error(e);
-    showAlert('Error', e.message || 'Could not posterize the PDF.');
+    showAlert('Erro', e.message || 'Não foi possível processar o PDF.');
   } finally {
     hideLoader();
   }

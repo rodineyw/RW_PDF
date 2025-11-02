@@ -13,7 +13,7 @@ export async function decrypt() {
   )?.value;
 
   if (!password) {
-    showAlert('Input Required', 'Please enter the PDF password.');
+    showAlert('Campo Obrigatório', 'Por favor, insira a senha do PDF.');
     return;
   }
 
@@ -22,23 +22,23 @@ export async function decrypt() {
   let qpdf: any;
 
   try {
-    showLoader('Initializing decryption...');
+    showLoader('Inicializando descriptografia...');
     qpdf = await initializeQpdf();
 
-    showLoader('Reading encrypted PDF...');
+    showLoader('Lendo PDF criptografado...');
     const fileBuffer = await readFileAsArrayBuffer(file);
     const uint8Array = new Uint8Array(fileBuffer as ArrayBuffer);
 
     qpdf.FS.writeFile(inputPath, uint8Array);
 
-    showLoader('Decrypting PDF...');
+    showLoader('Descriptografando PDF...');
 
     const args = [inputPath, '--password=' + password, '--decrypt', outputPath];
 
     try {
       qpdf.callMain(args);
     } catch (qpdfError: any) {
-      console.error('qpdf execution error:', qpdfError);
+      console.error('Erro ao executar qpdf:', qpdfError);
 
       if (
         qpdfError.message?.includes('invalid password') ||
@@ -49,7 +49,7 @@ export async function decrypt() {
       throw qpdfError;
     }
 
-    showLoader('Preparing download...');
+    showLoader('Preparando download...');
     const outputFile = qpdf.FS.readFile(outputPath, { encoding: 'binary' });
 
     if (outputFile.length === 0) {
@@ -61,27 +61,27 @@ export async function decrypt() {
 
     hideLoader();
     showAlert(
-      'Success',
-      'PDF decrypted successfully! Your download has started.'
+      'Sucesso',
+      'PDF descriptografado com sucesso! O download foi iniciado.'
     );
   } catch (error: any) {
-    console.error('Error during PDF decryption:', error);
+    console.error('Erro durante descriptografia do PDF:', error);
     hideLoader();
 
     if (error.message === 'INVALID_PASSWORD') {
       showAlert(
-        'Incorrect Password',
-        'The password you entered is incorrect. Please try again.'
+        'Senha Incorreta',
+        'A senha que você inseriu está incorreta. Por favor, tente novamente.'
       );
     } else if (error.message?.includes('password')) {
       showAlert(
-        'Password Error',
-        'Unable to decrypt the PDF with the provided password.'
+        'Erro na Descriptografia',
+        'Não foi possível descriptografar o PDF com a senha fornecida. Por favor, tente novamente.'
       );
     } else {
       showAlert(
-        'Decryption Failed',
-        `An error occurred: ${error.message || 'The password you entered is wrong or the file is corrupted.'}`
+        'Erro na Descriptografia',
+        `Um erro ocorreu: ${error.message || 'A senha que você inseriu está incorreta ou o arquivo está corrompido.'}`
       );
     }
   } finally {
@@ -90,16 +90,16 @@ export async function decrypt() {
         try {
           qpdf.FS.unlink(inputPath);
         } catch (e) {
-          console.warn('Failed to unlink input file:', e);
+          console.warn('Erro ao remover arquivo de entrada:', e);
         }
         try {
           qpdf.FS.unlink(outputPath);
         } catch (e) {
-          console.warn('Failed to unlink output file:', e);
+          console.warn('Erro ao remover arquivo de saída:', e);
         }
       }
     } catch (cleanupError) {
-      console.warn('Failed to cleanup WASM FS:', cleanupError);
+      console.warn('Erro ao limpar FS do WASM:', cleanupError);
     }
   }
 }

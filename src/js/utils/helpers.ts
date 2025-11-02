@@ -107,7 +107,7 @@ export function parsePageRanges(rangeString: any, totalPages: any) {
         end > totalPages ||
         start > end
       ) {
-        console.warn(`Invalid range skipped: ${trimmedPart}`);
+        console.warn(`Intervalo inválido ignorado: ${trimmedPart}`);
         continue;
       }
 
@@ -118,7 +118,7 @@ export function parsePageRanges(rangeString: any, totalPages: any) {
       const pageNum = Number(trimmedPart);
 
       if (isNaN(pageNum) || pageNum < 1 || pageNum > totalPages) {
-        console.warn(`Invalid page number skipped: ${trimmedPart}`);
+        console.warn(`Número de página inválido ignorado: ${trimmedPart}`);
         continue;
       }
       indices.add(pageNum - 1);
@@ -147,7 +147,7 @@ export function formatIsoDate(isoDateString) {
     }
     return date.toLocaleString();
   } catch (e) {
-    console.error('Não foi possível analisar data ISO:', e);
+    console.error('Não foi possível analisar a data ISO:', e);
     return isoDateString; // Retornar string original em qualquer erro
   }
 }

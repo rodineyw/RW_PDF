@@ -23,15 +23,15 @@ export async function changePermissions() {
   let qpdf: any;
 
   try {
-    showLoader('Initializing...');
+    showLoader('Inicializando...');
     qpdf = await initializeQpdf();
 
-    showLoader('Reading PDF...');
+    showLoader('Lendo PDF...');
     const fileBuffer = await readFileAsArrayBuffer(file);
     const uint8Array = new Uint8Array(fileBuffer as ArrayBuffer);
     qpdf.FS.writeFile(inputPath, uint8Array);
 
-    showLoader('Processing PDF permissions...');
+    showLoader('Processando permissões do PDF...');
 
     const args = [inputPath];
 
@@ -110,14 +110,14 @@ export async function changePermissions() {
         throw new Error('PASSWORD_REQUIRED');
       }
 
-      throw new Error('Processing failed: ' + errorMsg || 'Unknown error');
+      throw new Error('Processamento falhou: ' + errorMsg || 'Erro desconhecido');
     }
 
-    showLoader('Preparing download...');
+    showLoader('Preparando download...');
     const outputFile = qpdf.FS.readFile(outputPath, { encoding: 'binary' });
 
     if (!outputFile || outputFile.length === 0) {
-      throw new Error('Processing resulted in an empty file.');
+      throw new Error('Processamento resultou em um arquivo vazio.');
     }
 
     const blob = new Blob([outputFile], { type: 'application/pdf' });
@@ -125,31 +125,31 @@ export async function changePermissions() {
 
     hideLoader();
 
-    let successMessage = 'PDF permissions changed successfully!';
+    let successMessage = 'Permissões do PDF alteradas com sucesso!';
     if (!shouldEncrypt) {
       successMessage =
-        'PDF decrypted successfully! All encryption and restrictions removed.';
+        'PDF decriptado com sucesso! Todas as restrições e criptografia foram removidas.';
     }
 
-    showAlert('Success', successMessage);
+    showAlert('Sucesso', successMessage);
   } catch (error: any) {
-    console.error('Error during PDF permission change:', error);
+    console.error('Erro durante a alteração de permissões do PDF:', error);
     hideLoader();
 
     if (error.message === 'INVALID_PASSWORD') {
       showAlert(
-        'Incorrect Password',
-        'The current password you entered is incorrect. Please try again.'
+        'Senha Incorreta',
+        'A senha atual que você digitou está incorreta. Por favor, tente novamente.'
       );
     } else if (error.message === 'PASSWORD_REQUIRED') {
       showAlert(
-        'Password Required',
-        'This PDF is password-protected. Please enter the current password to proceed.'
+        'Senha Requerida',
+        'Este PDF está protegido por senha. Por favor, digite a senha atual para continuar.'
       );
     } else {
       showAlert(
-        'Processing Failed',
-        `An error occurred: ${error.message || 'The PDF might be corrupted or password protected.'}`
+        'Processamento Falhou', 
+        `Ocorreu um erro: ${error.message || 'O PDF pode estar corrompido ou protegido por senha.'}`
       );
     }
   } finally {
@@ -163,7 +163,7 @@ export async function changePermissions() {
         } catch (e) {}
       }
     } catch (cleanupError) {
-      console.warn('Failed to cleanup WASM FS:', cleanupError);
+      console.warn('Erro ao limpar arquivos temporários no WASM FS:', cleanupError);
     }
   }
 }

@@ -4,7 +4,7 @@ import { state } from '../state.js';
 import JSZip from 'jszip';
 
 export async function pdfToWebp() {
-  showLoader('Converting to WebP...');
+  showLoader('Convertendo para WebP...');
   try {
     // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
     const pdf = await pdfjsLib.getDocument(
@@ -22,13 +22,13 @@ export async function pdfToWebp() {
       const blob = await new Promise((resolve) =>
         canvas.toBlob(resolve, 'image/webp', 0.9)
       );
-      zip.file(`page_${i}.webp`, blob as Blob);
+      zip.file(`pagina_${i}.webp`, blob as Blob);
     }
     const zipBlob = await zip.generateAsync({ type: 'blob' });
     downloadFile(zipBlob, 'converted_webp.zip');
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Failed to convert PDF to WebP.');
+    showAlert('Erro', 'Falha ao converter PDF para WebP.');
   } finally {
     hideLoader();
   }

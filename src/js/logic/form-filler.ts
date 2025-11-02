@@ -295,7 +295,7 @@ export async function setupFormFiller() {
           const fieldElement = createFormFieldHtml(field);
           formContainer.appendChild(fieldElement);
         } catch (e: any) {
-          console.error(`Error processing field "${field.getName()}":`, e);
+          console.error(`Erro ao processar campo "${field.getName()}":`, e);
           const errorDiv = document.createElement('div');
           errorDiv.className =
             'p-4 bg-gray-800 rounded-lg border border-gray-700';
@@ -343,17 +343,17 @@ export async function setupFormFiller() {
     const formFillerOptions = document.getElementById('form-filler-options');
     if (formFillerOptions) formFillerOptions.classList.remove('hidden');
   } catch (e) {
-    console.error('Critical error setting up form filler:', e);
+    console.error('Erro crítico ao configurar o preenchimento do formulário:', e);
     showAlert(
-      'Error',
-      'Failed to read PDF form data. The file may be corrupt or not a valid form.'
+      'Erro',
+      'Falha ao ler os dados do formulário do PDF. O arquivo pode estar corrompido ou não ser um formulário válido.'
     );
     hideLoader();
   }
 }
 
 export async function processAndDownloadForm() {
-  showLoader('Applying form data...');
+  showLoader('Aplicando dados do formulário...');
   try {
     const form = state.pdfDoc.getForm();
 
@@ -381,7 +381,7 @@ export async function processAndDownloadForm() {
         }
       } catch (e) {
         console.error(
-          `Error processing field "${fieldName}" during download:`,
+          `Erro ao processar campo "${fieldName}" durante o download:`,
           e
         );
       }
@@ -393,10 +393,10 @@ export async function processAndDownloadForm() {
       'filled-form.pdf'
     );
 
-    showAlert('Success', 'Form has been filled and downloaded.');
+    showAlert('Sucesso', 'O formulário foi preenchido e baixado.');
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Failed to save the filled form.');
+    showAlert('Erro', 'Falha ao salvar o formulário preenchido.');
   } finally {
     hideLoader();
   }

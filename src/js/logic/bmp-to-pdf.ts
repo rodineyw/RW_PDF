@@ -34,10 +34,10 @@ async function convertImageToPngBytes(file: any) {
 
 export async function bmpToPdf() {
   if (state.files.length === 0) {
-    showAlert('No Files', 'Please select at least one BMP file.');
+    showAlert('Nenhum arquivo', 'Por favor, selecione pelo menos um arquivo BMP.');
     return;
   }
-  showLoader('Converting BMP to PDF...');
+  showLoader('Convertendo BMP para PDF...');
   try {
     const pdfDoc = await PDFLibDocument.create();
     for (const file of state.files) {
@@ -59,8 +59,8 @@ export async function bmpToPdf() {
   } catch (e) {
     console.error(e);
     showAlert(
-      'Error',
-      'Failed to convert BMP to PDF. One of the files may be invalid.'
+      'Erro',
+      'Falha ao converter BMP para PDF. Um dos arquivos pode estar inválido.'
     );
   } finally {
     hideLoader();

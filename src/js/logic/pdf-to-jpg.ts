@@ -4,7 +4,7 @@ import { state } from '../state.js';
 import JSZip from 'jszip';
 
 export async function pdfToJpg() {
-  showLoader('Converting to JPG...');
+  showLoader('Convertendo para JPG...');
   try {
     // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
     const pdf = await pdfjsLib.getDocument(
@@ -25,16 +25,16 @@ export async function pdfToJpg() {
       const blob = await new Promise((resolve) =>
         canvas.toBlob(resolve, 'image/jpeg', 0.9)
       );
-      zip.file(`page_${i}.jpg`, blob as Blob);
+      zip.file(`página_${i}.jpg`, blob as Blob);
     }
 
     const zipBlob = await zip.generateAsync({ type: 'blob' });
-    downloadFile(zipBlob, 'converted_images.zip');
+    downloadFile(zipBlob, 'imagens_jpg_convertidas.zip');
   } catch (e) {
     console.error(e);
     showAlert(
-      'Error',
-      'Failed to convert PDF to JPG. The file might be corrupted.'
+      'Erro',
+      'Falha ao converter PDF para JPG. O arquivo pode estar corrompido.'
     );
   } finally {
     hideLoader();

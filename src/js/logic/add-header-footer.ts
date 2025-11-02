@@ -12,7 +12,7 @@ export function setupHeaderFooterUI() {
 }
 
 export async function addHeaderFooter() {
-  showLoader('Adding header & footer...');
+  showLoader('Adicionando cabeçalho e rodapé...');
   try {
     const helveticaFont = await state.pdfDoc.embedFont(StandardFonts.Helvetica);
     const allPages = state.pdfDoc.getPages();
@@ -48,7 +48,7 @@ export async function addHeaderFooter() {
     const indicesToProcess = parsePageRanges(pageRangeInput, totalPages);
     if (indicesToProcess.length === 0) {
       throw new Error(
-        "Invalid page range specified. Please check your input (e.g., '1-3, 5')."
+        "Intervalo de páginas inválido especificado. Por favor, verifique sua entrada (exemplo: '1-3, 5')."
       );
     }
 
@@ -150,7 +150,7 @@ export async function addHeaderFooter() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', e.message || 'Could not add header or footer.');
+    showAlert('Erro', e.message || 'Não foi possível adicionar cabeçalho ou rodapé.');
   } finally {
     hideLoader();
   }

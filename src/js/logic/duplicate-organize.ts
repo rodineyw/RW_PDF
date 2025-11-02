@@ -71,8 +71,8 @@ function attachEventListeners(element: any) {
       initializePageGridSortable();
     } else {
       showAlert(
-        'Cannot Delete',
-        'You cannot delete the last page of the document.'
+        'Campo Obrigatório',
+        'Você não pode excluir a última página do documento.'
       );
     }
   });
@@ -82,7 +82,7 @@ export async function renderDuplicateOrganizeThumbnails() {
   const grid = document.getElementById('page-grid');
   if (!grid) return;
 
-  showLoader('Rendering page previews...');
+  showLoader('Renderizando pré-visualizações de páginas...');
   const pdfData = await state.pdfDoc.save();
   // @ts-expect-error TS(2304) FIXME: Cannot find name 'pdfjsLib'.
   const pdfjsDoc = await pdfjsLib.getDocument({ data: pdfData }).promise;
@@ -151,7 +151,7 @@ export async function renderDuplicateOrganizeThumbnails() {
 }
 
 export async function processAndSave() {
-  showLoader('Building new PDF...');
+  showLoader('Construindo novo PDF...');
   try {
     const grid = document.getElementById('page-grid');
     const finalPageElements = grid.querySelectorAll('.page-thumbnail');
@@ -171,7 +171,7 @@ export async function processAndSave() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'Failed to save the new PDF.');
+    showAlert('Erro', 'Falha ao salvar o novo PDF.');
   } finally {
     hideLoader();
   }

@@ -34,7 +34,7 @@ export async function fixDimensions() {
     (document.getElementById('background-color') as HTMLInputElement).value
   );
 
-  showLoader('Standardizing pages...');
+  showLoader('Ajustando dimensões...');
   try {
     let targetWidth, targetHeight;
 
@@ -107,7 +107,7 @@ export async function fixDimensions() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'An error occurred while standardizing pages.');
+    showAlert('Erro', 'Ocorreu um erro ao ajustar as dimensões.');  
   } finally {
     hideLoader();
   }

@@ -16,7 +16,7 @@ export async function encrypt() {
       ?.value || '';
 
   if (!userPassword) {
-    showAlert('Input Required', 'Please enter a user password.');
+    showAlert('Campo Obrigatório', 'Por favor, insira uma senha de usuário.');
     return;
   }
 
@@ -28,16 +28,16 @@ export async function encrypt() {
   let qpdf: any;
 
   try {
-    showLoader('Initializing encryption...');
+    showLoader('Inicializando criptografia...');
     qpdf = await initializeQpdf();
 
-    showLoader('Reading PDF...');
+    showLoader('Lendo PDF...');
     const fileBuffer = await readFileAsArrayBuffer(file);
     const uint8Array = new Uint8Array(fileBuffer as ArrayBuffer);
 
     qpdf.FS.writeFile(inputPath, uint8Array);
 
-    showLoader('Encrypting PDF with 256-bit AES...');
+    showLoader('Criptografando PDF com AES 256-bit...');
 
     const args = [inputPath, '--encrypt', userPassword, ownerPassword, '256'];
 
@@ -62,15 +62,15 @@ export async function encrypt() {
     } catch (qpdfError: any) {
       console.error('qpdf execution error:', qpdfError);
       throw new Error(
-        'Encryption failed: ' + (qpdfError.message || 'Unknown error')
+        'Criptografia falhou: ' + (qpdfError.message || 'Erro desconhecido')
       );
     }
 
-    showLoader('Preparing download...');
+    showLoader('Preparando download...');
     const outputFile = qpdf.FS.readFile(outputPath, { encoding: 'binary' });
 
     if (!outputFile || outputFile.length === 0) {
-      throw new Error('Encryption resulted in an empty file.');
+      throw new Error('Criptografia resultou em um arquivo vazio.');
     }
 
     const blob = new Blob([outputFile], { type: 'application/pdf' });
@@ -78,19 +78,19 @@ export async function encrypt() {
 
     hideLoader();
 
-    let successMessage = 'PDF encrypted successfully with 256-bit AES!';
+    let successMessage = 'PDF criptografado com sucesso com AES 256-bit!';
     if (!hasDistinctOwnerPassword) {
       successMessage +=
-        ' Note: Without a separate owner password, the PDF has no usage restrictions.';
+        ' Nota: Sem uma senha de proprietário separada, o PDF não tem restrições de uso.';
     }
 
-    showAlert('Success', successMessage);
+    showAlert('Sucesso', successMessage);
   } catch (error: any) {
-    console.error('Error during PDF encryption:', error);
+    console.error('Erro durante criptografia do PDF:', error);
     hideLoader();
     showAlert(
-      'Encryption Failed',
-      `An error occurred: ${error.message || 'The PDF might be corrupted.'}`
+      'Criptografia Falhou',
+      `Ocorreu um erro: ${error.message || 'O PDF pode estar corrompido.'}`
     );
   } finally {
     try {
@@ -98,16 +98,16 @@ export async function encrypt() {
         try {
           qpdf.FS.unlink(inputPath);
         } catch (e) {
-          console.warn('Failed to unlink input file:', e);
+          console.warn('Falha ao excluir arquivo de entrada:', e);
         }
         try {
           qpdf.FS.unlink(outputPath);
         } catch (e) {
-          console.warn('Failed to unlink output file:', e);
+          console.warn('Falha ao excluir arquivo de saída:', e);
         }
       }
     } catch (cleanupError) {
-      console.warn('Failed to cleanup WASM FS:', cleanupError);
+      console.warn('Falha ao limpar FS do WASM:', cleanupError);
     }
   }
 }

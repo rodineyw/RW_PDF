@@ -36,7 +36,7 @@ function calculateFitScale(page: any) {
  */
 async function renderPage(num: any) {
   editorState.pageRendering = true;
-  showLoader(`Loading page ${num}...`);
+  showLoader(`Carregando página ${num}...`);
 
   try {
     const page = await editorState.pdf.getPage(num);
@@ -65,8 +65,8 @@ async function renderPage(num: any) {
     );
     redrawShapes();
   } catch (error) {
-    console.error('Error rendering page:', error);
-    showAlert('Render Error', 'Could not display the page.');
+    console.error('Erro ao renderizar página:', error);
+    showAlert('Erro ao Renderizar Página', 'Não foi possível exibir a página.');
   } finally {
     editorState.pageRendering = false;
     hideLoader();
@@ -282,8 +282,8 @@ export async function setupCanvasEditor(toolId: any) {
     document.getElementById('process-btn').onclick = async () => {
       if (Object.keys(editorState.cropBoxes).length === 0) {
         showAlert(
-          'No Area Selected',
-          'Please draw a rectangle on at least one page to select the crop area.'
+          'Nenhuma Área Selecionada',
+          'Por favor, desenhe um retângulo em pelo menos uma página para selecionar a área de corte.'
         );
         return;
       }
@@ -292,8 +292,8 @@ export async function setupCanvasEditor(toolId: any) {
       );
       if (success) {
         showAlert(
-          'Success!',
-          'Your PDF has been cropped and the download has started.'
+          'Sucesso!',
+          'Seu PDF foi cortado e o download foi iniciado.'
         );
       }
     };

@@ -10,18 +10,18 @@
 //     typeof window.html2canvas === 'undefined'
 //   ) {
 //     showAlert(
-//       'Libraries Not Ready',
-//       'PDF generation libraries are loading. Please try again.'
+//       'Bibliotecas Não Prontas',
+//       'As bibliotecas de geração de PDF estão carregando. Por favor, tente novamente.'
 //     );
 //     return;
 //   }
 //   // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'HTMLEleme... Remove this comment to see the full error message
 //   const markdownContent = document.getElementById('md-input').value.trim();
 //   if (!markdownContent) {
-//     showAlert('Input Required', 'Please enter some Markdown text.');
+//     showAlert('Entrada Requerida', 'Por favor, insira algum texto Markdown.');
 //     return;
 //   }
-//   showLoader('Generating High-Quality PDF...');
+//   showLoader('Gerando PDF de Alta Qualidade...');
 
 //   try {
 //     // @ts-expect-error TS(2304) FIXME: Cannot find name 'marked'.
@@ -87,8 +87,8 @@
 //     const pdfBlob = pdf.output('blob');
 //     downloadFile(pdfBlob, 'markdown-document.pdf');
 //   } catch (error) {
-//     console.error('MD to PDF conversion error:', error);
-//     showAlert('Conversion Error', 'Failed to generate PDF.');
+//     console.error('Erro na conversão MD para PDF:', error);
+//     showAlert('Erro na Conversão', 'Falha ao gerar PDF.');   
 //   } finally {
 //     hideLoader();
 //   }

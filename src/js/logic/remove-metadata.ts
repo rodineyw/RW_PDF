@@ -23,7 +23,7 @@ export function removeMetadataFromDoc(pdfDoc) {
       catalogDict.delete(PDFName.of('Metadata'));
     }
   } catch (e) {
-    console.warn('Could not remove XMP metadata:', e.message);
+    console.warn('Não foi possível remover os metadados XMP:', e.message);
   }
 
   try {
@@ -32,7 +32,7 @@ export function removeMetadataFromDoc(pdfDoc) {
       delete context.trailerInfo.ID;
     }
   } catch (e) {
-    console.warn('Could not remove document IDs:', e.message);
+    console.warn('Não foi possível remover os IDs do documento:', e.message);
   }
 
   try {
@@ -41,12 +41,12 @@ export function removeMetadataFromDoc(pdfDoc) {
       catalogDict.delete(PDFName.of('PieceInfo'));
     }
   } catch (e) {
-    console.warn('Could not remove PieceInfo:', e.message);
+    console.warn('Não foi possível remover o PieceInfo:', e.message);
   }
 }
 
 export async function removeMetadata() {
-  showLoader('Removing all metadata...');
+  showLoader('Removendo todos os metadados...');
   try {
     removeMetadataFromDoc(state.pdfDoc);
 
@@ -57,7 +57,7 @@ export async function removeMetadata() {
     );
   } catch (e) {
     console.error(e);
-    showAlert('Error', 'An error occurred while trying to remove metadata.');
+    showAlert('Erro', 'Ocorreu um erro ao remover os metadados.');
   } finally {
     hideLoader();
   }
