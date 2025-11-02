@@ -46,7 +46,7 @@ async function renderVisualSelector() {
       img.className = 'rounded-md w-full h-auto';
       const p = document.createElement('p');
       p.className = 'text-center text-xs mt-1 text-gray-300';
-      p.textContent = `Page ${i}`;
+      p.textContent = `Página ${i}`;
       wrapper.append(img, p);
 
       const handleSelection = (e: any) => {

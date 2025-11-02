@@ -50,7 +50,7 @@ export async function setupAlternateMergeTool() {
 
       const pagesSpan = document.createElement('span');
       pagesSpan.className = 'text-sm text-gray-400 flex-shrink-0';
-      pagesSpan.textContent = `(${pageCount} pages)`;
+      pagesSpan.textContent = `(${pageCount} páginas)`;
 
       infoDiv.append(nameSpan, pagesSpan);
 

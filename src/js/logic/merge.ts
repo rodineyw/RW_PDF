@@ -344,14 +344,14 @@ export async function setupMergeTool() {
     const label = document.createElement('label');
     label.htmlFor = `range-${safeFileName}`;
     label.className = 'text-xs text-gray-400';
-    label.textContent = `Pages (e.g., 1-3, 5) - Total: ${pageCount}`;
+    label.textContent = `Páginas (ex.: 1-3, 5) - Total: ${pageCount}`;
 
     const input = document.createElement('input');
     input.type = 'text';
     input.id = `range-${safeFileName}`;
     input.className =
       'w-full bg-gray-800 border border-gray-600 text-white rounded-md p-2 text-sm mt-1 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors';
-    input.placeholder = 'Leave blank for all pages';
+    input.placeholder = 'Deixe em branco para todas as páginas';
 
     rangeDiv.append(label, input);
     li.append(mainDiv, rangeDiv);

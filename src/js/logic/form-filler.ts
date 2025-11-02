@@ -251,11 +251,11 @@ function createFormFieldHtml(field: any): HTMLElement {
     const p = document.createElement('p');
     p.className = 'text-sm text-gray-400';
     if (field instanceof PDFSignature) {
-      p.textContent = 'Signature field: Not supported for direct editing.';
+      p.textContent = 'Campo de assinatura: não suportado para edição direta.';
     } else if (field instanceof PDFButton) {
-      p.textContent = `Button: ${labelText}`;
+      p.textContent = `Botão: ${labelText}`;
     } else {
-      p.textContent = `Unsupported field type: ${field.constructor.name}`;
+      p.textContent = `Tipo de campo não suportado: ${field.constructor.name}`;
     }
     unsupportedDiv.appendChild(p);
     return unsupportedDiv;
@@ -302,7 +302,7 @@ export async function setupFormFiller() {
           // Sanitize error message display
           const p1 = document.createElement('p');
           p1.className = 'text-sm text-gray-500';
-          p1.textContent = `Unsupported field: ${field.getName()}`;
+          p1.textContent = `Campo não suportado: ${field.getName()}`;
           const p2 = document.createElement('p');
           p2.className = 'text-xs text-gray-500';
           p2.textContent = e.message;

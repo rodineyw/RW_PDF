@@ -86,7 +86,7 @@ async function updateAnalysisUI() {
   }
 
   if (pagesToRemove.length > 0) {
-    analysisText.textContent = `Found ${pagesToRemove.length} blank page(s) to remove: ${pagesToRemove.join(', ')}`;
+    analysisText.textContent = `Encontradas ${pagesToRemove.length} páginas em branco para remover: ${pagesToRemove.join(', ')}`;
     previewContainer.classList.remove('hidden');
 
     for (const pageNum of pagesToRemove) {

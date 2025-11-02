@@ -68,6 +68,7 @@ const alertMessageMap: Record<string, string> = {
   'Failed to convert TIFF to PDF. One of the files may be invalid or corrupted.': 'Falha ao converter TIFF para PDF. Algum arquivo pode ser inválido ou corrompido.',
   'Failed to convert HEIC to PDF. One of the files may be invalid or unsupported.': 'Falha ao converter HEIC para PDF. Algum arquivo pode ser inválido ou não suportado.',
   'Failed to create PDF from text.': 'Falha ao criar PDF a partir de texto.',
+  'Failed to create PDF from images.': 'Falha ao criar PDF a partir de imagens.',
   'Failed to create ZIP file.': 'Falha ao criar arquivo ZIP.',
   'Could not load the optimization engine. Please refresh the page and try again.': 'Não foi possível carregar o mecanismo de otimização. Atualize a página e tente novamente.',
   'Invalid page range specified.': 'Intervalo de páginas inválido.',
@@ -84,6 +85,9 @@ function translateMessage(text: any): any {
   }
   if (text.startsWith('Optimizing PDFs for web view')) {
     return 'Otimizando PDFs para visualização web (linearizando)...';
+  }
+  if (text.startsWith('Converting to greyscale')) {
+    return 'Convertendo para tons de cinza...';
   }
   if (text.startsWith('Converting ')) {
     return text.replace('Converting ', 'Convertendo ');
