@@ -1690,8 +1690,8 @@ export const toolTemplates = {
                 </label>
             </div>
             <div id="page-range-wrapper" class="hidden mt-2">
-                 <input type="text" id="page-range-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="e.g., 1-3, 5, 8">
-                 <p class="text-xs text-gray-400 mt-1">Total Pages: <span id="total-pages"></span></p>
+                 <input type="text" id="page-range-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="e.x., 1-3, 5, 8">
+                 <p class="text-xs text-gray-400 mt-1">Total de páginas: <span id="total-pages"></span></p>
             </div>
         </div>
 
@@ -1701,7 +1701,7 @@ export const toolTemplates = {
                 <div class="border-b border-gray-700 pb-2">
                     <label class="flex items-center gap-2 font-semibold text-white cursor-pointer">
                         <input type="checkbox" id="select-all-annotations" class="w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600">
-                        Select / Deselect All
+                        Marcar todos / Desmarcar todos
                     </label>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 pt-2">
@@ -1726,7 +1726,7 @@ export const toolTemplates = {
             </div>
         </div>
     </div>
-    <button id="process-btn" class="hidden btn-gradient w-full mt-6">Remove Selected Annotations</button>
+    <button id="process-btn" class="hidden btn-gradient w-full mt-6">Remover Anotações Selecionadas</button>
 `,
 
   cropper: () => `
@@ -1741,9 +1741,9 @@ export const toolTemplates = {
         <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-6">
             <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
             <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                <li><strong class="text-white">Live Preview:</strong> See your crop selection in real-time before you apply it.</li>
-                <li><strong class="text-white">Non-Destructive Mode:</strong> This is the default mode. It simply "hides" the cropped content by adjusting the page's boundaries. The original text and data are preserved in the file.</li>
-                <li><strong class="text-white">Destructive Mode:</strong> This option permanently removes the cropped content by flattening the PDF. Use this for maximum security and smaller file size, but note that it will remove selectable text.</li>
+                <li><strong class="text-white">Live Preview:</strong> Veja a sua seleção de cultivo em tempo real antes de aplicá-la.</li>
+                <li><strong class="text-white">Non-Destructive Mode:</strong> Este é o modo padrão. Ele simplesmente "oculta" o conteúdo cortado ajustando as margens da página. O texto e os dados originais são preservados no arquivo.</li>
+                <li><strong class="text-white">Destructive Mode:</strong> Esta opção remove permanentemente o conteúdo cortado, achatando o PDF. Use-a para máxima segurança e tamanho de arquivo menor, mas observe que ela removerá o texto selecionável.</li>
             </ul>
         </div>
         
@@ -1757,24 +1757,24 @@ export const toolTemplates = {
             <div class="flex flex-col sm:flex-row items-center gap-4 flex-wrap">
                  <label class="flex items-center gap-2 text-sm font-medium text-gray-300">
                     <input type="checkbox" id="destructive-crop-toggle" class="w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
-                    Enable Destructive Crop
+                    Ativar corte destrutivo
                 </label>
                  <label class="flex items-center gap-2 text-sm font-medium text-gray-300">
                     <input type="checkbox" id="apply-to-all-toggle" class="w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
-                    Apply to all pages
+                    Aplicar a todas as páginas
                 </label>
             </div>
         </div>
         
-        <div id="status" class="text-center italic text-gray-400 mb-4">Please select a PDF file to begin.</div>
+        <div id="status" class="text-center italic text-gray-400 mb-4">Selecione um arquivo PDF para começar.</div>
         <div id="cropper-container" class="w-full relative overflow-hidden flex items-center justify-center bg-gray-900 rounded-lg border border-gray-600 min-h-[500px]"></div>
         
-        <button id="crop-button" class="btn-gradient w-full mt-6" disabled>Crop & Download</button>
+        <button id="crop-button" class="btn-gradient w-full mt-6" disabled>Cortar & Baixar</button>
     </div>
 `,
 
   'form-filler': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">PDF Form Filler</h2>
+    <h2 class="text-2xl font-bold text-white mb-4">Preenchimento de formulários em PDF</h2>
         <p class="mb-6 text-gray-400">Envie um PDF para preencher campos de formulário existentes. A visualização à direita será atualizada conforme você digita.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
@@ -1797,7 +1797,7 @@ export const toolTemplates = {
                         <i data-lucide="chevron-left" class="w-5 h-5"></i>
                     </button>
                     <span class="text-white font-medium">
-                        Page <span id="current-page-display">1</span> of <span id="total-pages-display">1</span>
+                        Página <span id="current-page-display">1</span> de <span id="total-pages-display">1</span>
                     </span>
                     <button id="next-page" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50">
                         <i data-lucide="chevron-right" class="w-5 h-5"></i>
@@ -1816,20 +1816,20 @@ export const toolTemplates = {
             </div>
         </div>
         
-        <button id="process-btn" class="btn-gradient w-full mt-6 hidden">Save & Download</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6 hidden">Salvar & Baixar</button>
     </div>
 `,
 
   posterize: () => `
     <h2 class="text-2xl font-bold text-white mb-4">Posterize PDF</h2>
-    <p class="mb-6 text-gray-400">Split pages into multiple smaller sheets to print as a poster. Navigate the preview and see the grid update based on your settings.</p>
+    <p class="mb-6 text-gray-400">Divida as páginas em várias folhas menores para imprimir como um pôster. Navegue pela pré-visualização e veja a grade atualizar de acordo com suas configurações.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
 
     <div id="posterize-options" class="hidden mt-6 space-y-6">
 
         <div class="space-y-2">
-             <label class="block text-sm font-medium text-gray-300">Page Preview (<span id="current-preview-page">1</span> / <span id="total-preview-pages">1</span>)</label>
+             <label class="block text-sm font-medium text-gray-300">Pré-visualização da página (<span id="current-preview-page">1</span> / <span id="total-preview-pages">1</span>)</label>
             <div id="posterize-preview-container" class="relative w-full max-w-xl mx-auto bg-gray-900 rounded-lg border-2 border-gray-600 flex items-center justify-center">
                 <button id="prev-preview-page" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 rounded-full p-2 hover:bg-gray-700 disabled:opacity-50 z-10"><i data-lucide="chevron-left"></i></button>
                 <canvas id="posterize-preview-canvas" class="w-full h-auto rounded-md"></canvas>
@@ -1838,24 +1838,24 @@ export const toolTemplates = {
         </div>
 
         <div class="p-4 bg-gray-900 border border-gray-700 rounded-lg">
-            <h3 class="text-lg font-semibold text-white mb-3">Grid Layout</h3>
+            <h3 class="text-lg font-semibold text-white mb-3">Layout da grade</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label for="posterize-rows" class="block mb-2 text-sm font-medium text-gray-300">Rows</label>
+                    <label for="posterize-rows" class="block mb-2 text-sm font-medium text-gray-300">Linhas</label>
                     <input type="number" id="posterize-rows" value="1" min="1" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                 </div>
                 <div>
-                    <label for="posterize-cols" class="block mb-2 text-sm font-medium text-gray-300">Columns</label>
+                    <label for="posterize-cols" class="block mb-2 text-sm font-medium text-gray-300">Colunas</label>
                     <input type="number" id="posterize-cols" value="2" min="1" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                 </div>
             </div>
         </div>
 
         <div class="p-4 bg-gray-900 border border-gray-700 rounded-lg">
-            <h3 class="text-lg font-semibold text-white mb-3">Output Page Settings</h3>
+            <h3 class="text-lg font-semibold text-white mb-3">Configurações da página de saída</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label for="output-page-size" class="block mb-2 text-sm font-medium text-gray-300">Page Size</label>
+                    <label for="output-page-size" class="block mb-2 text-sm font-medium text-gray-300">Tamanho da página</label>
                     <select id="output-page-size" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                         <option value="A4" selected>A4</option>
                         <option value="Letter">Letter</option>
@@ -1865,113 +1865,113 @@ export const toolTemplates = {
                     </select>
                 </div>
                 <div>
-                    <label for="output-orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientation</label>
+                    <label for="output-orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientação</label>
                     <select id="output-orientation" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                         <option value="auto" selected>Automatic (Recommended)</option>
-                        <option value="portrait">Portrait</option>
-                        <option value="landscape">Landscape</option>
+                        <option value="portrait">Retrato</option>
+                        <option value="landscape">Paisagem</option>
                     </select>
                 </div>
             </div>
         </div>
 
         <div class="p-4 bg-gray-900 border border-gray-700 rounded-lg">
-            <h3 class="text-lg font-semibold text-white mb-3">Advanced Options</h3>
+            <h3 class="text-lg font-semibold text-white mb-3">Opções Avançadas</h3>
             <div class="space-y-4">
                 <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-300">Content Scaling</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-300">Dimensionamento de conteúdo</label>
                     <div class="flex gap-4 p-2 rounded-lg bg-gray-800">
                         <label class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
                             <input type="radio" name="scaling-mode" value="fit" checked class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
                             <div>
-                                <span class="font-semibold text-white">Fit</span>
-                                <p class="text-xs text-gray-400">Preserves all content, may add margins.</p>
+                                <span class="font-semibold text-white">Ajustar</span>
+                                <p class="text-xs text-gray-400">Preserva todo o conteúdo, pode adicionar margens.</p>
                             </div>
                         </label>
                         <label class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer has-[:checked]:bg-indigo-600">
                             <input type="radio" name="scaling-mode" value="fill" class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
                              <div>
-                                <span class="font-semibold text-white">Fill (Crop)</span>
-                                <p class="text-xs text-gray-400">Fills the page, may crop content.</p>
+                                <span class="font-semibold text-white">Preencher (Recorte)</span>
+                                <p class="text-xs text-gray-400">Preenche a página, pode recortar o conteúdo.</p>
                             </div>
                         </label>
                     </div>
                 </div>
                  <div>
-                    <label for="overlap" class="block mb-2 text-sm font-medium text-gray-300">Overlap (for assembly)</label>
+                    <label for="overlap" class="block mb-2 text-sm font-medium text-gray-300">Overlap (para montagem)</label>
                     <div class="flex items-center gap-2">
                         <input type="number" id="overlap" value="0" min="0" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                         <select id="overlap-units" class="bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
-                            <option value="pt">Points</option>
-                            <option value="in">Inches</option>
+                            <option value="pt">Ponto</option>
+                            <option value="in">Polegada</option>
                             <option value="mm">mm</option>
                         </select>
                     </div>
                 </div>
                  <div>
-                    <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Page Range (optional)</label>
+                    <label for="page-range" class="block mb-2 text-sm font-medium text-gray-300">Intervalo de páginas (opcional)</label>
         <input type="text" id="page-range" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="ex.: 1-3, 5">
-                    <p class="text-xs text-gray-400 mt-1">Total pages: <span id="total-pages">0</span></p>
+                    <p class="text-xs text-gray-400 mt-1">Total de páginas: <span id="total-pages">0</span></p>
                 </div>
             </div>
         </div>
 
-        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Posterize PDF</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Posterizar PDF</button>
     </div>
 `,
 
   'remove-blank-pages': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Remove Blank Pages</h2>
-    <p class="mb-6 text-gray-400">Automatically detect and remove blank or nearly blank pages from your PDF. Adjust the sensitivity to control what is considered "blank".</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Remover Páginas em Branco</h2>
+    <p class="mb-6 text-gray-400">Remova automaticamente páginas em branco ou quase em branco do seu PDF. Ajuste a sensibilidade para controlar o que é considerado "em branco".</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
 
     <div id="remove-blank-options" class="hidden mt-6 space-y-4">
         <div>
             <label for="sensitivity-slider" class="block mb-2 text-sm font-medium text-gray-300">
-                Sensitivity (<span id="sensitivity-value">99</span>%)
+                Sensibilidade (<span id="sensitivity-value">99</span>%)
             </label>
             <input type="range" id="sensitivity-slider" min="80" max="100" value="99" class="w-full">
-            <p class="text-xs text-gray-400 mt-1">Higher sensitivity requires pages to be more "blank" to be removed.</p>
+            <p class="text-xs text-gray-400 mt-1">A sensibilidade mais alta requer que as páginas sejam mais "em branco" para serem removidas.</p>
         </div>
         
         <div id="analysis-preview" class="hidden p-4 bg-gray-900 border border-gray-700 rounded-lg">
-             <h3 class="text-lg font-semibold text-white mb-2">Analysis Results</h3>
+             <h3 class="text-lg font-semibold text-white mb-2">Resultados da Análise</h3>
              <p id="analysis-text" class="text-gray-300"></p>
              <div id="removed-pages-thumbnails" class="mt-4 grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2"></div>
         </div>
 
-        <button id="process-btn" class="btn-gradient w-full mt-6">Remove Blank Pages & Download</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Remover Páginas em Branco & Baixar</button>
     </div>
 `,
 
   'alternate-merge': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Alternate & Mix Pages</h2>
-    <p class="mb-6 text-gray-400">Combine pages from 2 or more documents, alternating between them. Drag the files to set the mixing order (e.g., Page 1 from Doc A, Page 1 from Doc B, Page 2 from Doc A, Page 2 from Doc B, etc.).</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Alternar & Misturar Páginas</h2>
+    <p class="mb-6 text-gray-400">Combine páginas de 2 ou mais documentos, alternando entre eles. Arraste os arquivos para definir a ordem de mistura (por exemplo, Página 1 do Doc A, Página 1 do Doc B, Página 2 do Doc A, Página 2 do Doc B, etc.).</p>
     ${createFileInputHTML({ multiple: true, accept: 'application/pdf', showControls: true })}
     
     <div id="alternate-merge-options" class="hidden mt-6">
         <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-3">
-            <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
+            <p class="text-sm text-gray-300"><strong class="text-white">Como funciona:</strong></p>
             <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                <li>The tool will take one page from each document in the order you specify below, then repeat for the next page until all pages are used.</li>
-                <li>If a document runs out of pages, it will be skipped, and the tool will continue alternating with the remaining documents.</li>
+                <li>A ferramenta pegará uma página de cada documento na ordem que você especificar abaixo, e repetirá para a próxima página até que todas as páginas sejam usadas.</li>
+                <li>Se um documento terminar antes de todas as páginas, ele será ignorado, e a ferramenta continuará alternando com os documentos restantes.</li>
             </ul>
         </div>
         <ul id="alternate-file-list" class="space-y-2"></ul>
-        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Alternate & Mix PDFs</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6" disabled>Alternar & Misturar PDFs</button>
     </div>
 `,
 
   linearize: () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Linearize PDFs (Fast Web View)</h2>
-    <p class="mb-6 text-gray-400">Optimize multiple PDFs for faster loading over the web. Files will be downloaded in a ZIP archive.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Linearizar PDFs (Visualização Rápida)</h2>
+    <p class="mb-6 text-gray-400">Otimize múltiplos PDFs para carregamento mais rápido na web. Os arquivos serão baixados em um arquivo ZIP.</p>
     ${createFileInputHTML({ multiple: true, accept: 'application/pdf', showControls: true })} 
     <div id="file-display-area" class="mt-4 space-y-2"></div>
-    <button id="process-btn" class="hidden btn-gradient w-full mt-6" disabled>Linearize PDFs & Download ZIP</button> 
+    <button id="process-btn" class="hidden btn-gradient w-full mt-6" disabled>Linearizar PDFs & Baixar ZIP</button> 
   `,
   'add-attachments': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Add Attachments to PDF</h2>
+    <h2 class="text-2xl font-bold text-white mb-4">Incorporar Arquivos em PDFs</h2>
         <p class="mb-6 text-gray-400">Primeiro, envie o PDF ao qual deseja adicionar arquivos.</p>
     ${createFileInputHTML({ accept: 'application/pdf' })}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
@@ -2016,92 +2016,92 @@ export const toolTemplates = {
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-metadata" name="sanitizeOption" value="metadata" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove All Metadata</span>
+                    <span class="text-white">Remover Todos os Metadados</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-annotations" name="sanitizeOption" value="annotations" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove Annotations</span>
+                    <span class="text-white">Remover Anotações</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-javascript" name="sanitizeOption" value="javascript" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove JavaScript</span>
+                    <span class="text-white">Remover JavaScript</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-embedded-files" name="sanitizeOption" value="embeddedFiles" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove Embedded Files</span>
+                    <span class="text-white">Remover Arquivos Embutidos</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-layers" name="sanitizeOption" value="layers" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove Layers (OCG)</span>
+                    <span class="text-white">Remover Camadas (OCG)</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-links" name="sanitizeOption" value="links" checked class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove External Links</span>
+                    <span class="text-white">Remover Links Externos</span>
                 </label>
             </div>
         </div>
 
         <div>
-            <h4 class="text-sm font-semibold text-gray-400 mb-2">Additional Options</h4>
+            <h4 class="text-sm font-semibold text-gray-400 mb-2">Opções Adicionais</h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-structure-tree" name="sanitizeOption" value="structure" class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove Structure Tree</span>
+                    <span class="text-white">Remover Árvore de Estrutura</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-markinfo" name="sanitizeOption" value="markinfo" class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white">Remove Tagging Info</span>
+                    <span class="text-white">Remover Informações de Marcação</span>
                 </label>
                 <label class="flex items-center space-x-2 p-3 rounded-md bg-gray-800 hover:bg-gray-700 cursor-pointer">
                     <input type="checkbox" id="remove-fonts" name="sanitizeOption" value="fonts" class="w-5 h-5 text-indigo-600 bg-gray-700 border-gray-600 rounded focus:ring-indigo-500">
-                    <span class="text-white text-sm">Remove Embedded Fonts</span>
+                    <span class="text-white text-sm">Remover Fontes Embutidas</span>
                 </label>
             </div>
         </div>
 
-        <button id="process-btn" class="btn-gradient w-full mt-6">Sanitize PDF & Download</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Sanitizar PDF e Baixar</button>
     </div>
 `,
 
   'remove-restrictions': () => `
-  <h2 class="text-2xl font-bold text-white mb-4">Remove PDF Restrictions</h2>
-  <p class="mb-6 text-gray-400">Remove security restrictions and unlock PDF permissions for editing and printing.</p>
+  <h2 class="text-2xl font-bold text-white mb-4">Remover Restrições de PDF</h2>
+  <p class="mb-6 text-gray-400">Remove restrições de segurança e desbloqueia as permissões de edição e impressão do PDF.</p>
   ${createFileInputHTML()}
   <div id="file-display-area" class="mt-4 space-y-2"></div>
   <div id="remove-restrictions-options" class="hidden space-y-4 mt-6">
         <div class="p-4 bg-blue-900/20 border border-blue-500/30 text-blue-200 rounded-lg">
-          <h3 class="font-semibold text-base mb-2"> How it Works </h3>
-          <p class="text-sm text-gray-300 mb-2">This operation will:</p>
+          <h3 class="font-semibold text-base mb-2"> Como Funciona </h3>
+          <p class="text-sm text-gray-300 mb-2">Esta operação irá:</p>
           <ul class="text-sm text-gray-300 list-disc list-inside space-y-1 ml-2">
-            <li>Remove all permission restrictions (printing, copying, editing)</li>
-            <li>Remove encryption even if the file is encrypted</li>
-            <li>Remove security restrictions associated with digitally signed PDF files (will make signature invalid)</li>
-            <li>Create a fully editable, unrestricted PDF</li>
+            <li>Remover todas as restrições de permissão (impressão, cópia, edição)</li>
+            <li>Remover a criptografia, mesmo se o arquivo estiver criptografado</li>
+            <li>Remover restrições de segurança associadas a arquivos PDF assinados digitalmente (isso invalidará as assinaturas)</li>
+            <li>Criar um PDF totalmente editável e sem restrições</li>
           </ul>
       </div>
 
       <div>
-          <label for="owner-password-remove" class="block mb-2 text-sm font-medium text-gray-300">Owner Password (if required)</label>
-          <input type="password" id="owner-password-remove" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Leave empty if PDF has no password">
-          <p class="text-xs text-gray-500 mt-1">Enter the owner password if the PDF is password-protected</p>
+          <label for="owner-password-remove" class="block mb-2 text-sm font-medium text-gray-300">Senha do Proprietário (se necessário)</label>
+          <input type="password" id="owner-password-remove" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Deixe em branco se o PDF não tiver senha">
+          <p class="text-xs text-gray-500 mt-1">Insira a senha do proprietário se o PDF estiver protegido por senha</p>
       </div>
 
 <div class="p-4 bg-red-900/20 border border-red-500/30 text-red-200 rounded-lg">
-  <h3 class="font-semibold text-base mb-2">Notice</h3>
-  <p class="text-sm text-gray-300 mb-2">This tool is intended for legitimate purposes only, such as:</p>
+  <h3 class="font-semibold text-base mb-2">Aviso</h3>
+  <p class="text-sm text-gray-300 mb-2">Esta ferramenta é destinada a fins legítimos, como:</p>
   <ul class="text-sm text-gray-300 list-disc list-inside space-y-1 ml-2">
-    <li>Removing restrictions from PDFs you own or have permission to modify</li>
-    <li>Recovering access to a PDF when you legitimately forgot the password</li>
-    <li>Accessing content you legally purchased or created</li>
-    <li>Editing documents for authorized business purposes</li>
-    <li>Opening documents for legitimate archival, compliance, or recovery workflows</li>
-    <li class="font-semibold">Limitations: this tool can only remove restrictions from weakly protected PDFs or PDFs that do not have an owner password set. It cannot remove or bypass properly applied AES‑256 (256‑bit) encryption.</li>
+    <li>Remover restrições de PDFs que você possui ou tem permissão para modificar</li>
+    <li>Recuperar acesso a um PDF quando você legitimamente esqueceu a senha</li>
+    <li>Acessar conteúdo que você comprou ou criou legalmente</li>
+    <li>Editar documentos para fins autorizados de negócios</li>
+    <li>Abrir documentos para fluxos de trabalho legítimos de arquivamento, conformidade ou recuperação</li>
+    <li class="font-semibold">Limitações: esta ferramenta pode remover restrições apenas de PDFs protegidos fracamente ou PDFs que não têm senha do proprietário definida. Não pode remover ou ultrapassar a criptografia AES‑256 (256‑bit).</li>
   </ul>
   <p class="text-sm text-gray-300 mt-3 font-semibold">
-    Using this tool to bypass copyright protections, violate intellectual property rights, or access documents without authorization may be illegal in your jurisdiction. We are not liable for any misuse of this tool — if you're unsure, consult legal counsel or the document owner before proceeding.
+    Uso Ilegal: usar esta ferramenta para ultrapassar proteções de direitos autorais, violar direitos de propriedade intelectual ou acessar documentos sem autorização é ilegal em sua jurisdição. Não nos responsabilizamos por qualquer mau uso desta ferramenta — se você não está seguro, consulte um advogado legal ou o proprietário do documento antes de prosseguir.
   </p>
 </div>
-      <button id="process-btn" class="btn-gradient w-full mt-6">Remove Restrictions & Download</button>
+      <button id="process-btn" class="btn-gradient w-full mt-6">Remover Restrições e Baixar</button>
   </div>
 `,
 };
