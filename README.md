@@ -137,10 +137,10 @@ Para quem quer uma interface limpa, sem distrações, focada somente nas ferrame
 
 **What Simple Mode does:**
 
-- Hides navigation, hero section, features, FAQ, testimonials, and footer
-- Shows only the essential PDF tools
-- Updates page title to "PDF Tools"
-- Perfect for internal company tools and educational institutions
+- Oculta navegação, seção hero, recursos, FAQ, depoimentos e rodapé
+- Mostra apenas as ferramentas essenciais de PDF
+- Atualiza o título da página para "Ferramentas de PDF"
+- Perfeito para ferramentas internas de empresas e instituições educacionais
 
 Detalhes: [SIMPLE_MODE.md](SIMPLE_MODE.md).
 
