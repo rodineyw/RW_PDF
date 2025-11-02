@@ -2,13 +2,13 @@
 
 Obrigado por considerar contribuir para o **RW PDF**! Sua ajuda melhora o projeto para todos.
 
-This document outlines how to contribute, report issues, and get involved in the project.
+Este documento descreve como contribuir, reportar problemas e se envolver no projeto.
 
 ---
 
-## 1. Como contribuir
+## 1. Como Contribuir
 
-You can contribute in several ways:
+Você pode contribuir de várias maneiras:
 
 - **Reportar bugs:** Abra uma issue com passos para reproduzir e logs/prints.
 - **Solicitar recursos:** Abra uma issue descrevendo sua ideia claramente.
@@ -20,105 +20,114 @@ You can contribute in several ways:
 
 ### Template de Issues
 
-When reporting bugs, requesting features, or asking questions, please use our [issue template](.github/ISSUE_TEMPLATE/bug_feature_question.md). The template will automatically appear when you create a new issue.
+Ao reportar bugs, solicitar recursos ou fazer perguntas, por favor use nosso [template de issue](.github/ISSUE_TEMPLATE/bug_feature_question.md). O template aparecerá automaticamente quando você criar uma nova issue.
 
 **Nosso template ajuda a fornecer:**
 
-- Clear categorization (Bug, Feature Request, or Question)
-- Steps to reproduce (for bugs)
-- Expected vs actual behavior
-- Environment details
-- Screenshots or logs
+- Categorização clara (Bug, Solicitação de Recurso ou Pergunta)
+- Passos para reproduzir (para bugs)
+- Comportamento esperado vs comportamento atual
+- Detalhes do ambiente
+- Screenshots ou logs
 
 **Exemplos de título:**
 
-- `(Bug) Text alignment incorrect on multi-line paragraphs`
-- `(Feature) Add support for custom PDF metadata`
-- `(Question) How to embed custom fonts?`
+- `(Bug) Alinhamento de texto incorreto em parágrafos multi-linha`
+- `(Feature) Adicionar suporte para metadados PDF personalizados`
+- `(Question) Como incorporar fontes personalizadas?`
 
-### Pull Request Template
+### Template de Pull Request
 
-When submitting code contributions, please use our [pull request template](.github/pull_request_template.md). The template will automatically appear when you create a new PR.
+Ao submeter contribuições de código, por favor use nosso [template de pull request](.github/pull_request_template.md). O template aparecerá automaticamente quando você criar um novo PR.
 
-**Key requirements:**
+**Requisitos principais:**
 
-- Link to the related issue (e.g., `Fixes #123`)
-- Describe the type of change (bug fix, feature, breaking change)
-- Explain how you tested your changes
-- Complete the checklist before submitting
+- Link para a issue relacionada (ex: `Fixes #123`)
+- Descrever o tipo de mudança (correção de bug, feature, mudança breaking)
+- Explicar como você testou suas mudanças
+- Completar o checklist antes de submeter
 
-## 2. Getting Started with Code Contributions
+## 2. Começando com Contribuições de Código
 
-1.  **Fork the Repository**
+1.  **Fazer Fork do Repositório**
 
     ```bash
-    git clone https://github.com/alam00000/bentopdf.git
-    cd bento-pdf
+    git clone https://github.com/rwconsultoria/rwpdf.git
+    cd rw-pdf
     npm install
     ```
 
-2.  **Create a New Branch**
+2.  **Criar uma Nova Branch**
 
     ```bash
-    git checkout -b feature/my-new-feature
+    git checkout -b feature/minha-nova-feature
     ```
 
-3.  **Make Your Changes**
-    - Follow the code style and conventions used in the project.
-    - Add comments where necessary.
-    - Update or add tests if applicable.
+3.  **Fazer Suas Mudanças**
+    - Siga o estilo de código e convenções usadas no projeto.
+    - Adicione comentários onde necessário.
+    - Atualize ou adicione testes se aplicável.
 
-4.  **Run Tests**
+4.  **Executar Testes**
 
     ```bash
     npm run test
     ```
 
-5.  **Commit Your Changes**
+5.  **Fazer Commit das Suas Mudanças**
 
     ```bash
     git add .
-    git commit -m "Add a meaningful commit message"
+    git commit -m "Adicionar uma mensagem de commit significativa"
     ```
 
-6.  **Push and Submit a Pull Request**
+6.  **Fazer Push e Submeter um Pull Request**
 
     ```bash
-    git push origin feature/my-new-feature
+    git push origin feature/minha-nova-feature
     ```
 
-    - Open a pull request on GitHub and provide a clear description of your changes.
+    - Abra um pull request no GitHub e forneça uma descrição clara das suas mudanças.
 
 ---
 
-## 3. Code Style
+## 3. Estilo de Código
 
-- Follow the existing TypeScript and JavaScript conventions.
-- Use `camelCase` for variables and functions.
-- Keep lines reasonably short and readable.
-- Comment complex logic for clarity.
+- Siga as convenções existentes de TypeScript e JavaScript.
+- Use `camelCase` para variáveis e funções.
+- Mantenha as linhas razoavelmente curtas e legíveis.
+- Comente lógica complexa para clareza.
 
 ---
 
 ## 4. Issues e Pull Requests
 
-- Make sure your PR is focused and addresses a single issue or feature.
-- Reference related issues in your PR description (e.g., `Closes #12`).
-- Be responsive to feedback and make requested changes promptly.
+- Certifique-se de que seu PR seja focado e aborde uma única issue ou feature.
+- Referencie issues relacionadas na descrição do seu PR (ex: `Closes #12`).
+- Seja responsivo ao feedback e faça as mudanças solicitadas prontamente.
 
 ---
 
-## 5. Relato de questões de segurança
+## 5. Relato de Questões de Segurança
 
-Se encontrar vulnerabilidade, **não** abra issue pública. Contate o mantenedor:
+Se encontrar uma vulnerabilidade, **não** abra uma issue pública. Contate o mantenedor:
 
-**Email:** [rodineyw@yahoo.com.br](mailto:rodineyw@yahoo.com.br)
+**Email:** [rodineyw@yahoo.com.br](mailto:rodineyw@yahoo.com.br)  
+**Empresa:** RW Consultoria - Soluções em Software
 
 ---
 
 ## 6. Código de Conduta
 
-All contributors are expected to follow the Code of Conduct. Be respectful and considerate in all communications.
+Todos os colaboradores devem seguir o Código de Conduta. Seja respeitoso e considerado em todas as comunicações.
+
+---
+
+## 7. Sobre o RW PDF
+
+O **RW PDF** é desenvolvido e mantido pela **RW Consultoria**, especializada em soluções de software personalizadas e ferramentas de produtividade empresarial.
+
+Para mais informações sobre nossos serviços e projetos, entre em contato através do email acima.
 
 ---
 

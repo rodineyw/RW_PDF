@@ -1,65 +1,72 @@
-# Contributor Covenant Code of Conduct
+# Código de Conduta do Pacto do Colaborador
 
-## Our Pledge
+## Nosso Compromisso
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers of **RW PDF** pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+No interesse de promover um ambiente aberto e acolhedor, nós, como colaboradores e mantenedores do **RW PDF**, nos comprometemos a tornar a participação em nosso projeto e nossa comunidade uma experiência livre de assédio para todos, independentemente de idade, tamanho corporal, deficiência, etnia, identidade e expressão de gênero, nível de experiência, nacionalidade, aparência pessoal, raça, religião ou identidade e orientação sexual.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
-
----
-
-## Our Standards
-
-Examples of behavior that contributes to a positive environment for our community include:
-
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy toward other community members
-
-Examples of unacceptable behavior include:
-
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others’ private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+Comprometemo-nos a agir e interagir de maneiras que contribuam para uma comunidade aberta, acolhedora, diversa, inclusiva e saudável.
 
 ---
 
-## Enforcement Responsibilities
+## Nossos Padrões
 
-Project maintainers of **RW PDF** are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+Exemplos de comportamento que contribuem para um ambiente positivo em nossa comunidade incluem:
 
-Maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+- Usar linguagem acolhedora e inclusiva
+- Ser respeitoso com diferentes pontos de vista e experiências
+- Aceitar graciosamente críticas construtivas
+- Focar no que é melhor para a comunidade
+- Demonstrar empatia com outros membros da comunidade
 
----
+Exemplos de comportamento inaceitável incluem:
 
-## Reporting Guidelines
-
-If you are subject to or witness unacceptable behavior, or have any other concerns, please report it by contacting the project team at:
-
-**Email:** `rodineyw@yahoo.com.br`
-
-All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
-
----
-
-## Scope
-
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing the project include using an official project email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+- O uso de linguagem ou imagens sexualizadas e atenção ou avanços sexuais indesejados
+- Trolling, comentários insultuosos ou depreciativos, e ataques pessoais ou políticos
+- Assédio público ou privado
+- Publicar informações privadas de outros, como endereço físico ou eletrônico, sem permissão explícita
+- Outras condutas que poderiam razoavelmente ser consideradas inadequadas em um ambiente profissional
 
 ---
 
-## Enforcement
+## Responsabilidades de Aplicação
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at the email above. All complaints will be reviewed and investigated promptly and fairly.
+Os mantenedores do projeto **RW PDF** são responsáveis por esclarecer os padrões de comportamento aceitável e devem tomar ações corretivas apropriadas e justas em resposta a qualquer instância de comportamento inaceitável.
 
-Maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent consequences as determined by other members of the project's leadership.
+Os mantenedores têm o direito e a responsabilidade de remover, editar ou rejeitar comentários, commits, código, edições de wiki, issues e outras contribuições que não estejam alinhadas com este Código de Conduta, ou banir temporária ou permanentemente qualquer colaborador por outros comportamentos que considerem inadequados, ameaçadores, ofensivos ou prejudiciais.
 
 ---
 
-## Attribution
+## Diretrizes de Denúncia
 
-This Code of Conduct is adapted from the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html), available at https://www.contributor-covenant.org.
+Se você for sujeito a ou testemunhar comportamento inaceitável, ou tiver outras preocupações, por favor relate entrando em contato com a equipe do projeto em:
+
+**Email:** `rodineyw@yahoo.com.br`  
+**Empresa:** RW Consultoria - Soluções em Software
+
+Todas as reclamações serão revisadas e investigadas e resultarão em uma resposta que seja considerada necessária e apropriada às circunstâncias.
+
+---
+
+## Escopo
+
+Este Código de Conduta se aplica tanto dentro dos espaços do projeto quanto em espaços públicos quando um indivíduo está representando o projeto ou sua comunidade. Exemplos de representação do projeto incluem usar um endereço de email oficial do projeto, postar através de uma conta oficial de mídia social, ou atuar como representante designado em um evento online ou offline.
+
+---
+
+## Aplicação
+
+Instâncias de comportamento abusivo, assediador ou de outra forma inaceitável podem ser relatadas entrando em contato com a equipe do projeto no email acima. Todas as reclamações serão revisadas e investigadas prontamente e de forma justa.
+
+Mantenedores que não seguem ou aplicam o Código de Conduta de boa fé podem enfrentar consequências temporárias ou permanentes conforme determinado por outros membros da liderança do projeto.
+
+---
+
+## Atribuição
+
+Este Código de Conduta é adaptado do [Pacto do Colaborador, versão 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html), disponível em https://www.contributor-covenant.org.
+
+---
+
+## Sobre o RW PDF
+
+O **RW PDF** é desenvolvido e mantido pela **RW Consultoria**, especializada em soluções de software personalizadas e ferramentas de produtividade empresarial. Para mais informações sobre nossos serviços, entre em contato através do email acima.

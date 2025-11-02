@@ -1,12 +1,12 @@
-# 🚀 Release Process - Real-World Scenarios
+# 🚀 Processo de Release - Cenários do Mundo Real
 
-## 📋 Common Release Scenarios
+## 📋 Cenários Comuns de Release
 
-### **Scenario 1: I Just Finished a Feature and Want to Release**
+### **Cenário 1: Acabei de Terminar uma Feature e Quero Fazer Release**
 
-**Situation:** You've completed a new feature, tested it locally, and want to release it.
+**Situação:** Você completou uma nova funcionalidade, testou localmente e quer fazer o release.
 
-**Current State:**
+**Estado Atual:**
 
 ```bash
 $ git status
@@ -22,35 +22,35 @@ Untracked files:
   src/js/feature-helper.js
 ```
 
-**Steps:**
+**Passos:**
 
 ```bash
-# 1. Commit your feature changes
+# 1. Faça commit das suas mudanças de feature
 git add .
-git commit -m "Add new PDF watermark feature"
+git commit -m "Adicionar nova funcionalidade de marca d'água em PDF"
 
-# 2. Choose your release type and run
-npm run release        # Patch: 1.0.0 → 1.0.1 (bug fixes, small improvements)
-npm run release:minor  # Minor: 1.0.0 → 1.1.0 (new features, backward compatible)
-npm run release:major  # Major: 1.0.0 → 2.0.0 (breaking changes)
+# 2. Escolha seu tipo de release e execute
+npm run release        # Patch: 1.0.0 → 1.0.1 (correções de bug, pequenas melhorias)
+npm run release:minor  # Minor: 1.0.0 → 1.1.0 (novas features, compatível com versões anteriores)
+npm run release:major  # Major: 1.0.0 → 2.0.0 (mudanças que quebram compatibilidade)
 ```
 
-**What Happens:**
+**O que Acontece:**
 
-- ✅ Your feature commit stays as-is
-- ✅ Version gets bumped in `package.json`
-- ✅ New release commit is created
-- ✅ Git tag is created (e.g., `v1.0.1`)
-- ✅ Everything gets pushed to GitHub
-- ✅ Docker image gets built and published
+- ✅ Seu commit de feature permanece como está
+- ✅ Versão é incrementada no `package.json`
+- ✅ Novo commit de release é criado
+- ✅ Tag Git é criada (ex.: `v1.0.1`)
+- ✅ Tudo é enviado para o GitHub
+- ✅ Imagem Docker é construída e publicada
 
 ---
 
-### **Scenario 2: I Have Uncommitted Changes and Want to Release**
+### **Cenário 2: Tenho Mudanças Não Commitadas e Quero Fazer Release**
 
-**Situation:** You have local changes but haven't committed them yet.
+**Situação:** Você tem mudanças locais mas ainda não fez commit delas.
 
-**Current State:**
+**Estado Atual:**
 
 ```bash
 $ git status
@@ -60,130 +60,130 @@ Changes not staged for commit:
   modified:   README.md
 ```
 
-**❌ This Will Fail:**
+**❌ Isso Vai Falhar:**
 
 ```bash
 npm run release
 # Error: Your local changes would be overwritten by merge
 ```
 
-**✅ Solution Options:**
+**✅ Opções de Solução:**
 
-**Option A: Commit Everything First (Recommended)**
+**Opção A: Fazer Commit de Tudo Primeiro (Recomendado)**
 
 ```bash
 git add .
-git commit -m "Add new features and improvements"
+git commit -m "Adicionar novas funcionalidades e melhorias"
 npm run release
 ```
 
-**Option B: Stash Changes Temporarily**
+**Opção B: Fazer Stash das Mudanças Temporariamente**
 
 ```bash
 git stash
 npm run release
-git stash pop  # Restore your changes after release
+git stash pop  # Restaurar suas mudanças após o release
 ```
 
-**Option C: Commit Only What's Needed**
+**Opção C: Fazer Commit Apenas do Necessário**
 
 ```bash
 git add package.json src/js/main.js
-git commit -m "Add core improvements"
+git commit -m "Adicionar melhorias principais"
 npm run release
 git add README.md
-git commit -m "Update documentation"
+git commit -m "Atualizar documentação"
 ```
 
 ---
 
-### **Scenario 3: I Want to Release a Hotfix**
+### **Cenário 3: Quero Fazer Release de um Hotfix**
 
-**Situation:** There's a critical bug in production that needs immediate fixing.
+**Situação:** Há um bug crítico em produção que precisa ser corrigido imediatamente.
 
-**Steps:**
+**Passos:**
 
 ```bash
-# 1. Fix the bug
+# 1. Corrigir o bug
 git add src/js/bug-fix.js
-git commit -m "Fix critical PDF rendering issue"
+git commit -m "Corrigir problema crítico de renderização de PDF"
 
-# 2. Release as patch (bug fix)
+# 2. Fazer release como patch (correção de bug)
 npm run release
-# This creates: 1.0.0 → 1.0.1
+# Isso cria: 1.0.0 → 1.0.1
 ```
 
-**Result:**
+**Resultado:**
 
-- ✅ Bug fix gets released immediately
-- ✅ Docker image with fix is available
-- ✅ Users can pull the fixed version
+- ✅ Correção de bug é liberada imediatamente
+- ✅ Imagem Docker com a correção está disponível
+- ✅ Usuários podem baixar a versão corrigida
 
 ---
 
-### **Scenario 4: I Want to Release a Major Update**
+### **Cenário 4: Quero Fazer Release de uma Atualização Major**
 
-**Situation:** You've added significant new features that might break existing functionality.
+**Situação:** Você adicionou funcionalidades significativas que podem quebrar a funcionalidade existente.
 
-**Steps:**
+**Passos:**
 
 ```bash
-# 1. Commit all your changes
+# 1. Fazer commit de todas as suas mudanças
 git add .
-git commit -m "Add major PDF editing features and API changes"
+git commit -m "Adicionar funcionalidades principais de edição de PDF e mudanças na API"
 
-# 2. Release as major version
+# 2. Fazer release como versão major
 npm run release:major
-# This creates: 1.0.0 → 2.0.0
+# Isso cria: 1.0.0 → 2.0.0
 ```
 
-**Result:**
+**Resultado:**
 
-- ✅ Major version bump indicates breaking changes
-- ✅ Users know to check compatibility
-- ✅ Both old and new versions available
+- ✅ Incremento de versão major indica mudanças que quebram compatibilidade
+- ✅ Usuários sabem que devem verificar compatibilidade
+- ✅ Ambas as versões antiga e nova estão disponíveis
 
 ---
 
-### **Scenario 5: I Want to Release Multiple Features at Once**
+### **Cenário 5: Quero Fazer Release de Múltiplas Features de Uma Vez**
 
-**Situation:** You've been working on multiple features and want to release them together.
+**Situação:** Você tem trabalhado em múltiplas funcionalidades e quer fazer release delas juntas.
 
-**Steps:**
+**Passos:**
 
 ```bash
-# 1. Commit all features
+# 1. Fazer commit de todas as features
 git add .
-git commit -m "Add multiple PDF tools: watermark, encryption, and compression"
+git commit -m "Adicionar múltiplas ferramentas PDF: marca d'água, criptografia e compressão"
 
-# 2. Choose appropriate release type
-npm run release:minor  # For new features (1.0.0 → 1.1.0)
-# OR
-npm run release:major  # For breaking changes (1.0.0 → 2.0.0)
+# 2. Escolher o tipo de release apropriado
+npm run release:minor  # Para novas features (1.0.0 → 1.1.0)
+# OU
+npm run release:major  # Para mudanças que quebram compatibilidade (1.0.0 → 2.0.0)
 ```
 
 ---
 
-### **Scenario 6: I Want to Test the Release Process**
+### **Cenário 6: Quero Testar o Processo de Release**
 
-**Situation:** You want to test the release system without affecting production.
+**Situação:** Você quer testar o sistema de release sem afetar a produção.
 
-**Steps:**
+**Passos:**
 
 ```bash
-# 1. Make a small test change
-echo "// Test comment" >> src/js/main.js
+# 1. Fazer uma pequena mudança de teste
+echo "// Comentário de teste" >> src/js/main.js
 git add src/js/main.js
-git commit -m "Test release process"
+git commit -m "Testar processo de release"
 
-# 2. Run patch release
+# 2. Executar release patch
 npm run release
-# This creates: 1.0.0 → 1.0.1
+# Isso cria: 1.0.0 → 1.0.1
 
-# 3. Verify everything works
-# Check GitHub Actions, Docker Hub, etc.
+# 3. Verificar se tudo funciona
+# Verificar GitHub Actions, Docker Hub, etc.
 
-# 4. If you want to undo the test release
+# 4. Se quiser desfazer o release de teste
 git tag -d v1.0.1
 git push origin :refs/tags/v1.0.1
 git reset --hard HEAD~1
@@ -191,109 +191,109 @@ git reset --hard HEAD~1
 
 ---
 
-## 🎯 **Guia de tipos de release**
+## 🎯 **Guia de Tipos de Release**
 
-| Cenário             | Comando                 | Mudança de versão | Quando usar                          |
+| Cenário             | Comando                 | Mudança de Versão | Quando Usar                          |
 | ------------------- | ----------------------- | ------------------ | ------------------------------------ |
-| **Correção de bug** | `npm run release`       | `1.0.0 → 1.0.1`    | Correções, pequenas melhorias        |
-| **Nova feature**    | `npm run release:minor` | `1.0.0 → 1.1.0`    | Novas funcionalidades compatíveis    |
-| **Breaking change** | `npm run release:major` | `1.0.0 → 2.0.0`    | Mudanças que quebram compatibilidade |
+| **Correção de Bug** | `npm run release`       | `1.0.0 → 1.0.1`    | Correções, pequenas melhorias        |
+| **Nova Feature**    | `npm run release:minor` | `1.0.0 → 1.1.0`    | Novas funcionalidades compatíveis    |
+| **Breaking Change** | `npm run release:major` | `1.0.0 → 2.0.0`    | Mudanças que quebram compatibilidade |
 
 ---
 
-## 🔄 **O que acontece após rodar o comando de release**
+## 🔄 **O que Acontece Após Executar o Comando de Release**
 
-### **Ações imediatas (local):**
+### **Ações Imediatas (Local):**
 
-1. **Atualização de versão**: `package.json` é incrementado
+1. **Atualização de Versão**: `package.json` é incrementado
 2. **Git Commit**: Criado commit "Release vX.X.X"
 3. **Git Tag**: Criada tag (ex.: `v1.0.1`)
 4. **Git Push**: Tudo enviado ao GitHub
 
-### **Ações automáticas (GitHub):**
+### **Ações Automáticas (GitHub):**
 
 Se você usa CI/CD, configure seu próprio workflow para build e deploy conforme seu registro. Removemos referências a terceiros.
 
-### **End Result:**
+### **Resultado Final:**
 
-Após release, utilize seu registro privado (se aplicável) para distribuir imagens.
+Após o release, utilize seu registro privado (se aplicável) para distribuir imagens.
 
 ---
 
-## 🚨 **Antes de liberar - Pré‑requisitos**
+## 🚨 **Antes de Fazer Release - Pré-requisitos**
 
-### **1. Docker Hub Credentials Setup**
+### **1. Configuração de Credenciais do Docker Hub**
 
 Se usar Actions, adicione os secrets ao seu repositório:
 
-1. Go to **Settings** → **Secrets and variables** → **Actions**
-2. Add these secrets:
-   - `DOCKER_USERNAME`: Your Docker Hub username
-   - `DOCKER_TOKEN`: Your Docker Hub access token
+1. Vá para **Settings** → **Secrets and variables** → **Actions**
+2. Adicione estes secrets:
+   - `DOCKER_USERNAME`: Seu nome de usuário do Docker Hub
+   - `DOCKER_TOKEN`: Seu token de acesso do Docker Hub
 
-### **2. Get Docker Hub Token**
+### **2. Obter Token do Docker Hub**
 
-1. Go to [Docker Hub](https://hub.docker.com)
+1. Vá para [Docker Hub](https://hub.docker.com)
 2. Account Settings → Security → New Access Token
-3. Set permissions to "Read, Write, Delete"
-4. Copy the token and add it to GitHub Secrets
+3. Defina permissões para "Read, Write, Delete"
+4. Copie o token e adicione aos GitHub Secrets
 
 ---
 
-## 🔧 **Troubleshooting Common Issues**
+## 🔧 **Solucionando Problemas Comuns**
 
 ### **❌ "Your local changes would be overwritten by merge"**
 
-**Problem:** You have uncommitted changes
-**Solution:**
+**Problema:** Você tem mudanças não commitadas
+**Solução:**
 
 ```bash
 git add .
-git commit -m "Your commit message"
+git commit -m "Sua mensagem de commit"
 npm run release
 ```
 
-### **❌ "Permission denied" in GitHub Actions**
+### **❌ "Permission denied" no GitHub Actions**
 
-**Problem:** Missing Docker Hub credentials
-**Solution:** Add `DOCKER_USERNAME` and `DOCKER_TOKEN` to GitHub Secrets
+**Problema:** Credenciais do Docker Hub ausentes
+**Solução:** Adicione `DOCKER_USERNAME` e `DOCKER_TOKEN` aos GitHub Secrets
 
 ### **❌ "Tag already exists"**
 
-**Problem:** You've run the same release before
-**Solution:** This is normal! The script will skip creating duplicate tags
+**Problema:** Você executou o mesmo release antes
+**Solução:** Isso é normal! O script vai pular a criação de tags duplicadas
 
-### **❌ GitHub Actions fails**
+### **❌ GitHub Actions falha**
 
-**Problem:** Various build issues
-**Solution:**
+**Problema:** Vários problemas de build
+**Solução:**
 
-1. Check Actions tab for detailed logs
-2. Verify Docker Hub credentials
-3. Check Dockerfile for syntax errors
+1. Verifique a aba Actions para logs detalhados
+2. Verifique credenciais do Docker Hub
+3. Verifique o Dockerfile para erros de sintaxe
 
 ---
 
-## 🧪 **Testing Your Release System**
+## 🧪 **Testando Seu Sistema de Release**
 
-### **Quick Test:**
+### **Teste Rápido:**
 
 ```bash
-# Make a small change
-echo "// Test" >> src/js/main.js
+# Fazer uma pequena mudança
+echo "// Teste" >> src/js/main.js
 git add src/js/main.js
-git commit -m "Test release"
+git commit -m "Teste de release"
 npm run release
 ```
 
-### **Verify Results:**
+### **Verificar Resultados:**
 
-1. **GitHub Actions**: Check Actions tab for successful build
-2. **Docker Hub**: Verify images are published
-3. **Git Tags**: `git tag --list` should show new tag
-4. **Version**: `cat package.json | grep version` should show updated version
+1. **GitHub Actions**: Verifique a aba Actions para build bem-sucedido
+2. **Docker Hub**: Verifique se as imagens foram publicadas
+3. **Git Tags**: `git tag --list` deve mostrar a nova tag
+4. **Versão**: `cat package.json | grep version` deve mostrar a versão atualizada
 
-### **Desfazer release de teste:**
+### **Desfazer Release de Teste:**
 
 ```bash
 git tag -d v1.0.1
@@ -303,6 +303,17 @@ git reset --hard HEAD~1
 
 ---
 
-## 🎉 **É isso!**
+## 🎉 **É Isso!**
 
-Seu fluxo de release está pronto. Siga os cenários acima e rode o comando `npm run release` conforme necessário.
+Seu fluxo de release está pronto. Siga os cenários acima e execute o comando `npm run release` conforme necessário.
+
+---
+
+## 📞 **Sobre o RW PDF**
+
+O **RW PDF** é desenvolvido e mantido pela **RW Consultoria**, especializada em soluções de software personalizadas e ferramentas de produtividade empresarial.
+
+Para mais informações sobre nossos serviços e projetos, entre em contato:
+
+**Email:** rodineyw@yahoo.com.br  
+**Empresa:** RW Consultoria - Soluções em Software
