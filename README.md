@@ -101,23 +101,23 @@ Você pode executar o RW PDF localmente para desenvolvimento ou uso pessoal.
 Você pode construir e rodar localmente:
 
 ```bash
-docker build -t rodpdf .
-docker run -p 3000:8080 rodpdf
+docker build -t rwpdf .
+docker run -p 3000:8080 rwpdf
 ```
 
 Abra: http://localhost:3000
 
 ### 🚀 Executar com Docker Compose (recomendado)
 
-For a more robust setup with auto-restart capabilities:
+Para uma configuração mais robusta, com capacidade de reinício automático:
 
 1. **Baixe o repositório e use o `docker-compose.yml` incluso**:
 
 ```yaml
 services:
-  rodpdf:
-    image: rodpdf:latest
-    container_name: rodpdf
+  rwpdf:
+    image: rwpdf:latest
+    container_name: rwpdf
     ports:
       - '3000:8080'
     restart: unless-stopped
@@ -135,7 +135,7 @@ Aplicação disponível em `http://localhost:3000`.
 
 Para quem quer uma interface limpa, sem distrações, focada somente nas ferramentas, o RW PDF suporta **Modo Simples** que oculta branding e conteúdo de marketing.
 
-**What Simple Mode does:**
+**O que o Modo Simples faz:**
 
 - Oculta navegação, seção hero, recursos, FAQ, depoimentos e rodapé
 - Mostra apenas as ferramentas essenciais de PDF
@@ -148,15 +148,15 @@ Detalhes: [SIMPLE_MODE.md](SIMPLE_MODE.md).
 
 RW PDF roda como usuário não‑root usando nginx‑unprivileged:
 
-- **Non-Root Execution**: Container runs with minimal privileges using nginx-unprivileged
-- **Port 8080**: Uses high port number to avoid requiring root privileges
-- **Security Best Practices**: Follows Principle of Least Privilege
+- **Execução como não‑root**: O container roda com privilégios mínimos usando nginx‑unprivileged
+- **Porta 8080**: Usa porta de número alto para evitar exigir privilégios de root
+- **Boas práticas de segurança**: Segue o Princípio do Menor Privilégio
 
-#### Basic Usage
+#### Uso Básico
 
 ```bash
-docker build -t bentopdf .
-docker run -p 8080:8080 bentopdf
+docker build -t rwpdf .
+docker run -p 8080:8080 rwpdf
 ```
 
 Para detalhes de segurança, veja [SECURITY.md](SECURITY.md).
@@ -180,55 +180,55 @@ npm run release:minor
 npm run release:major
 ```
 
-For detailed release instructions, see [RELEASE.md](RELEASE.md).
+Para instruções detalhadas de release, veja [RELEASE.md](RELEASE.md).
 
-### 🚀 Development Setup
+### 🚀 Ambiente de Desenvolvimento
 
-#### Option 1: Run with npm
+#### Opção 1: Rodar com npm
 
-1. **Clone the Repository**:
+1. **Clonar o repositório**:
 
    ```bash
-   git clone https://github.com/alam00000/bentopdf.git
-   cd bentopdf
+   git clone https://github.com/rodineyw/RW_PDF.git
+   cd RW_PDF
    ```
 
-2. **Install Dependencies**:
+2. **Instalar dependências**:
 
    ```bash
    npm install
    ```
 
-3. **Run the Development Server**:
+3. **Rodar o servidor de desenvolvimento**:
    ```bash
    npm run dev
    ```
-   The application will be available at `http://localhost:5173`.
+   A aplicação ficará disponível em `http://localhost:5173`.
 
-#### Option 2: Build and Run with Docker Compose
+#### Opção 2: Build e execução com Docker Compose
 
-1. **Clone the Repository**:
+1. **Clonar o repositório**:
 
    ```bash
-   git clone https://github.com/alam00000/bentopdf.git
-   cd bentopdf
+   git clone https://github.com/rodineyw/RW_PDF.git
+   cd RW_PDF
    ```
 
-2. **Run with Docker Compose**:
+2. **Executar com Docker Compose**:
 
    ```bash
    docker-compose -f docker-compose.dev.yml up -d
    ```
 
-   The application will be available at `http://localhost:3000`.
+   A aplicação ficará disponível em `http://localhost:3000`.
 
-   > **Note:** After making any local changes to the code, rebuild the Docker image using:
+   > **Nota:** Após realizar alterações locais no código, reconstrua a imagem Docker usando:
 
    ```bash
    docker-compose -f docker-compose.dev.yml up --build -d
    ```
 
-   This ensures your latest changes are applied inside the container.
+   Isso garante que suas últimas alterações sejam aplicadas dentro do container.
 
 ---
 
@@ -236,9 +236,9 @@ For detailed release instructions, see [RELEASE.md](RELEASE.md).
 
 O RW PDF usa **HTML**, **CSS** e **TypeScript** com **Vite** e **Tailwind**.
 
-- **Vite**: A fast build tool for modern web development.
-- **TypeScript**: For type safety and an improved developer experience.
-- **Tailwind CSS**: For rapid and consistent UI development.
+- **Vite**: Ferramenta de build rápida para desenvolvimento web moderno.
+- **TypeScript**: Tipagem estática e melhor experiência de desenvolvimento.
+- **Tailwind CSS**: Desenvolvimento de UI rápido, consistente e escalável.
 
 > **Nota:** Algumas partes ainda usam estrutura legada e serão atualizadas gradualmente.
 
@@ -246,14 +246,14 @@ O RW PDF usa **HTML**, **CSS** e **TypeScript** com **Vite** e **Tailwind**.
 
 ## 🗺️ Roadmap
 
-### Planned Features:
+### Funcionalidades Planejadas:
 
-- **HTML to PDF**: Convert HTML files or web pages into PDF documents.
-- **Markdown to PDF**: Enhanced support for converting `.md` files to PDF.
-- **Convert to PDF/A**: Convert PDFs to the PDF/A archival format.
-- **Edit PDF Content**: Directly edit text and other content within your PDF.
-- **PDF to Office**: Converts PDF files into editable Word, Excel, and PowerPoint formats.
-- **Office to PDF**: Converts Word, Excel, and PowerPoint documents into optimized PDFs.
+- **HTML para PDF**: Converter arquivos HTML ou páginas web em documentos PDF.
+- **Markdown para PDF**: Suporte aprimorado para converter arquivos `.md` em PDF.
+- **Converter para PDF/A**: Converter PDFs para o formato de arquivamento PDF/A.
+- **Editar conteúdo do PDF**: Editar diretamente textos e outros conteúdos dentro do PDF.
+- **PDF para Office**: Converter arquivos PDF para formatos editáveis do Word, Excel e PowerPoint.
+- **Office para PDF**: Converter documentos Word, Excel e PowerPoint para PDFs otimizados.
 
 Contribuições e discussões são bem‑vindas! Use Issues no GitHub.
 
@@ -261,12 +261,12 @@ Contribuições e discussões são bem‑vindas! Use Issues no GitHub.
 
 ## 🤝 Contribuindo
 
-We welcome contributions from the community! Here's how you can get started:
+Contribuições da comunidade são muito bem‑vindas! Veja como começar:
 
-1.  **Fork the repository** and create your branch from `main`.
-2.  Follow the **Getting Started** steps to set up your local environment.
-3.  Make your changes and commit them with a clear message.
-4.  **Open a Pull Request** and describe the changes you've made.
+1.  **Faça um fork do repositório** e crie sua branch a partir da `main`.
+2.  Siga os passos de **Começando** para configurar seu ambiente local.
+3.  Faça suas alterações e crie commits com mensagens claras.
+4.  **Abra um Pull Request** e descreva as mudanças realizadas.
 
 Tem ideia de ferramenta ou melhoria? [Abra uma issue](https://github.com/rodineyw/RW_PDF/issues) para discutir.
 
@@ -276,14 +276,14 @@ Tem ideia de ferramenta ou melhoria? [Abra uma issue](https://github.com/rodiney
 
 Este projeto só é possível graças a ferramentas e bibliotecas open‑source:
 
-- **[PDFLib.js](https://pdf-lib.js.org/)** – For enabling powerful client-side PDF manipulation.
-- **[PDF.js](https://mozilla.github.io/pdf.js/)** – For the robust PDF rendering engine in the browser.
-- **[PDFKit](https://pdfkit.org/)** – For creating and editing PDFs with ease.
-- **[EmbedPDF](https://github.com/embedpdf/embed-pdf-viewer)** – For seamless PDF editing in pure JS.
-- **[Cropper.js](https://fengyuanchen.github.io/cropperjs/)** – For intuitive image cropping functionality.
-- **[Vite](https://vitejs.dev/)** – For lightning-fast development and build tooling.
-- **[Tailwind CSS](https://tailwindcss.com/)** – For rapid, flexible, and beautiful UI styling.
-- **[qpdf](https://github.com/qpdf/qpdf)** and **[qpdf-wasm](https://github.com/neslinesli93/qpdf-wasm)**– A powerful command-line tool and library for inspecting, repairing, and transforming PDF file ported to wasm
+- **[PDFLib.js](https://pdf-lib.js.org/)** – Manipulação de PDF client‑side poderosa.
+- **[PDF.js](https://mozilla.github.io/pdf.js/)** – Motor robusto de renderização de PDF no navegador.
+- **[PDFKit](https://pdfkit.org/)** – Criação e edição de PDFs com facilidade.
+- **[EmbedPDF](https://github.com/embedpdf/embed-pdf-viewer)** – Edição de PDF fluida em JavaScript puro.
+- **[Cropper.js](https://fengyuanchen.github.io/cropperjs/)** – Recorte de imagens intuitivo.
+- **[Vite](https://vitejs.dev/)** – Ferramenta de desenvolvimento e build ultrarrápida.
+- **[Tailwind CSS](https://tailwindcss.com/)** – Estilização de UI rápida, flexível e elegante.
+- **[qpdf](https://github.com/qpdf/qpdf)** e **[qpdf-wasm](https://github.com/neslinesli93/qpdf-wasm)** – Ferramenta e biblioteca de linha de comando para inspecionar, reparar e transformar PDF, portada para wasm.
 
 Obrigado à comunidade open‑source por tornar isso possível!
 
