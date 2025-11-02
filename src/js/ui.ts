@@ -861,8 +861,8 @@ export const toolTemplates = {
 `,
 
   'add-header-footer': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Add Header & Footer</h2>
-    <p class="mb-6 text-gray-400">Add custom text to the top and bottom margins of every page.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Adicionar Cabeçalho & Rodapé</h2>
+    <p class="mb-6 text-gray-400">Adicione texto personalizado ao topo e rodapé de cada página do seu PDF.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
     <div id="header-footer-options" class="hidden mt-6 space-y-4">
@@ -1059,7 +1059,7 @@ export const toolTemplates = {
     `,
   'md-to-pdf': () => `
     <h2 class="text-2xl font-bold text-white mb-4">${tInterface('Markdown to PDF')}</h2>
-    <p class="mb-6 text-gray-400">${tInterface('Write in Markdown, select your formatting options, and get a high-quality, multi-page PDF. <br><strong class="text-gray-300">Note:</strong> Images linked from the web (e.g., https://...) require an internet connection to be rendered.')}</p>
+    <p class="mb-6 text-gray-400">${tInterface('Write in Markdown, select your formatting options, and get a high-quality, multi-page PDF. <br><strong class="text-gray-300">Nota:</strong> Imagens com links da web (Ex., https://...) requer internet para rendereizar.')}</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div>
                 <label for="page-format" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Page Format')}</label>
@@ -1071,28 +1071,28 @@ export const toolTemplates = {
             <div>
                 <label for="orientation" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Orientation')}</label>
                 <select id="orientation" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
-                    <option value="portrait">Portrait</option>
-                    <option value="landscape">Landscape</option>
+                    <option value="portrait">Retrato</option>
+                    <option value="landscape">Paisagem</option>
                 </select>
             </div>
             <div>
                 <label for="margin-size" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Margin Size')}</label>
                 <select id="margin-size" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                     <option value="normal">Normal</option>
-                    <option value="narrow">Narrow</option>
-                    <option value="wide">Wide</option>
+                    <option value="narrow">Estreita</option>
+                    <option value="wide">Larga</option>
                 </select>
             </div>
         </div>
         <div class="h-[50vh]">
             <label for="md-input" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Markdown Editor')}</label>
-            <textarea id="md-input" class="w-full h-full bg-gray-900 border border-gray-600 text-gray-300 rounded-lg p-3 font-mono resize-none" placeholder="# Welcome to Markdown..."></textarea>
+            <textarea id="md-input" class="w-full h-full bg-gray-900 border border-gray-600 text-gray-300 rounded-lg p-3 font-mono resize-none" placeholder="# Bem-vindo a Markdown..."></textarea>
         </div>
         <button id="process-btn" class="btn-gradient w-full mt-6">${tInterface('Create PDF from Markdown')}</button>
     `,
   'svg-to-pdf': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">SVG para PDF</h2>
-        <p class="mb-6 text-gray-400">Converter uma ou mais imagens vetoriais SVG em um único arquivo PDF.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">${tInterface('SVG to PDF')}</h2>
+        <p class="mb-6 text-gray-400">${tInterface('Converter uma ou mais imagens vetoriais SVG em um único arquivo PDF.')}</p>
         ${createFileInputHTML({ multiple: true, accept: 'image/svg+xml', showControls: true })}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         <button id="process-btn" class="btn-gradient w-full mt-6">Converter para PDF</button>
@@ -1216,8 +1216,8 @@ export const toolTemplates = {
                     <label for="output-orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientação de Saída</label>
                     <select id="output-orientation" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                         <option value="auto" selected>Automatic</option>
-                        <option value="portrait">Portrait</option>
-                        <option value="landscape">Landscape</option>
+                        <option value="portrait">Retrato</option>
+                        <option value="landscape">Paisagem</option>
                     </select>
                 </div>
                 <div class="flex items-end pb-1">
@@ -1308,8 +1308,8 @@ export const toolTemplates = {
                 <div>
                     <label for="orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientação</label>
                     <select id="orientation" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
-                        <option value="portrait" selected>Portrait</option>
-                        <option value="landscape">Landscape</option>
+                        <option value="portrait" selected>Retrato</option>
+                        <option value="landscape">Paisagem</option>
                     </select>
                 </div>
             </div>
@@ -1527,7 +1527,7 @@ export const toolTemplates = {
                 <!-- Character Whitelist Input -->
                 <div>
                     <label for="ocr-whitelist" class="block mb-1 text-xs font-medium text-gray-400">Lista de Caracteres Permitidos (Opcional)</label>
-                    <input type="text" id="ocr-whitelist" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm" placeholder="e.g., abcdefghijklmnopqrstuvwxyz0123456789$.,">
+                    <input type="text" id="ocr-whitelist" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2 text-sm" placeholder="ex., abcdefghijklmnopqrstuvwxyz0123456789$.,">
                     <p class="text-xs text-gray-500 mt-1">Somente esses caracteres serão reconhecidos. Deixe vazio para todos os caracteres.</p>
                 </div>
             </div>
@@ -1671,22 +1671,22 @@ export const toolTemplates = {
 `,
 
   'remove-annotations': () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Remove Annotations</h2>
-    <p class="mb-6 text-gray-400">Select the types of annotations to remove from all pages or a specific range.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Remover anotações</h2>
+    <p class="mb-6 text-gray-400">Selecione os tipos de anotações a serem removidas de todas as páginas ou de um intervalo específico.</p>
     ${createFileInputHTML()}
     <div id="file-display-area" class="mt-4 space-y-2"></div>
 
     <div id="remove-annotations-options" class="hidden mt-6 space-y-6">
         <div>
-            <h3 class="text-lg font-semibold text-white mb-2">1. Choose Pages</h3>
+            <h3 class="text-lg font-semibold text-white mb-2">1. Escolha a página</h3>
             <div class="flex gap-4 p-2 rounded-lg bg-gray-900">
                 <label class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer">
                     <input type="radio" name="page-scope" value="all" checked class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
-                    <span class="font-semibold text-white">All Pages</span>
+                    <span class="font-semibold text-white">Todas as páginas</span>
                 </label>
                 <label class="flex-1 flex items-center gap-2 p-3 rounded-md hover:bg-gray-700 cursor-pointer">
                     <input type="radio" name="page-scope" value="specific" class="w-4 h-4 text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500">
-                    <span class="font-semibold text-white">Specific Pages</span>
+                    <span class="font-semibold text-white">Página especifica</span>
                 </label>
             </div>
             <div id="page-range-wrapper" class="hidden mt-2">
