@@ -82,7 +82,7 @@ const init = () => {
           <div class="container mx-auto px-4">
             <div class="flex items-center mb-4">
                 <img src="/logo.svg" alt="RW PDF Logo" class="h-8 w-8 mr-2">
-              <span class="text-white font-bold text-lg">BentoPDF</span>
+              <span class="text-white font-bold text-lg">RW PDF</span>
             </div>
             <p class="text-gray-400 text-sm">
               &copy; 2025 RW Consultoria. Todos os direitos reservados.
@@ -97,7 +97,7 @@ const init = () => {
         (divider as HTMLElement).style.display = 'none';
       });
 
-      document.title = 'RW Consultoria - Kit de Ferramentas PDF';
+      document.title = 'Ferramentas PDF';
 
       const toolsHeader = document.getElementById('tools-header');
       if (toolsHeader) {
