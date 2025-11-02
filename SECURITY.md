@@ -1,8 +1,8 @@
-# Security Configuration
+# Segurança
 
 ## Non-Root User Support
 
-BentoPDF now uses nginx-unprivileged for enhanced security. This follows the Principle of Least Privilege and is essential for production environments.
+RW PDF usa nginx-unprivileged para maior segurança. Isso segue o Princípio do Menor Privilégio e é essencial em produção.
 
 ### Security Benefits
 
@@ -11,23 +11,23 @@ BentoPDF now uses nginx-unprivileged for enhanced security. This follows the Pri
 - **Kubernetes/OpenShift Compatibility**: Works with security policies that require non-root execution
 - **System Protection**: Prevents system-wide damage if the application is compromised
 
-### Usage
+### Uso
 
 #### Default Configuration (nginx-unprivileged)
 
 ```bash
-docker build -t bentopdf .
-docker run -p 8080:8080 bentopdf
+docker build -t rodpdf .
+docker run -p 8080:8080 rodpdf
 ```
 
 #### Simple Mode
 
 ```bash
-# Build with simple mode enabled
-docker build --build-arg SIMPLE_MODE=true -t bentopdf-simple .
+# Build com modo simples habilitado
+docker build --build-arg SIMPLE_MODE=true -t rodpdf-simple .
 
-# Run the container
-docker run -p 8080:8080 bentopdf-simple
+# Rodar o container
+docker run -p 8080:8080 rodpdf-simple
 ```
 
 #### Kubernetes Example
@@ -36,7 +36,7 @@ docker run -p 8080:8080 bentopdf-simple
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bentopdf
+  name: rodpdf
 spec:
   template:
     spec:
@@ -45,8 +45,8 @@ spec:
         runAsUser: 2000
         runAsGroup: 2000
       containers:
-        - name: bentopdf
-          image: bentopdf:latest
+        - name: rodpdf
+          image: rodpdf:latest
           ports:
             - containerPort: 8080
 ```

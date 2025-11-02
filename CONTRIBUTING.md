@@ -1,28 +1,28 @@
-# Contributing to BentoPDF
+# Contribuindo para RW PDF
 
-First off, thank you for considering contributing to **BentoPDF**! Your help makes this project better for everyone.
+Obrigado por considerar contribuir para o **RW PDF**! Sua ajuda melhora o projeto para todos.
 
 This document outlines how to contribute, report issues, and get involved in the project.
 
 ---
 
-## 1. How to Contribute
+## 1. Como contribuir
 
 You can contribute in several ways:
 
-- **Reporting Bugs:** If you find a bug or unexpected behavior, please open an issue. Include steps to reproduce and any relevant screenshots or logs.
-- **Feature Requests:** Suggest new features or improvements by opening an issue and describing your idea clearly.
-- **Code Contributions:** Submit a pull request with new features, bug fixes, or improvements.
-- **Documentation:** Help improve the README, usage examples, or guides.
-- **Testing:** Help test new releases or changes to ensure stability.
+- **Reportar bugs:** Abra uma issue com passos para reproduzir e logs/prints.
+- **Solicitar recursos:** Abra uma issue descrevendo sua ideia claramente.
+- **Contribuir código:** Envie um PR com novas features, correções ou melhorias.
+- **Documentação:** Melhore README, exemplos de uso e guias.
+- **Testes:** Ajude a testar novas versões/mudanças para garantir estabilidade.
 
 ---
 
-### Issue Template
+### Template de Issues
 
 When reporting bugs, requesting features, or asking questions, please use our [issue template](.github/ISSUE_TEMPLATE/bug_feature_question.md). The template will automatically appear when you create a new issue.
 
-**Our issue template helps you provide:**
+**Nosso template ajuda a fornecer:**
 
 - Clear categorization (Bug, Feature Request, or Question)
 - Steps to reproduce (for bugs)
@@ -30,7 +30,7 @@ When reporting bugs, requesting features, or asking questions, please use our [i
 - Environment details
 - Screenshots or logs
 
-**Title Format Examples:**
+**Exemplos de título:**
 
 - `(Bug) Text alignment incorrect on multi-line paragraphs`
 - `(Feature) Add support for custom PDF metadata`
@@ -100,7 +100,7 @@ When submitting code contributions, please use our [pull request template](.gith
 
 ---
 
-## 4. Issues and Pull Requests
+## 4. Issues e Pull Requests
 
 - Make sure your PR is focused and addresses a single issue or feature.
 - Reference related issues in your PR description (e.g., `Closes #12`).
@@ -108,18 +108,18 @@ When submitting code contributions, please use our [pull request template](.gith
 
 ---
 
-## 5. Reporting Security Issues
+## 5. Relato de questões de segurança
 
-If you discover a security vulnerability, please **do not** open a public issue. Instead, contact the project maintainer directly at:
+Se encontrar vulnerabilidade, **não** abra issue pública. Contate o mantenedor:
 
-**Email:** [contact@bentopdf.com](mailto:contact@bentopdf.com)
+**Email:** [rodineyw@yahoo.com.br](mailto:rodineyw@yahoo.com.br)
 
 ---
 
-## 6. Code of Conduct
+## 6. Código de Conduta
 
 All contributors are expected to follow the Code of Conduct. Be respectful and considerate in all communications.
 
 ---
 
-Thank you for helping make **BentoPDF** a better library for everyone!
+Obrigado por ajudar a tornar o **RW PDF** melhor para todos!

@@ -1,28 +1,27 @@
-# BentoPDF
+# RW PDF
 
-**BentoPDF** is a powerful, privacy-first, client-side PDF toolkit that allows you to manipulate, edit, merge, and process PDF files directly in your browser. No server-side processing is required, ensuring your files remain secure and private.
+**RW PDF** é um toolkit de PDF voltado à privacidade, 100% client-side, que permite manipular, editar, mesclar e processar arquivos PDF diretamente no navegador. Não há processamento no servidor, garantindo que seus arquivos permaneçam seguros e privados.
 
-![Docker Pulls](https://img.shields.io/docker/pulls/bentopdf/bentopdf) [![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20Coffee-yellow?logo=kofi&style=flat-square)](https://ko-fi.com/alio0) ![GitHub Stars](https://img.shields.io/github/stars/alam00000/bentopdf?style=social)
-[![Sponsor me on GitHub](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ff69b4)](https://github.com/sponsors/alam00000)
+Mantido por **RW Consultoria** — autor e codificador: **Ródiney**.
 
-## ⭐ Stargazers over time
+## ⭐ Repositório
 
-[![Star History Chart](https://api.star-history.com/svg?repos=alam00000/bentopdf&type=Date)](https://star-history.com/#alam00000/bentopdf&Date)
-
----
-
-## ✨ Why BentoPDF?
-
-- **Privacy First**: All processing happens in your browser. Your files are never uploaded to a server, guaranteeing 100% privacy.
-- **No Limits**: Manipulate as many files as you want, as often you want. There are no restrictions or upload limits.
-- **High Performance**: Built with modern web technologies, BentoPDF is fast and efficient, handling even large PDF files with ease.
-- **Completely Free**: BentoPDF is a free and open-source tool for everyone.
+GitHub: https://github.com/rodineyw/RW_PDF
 
 ---
 
-## 🛠️ Features / Tools Supported
+## ✨ Por que RW PDF?
 
-BentoPDF offers a comprehensive suite of tools to handle all your PDF needs.
+- **Privacidade em primeiro lugar**: Tudo acontece no seu navegador. Seus arquivos nunca são enviados para servidor.
+- **Sem limites**: Manipule quantos arquivos quiser, quantas vezes quiser.
+- **Alta performance**: Construído com tecnologias modernas, rápido e eficiente, inclusive para PDFs grandes.
+- **Totalmente gratuito**: Ferramenta livre e open-source para todos.
+
+---
+
+## 🛠️ Funcionalidades / Ferramentas
+
+O RW PDF oferece um conjunto completo de ferramentas para lidar com PDFs.
 
 ### Organize & Manage PDFs
 
@@ -90,64 +89,54 @@ BentoPDF offers a comprehensive suite of tools to handle all your PDF needs.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Começando
 
-You can run BentoPDF locally for development or personal use.
+Você pode executar o RW PDF localmente para desenvolvimento ou uso pessoal.
 
-### Prerequisites
+### Pré‑requisitos
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [npm](https://www.npmjs.com/) (or yarn/pnpm)
-- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/install/) (for containerized setup)
+- [Node.js](https://nodejs.org/) (v18 ou superior)
+- [npm](https://www.npmjs.com/) (ou yarn/pnpm)
+- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/install/) (opcional)
 
-### 🚀 Quick Start with Docker
+### 🚀 Execução com Docker (opcional)
 
-You can run BentoPDF directly from Docker Hub or GitHub Container Registry without cloning the repository:
+Você pode construir e rodar localmente:
 
-You can also watch the video on how to set it up 👉
-[BentoPDF Docker Setup](https://drive.google.com/file/d/1C4eJ2nqeaH__1Tlad-xuBHaF2Ha4fSBf/view?usp=drive_link)
-
-**Using Docker Hub:**
 ```bash
-docker run -p 3000:8080 bentopdf/bentopdf:latest
+docker build -t rodpdf .
+docker run -p 3000:8080 rodpdf
 ```
 
-**Using GitHub Container Registry:**
-```bash
-docker run -p 3000:8080 ghcr.io/alam00000/bentopdf:latest
-```
+Abra: http://localhost:3000
 
-Open your browser at: http://localhost:3000
-
-This is the fastest way to try BentoPDF without setting up a development environment.
-
-### 🚀 Run with Docker Compose (Recommended)
+### 🚀 Executar com Docker Compose (recomendado)
 
 For a more robust setup with auto-restart capabilities:
 
-1. **Download the repo and create a `docker-compose.yml` file or use the one given in repo**:
+1. **Baixe o repositório e use o `docker-compose.yml` incluso**:
 
 ```yaml
 services:
-  bentopdf:
-    image: bentopdf/bentopdf:latest
-    container_name: bentopdf
+  rodpdf:
+    image: rodpdf:latest
+    container_name: rodpdf
     ports:
       - '3000:8080'
     restart: unless-stopped
 ```
 
-2. **Start the application**:
+2. **Inicie a aplicação**:
 
 ```bash
 docker-compose up -d
 ```
 
-The application will be available at `http://localhost:3000`.
+Aplicação disponível em `http://localhost:3000`.
 
-### 🏢 Simple Mode for Internal Use
+### 🏢 Modo Simples para uso interno
 
-For organizations that want a clean, distraction-free interface focused solely on PDF tools, BentoPDF supports a **Simple Mode** that hides all branding and marketing content.
+Para quem quer uma interface limpa, sem distrações, focada somente nas ferramentas, o RW PDF suporta **Modo Simples** que oculta branding e conteúdo de marketing.
 
 **What Simple Mode does:**
 
@@ -156,11 +145,11 @@ For organizations that want a clean, distraction-free interface focused solely o
 - Updates page title to "PDF Tools"
 - Perfect for internal company tools and educational institutions
 
-For more details, see [SIMPLE_MODE.md](SIMPLE_MODE.md).
+Detalhes: [SIMPLE_MODE.md](SIMPLE_MODE.md).
 
-### 🔒 Security Features
+### 🔒 Segurança
 
-BentoPDF runs as a non-root user using nginx-unprivileged for enhanced security:
+RW PDF roda como usuário não‑root usando nginx‑unprivileged:
 
 - **Non-Root Execution**: Container runs with minimal privileges using nginx-unprivileged
 - **Port 8080**: Uses high port number to avoid requiring root privileges
@@ -173,21 +162,13 @@ docker build -t bentopdf .
 docker run -p 8080:8080 bentopdf
 ```
 
-For detailed security configuration, see [SECURITY.md](SECURITY.md).
+Para detalhes de segurança, veja [SECURITY.md](SECURITY.md).
 
-### 📦 Version Management
+### 📦 Versionamento
 
-BentoPDF supports semantic versioning with multiple Docker tags available on both Docker Hub and GitHub Container Registry:
+RW PDF usa versionamento semântico.
 
-**Docker Hub:**
-- **Latest**: `bentopdf/bentopdf:latest`
-- **Specific Version**: `bentopdf/bentopdf:1.0.0`
-- **Version with Prefix**: `bentopdf/bentopdf:v1.0.0`
-
-**GitHub Container Registry:**
-- **Latest**: `ghcr.io/alam00000/bentopdf:latest`
-- **Specific Version**: `ghcr.io/alam00000/bentopdf:1.0.0`
-- **Version with Prefix**: `ghcr.io/alam00000/bentopdf:v1.0.0`
+Exemplos de uso local estão acima (Docker/Docker Compose). Ajuste para seu registro privado se necessário.
 
 #### Quick Release
 
@@ -254,15 +235,15 @@ For detailed release instructions, see [RELEASE.md](RELEASE.md).
 
 ---
 
-## 🛠️ Tech Stack & Background
+## 🛠️ Stack técnico
 
-BentoPDF was originally built using **HTML**, **CSS**, and **vanilla JavaScript**. As the project grew, it was migrated to a modern stack for better maintainability and scalability:
+O RW PDF usa **HTML**, **CSS** e **TypeScript** com **Vite** e **Tailwind**.
 
 - **Vite**: A fast build tool for modern web development.
 - **TypeScript**: For type safety and an improved developer experience.
 - **Tailwind CSS**: For rapid and consistent UI development.
 
-> **Note:** Some parts of the codebase still use legacy structures from the original implementation. Contributors should expect gradual updates as testing and refactoring continue.
+> **Nota:** Algumas partes ainda usam estrutura legada e serão atualizadas gradualmente.
 
 ---
 
@@ -277,11 +258,11 @@ BentoPDF was originally built using **HTML**, **CSS**, and **vanilla JavaScript*
 - **PDF to Office**: Converts PDF files into editable Word, Excel, and PowerPoint formats.
 - **Office to PDF**: Converts Word, Excel, and PowerPoint documents into optimized PDFs.
 
-Contributions and discussions on the roadmap are welcome! Join the conversation via [Discord](https://discord.gg/AP2Y97juZT).
+Contribuições e discussões são bem‑vindas! Use Issues no GitHub.
 
 ---
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
 We welcome contributions from the community! Here's how you can get started:
 
@@ -290,13 +271,13 @@ We welcome contributions from the community! Here's how you can get started:
 3.  Make your changes and commit them with a clear message.
 4.  **Open a Pull Request** and describe the changes you've made.
 
-Have an idea for a new tool or an improvement? [Open an issue](https://github.com/alam00000/bentopdf/issues) to discuss it first.
+Tem ideia de ferramenta ou melhoria? [Abra uma issue](https://github.com/rodineyw/RW_PDF/issues) para discutir.
 
 ---
 
-## Special Thanks
+## Agradecimentos
 
-BentoPDF wouldn't be possible without the amazing open-source tools and libraries that power it. We'd like to extend our heartfelt thanks to the creators and maintainers of:
+Este projeto só é possível graças a ferramentas e bibliotecas open‑source:
 
 - **[PDFLib.js](https://pdf-lib.js.org/)** – For enabling powerful client-side PDF manipulation.
 - **[PDF.js](https://mozilla.github.io/pdf.js/)** – For the robust PDF rendering engine in the browser.
@@ -307,8 +288,8 @@ BentoPDF wouldn't be possible without the amazing open-source tools and librarie
 - **[Tailwind CSS](https://tailwindcss.com/)** – For rapid, flexible, and beautiful UI styling.
 - **[qpdf](https://github.com/qpdf/qpdf)** and **[qpdf-wasm](https://github.com/neslinesli93/qpdf-wasm)**– A powerful command-line tool and library for inspecting, repairing, and transforming PDF file ported to wasm
 
-Your work inspires and empowers developers everywhere. Thank you for making open-source amazing!
+Obrigado à comunidade open‑source por tornar isso possível!
 
-## 📜 License
+## 📜 Licença
 
-This project is licensed under the **GNU AGPLv3**. See the [LICENSE](https://github.com/alam00000/bentopdf/blob/main/LICENSE) file for details.
+Este projeto é licenciado sob os termos do arquivo **LICENSE** deste repositório.

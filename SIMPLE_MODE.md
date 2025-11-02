@@ -124,15 +124,15 @@ Open `http://localhost:3000` in your browser.
 ### Method 4: Compare Both Modes
 
 ```bash
-# Test Normal Mode
-docker run -p 3000:8080 bentopdf/bentopdf:latest
+# Teste Modo Normal
+docker run -p 3000:8080 rodpdf:latest
 
-# Test Simple Mode
-docker run -p 3001:8080 bentopdf/bentopdf-simple:latest
+# Teste Modo Simples
+docker run -p 3001:8080 rodpdf-simple:latest
 ```
 
-- Normal Mode: `http://localhost:3000`
-- Simple Mode: `http://localhost:3001`
+- Modo Normal: `http://localhost:3000`
+- Modo Simples: `http://localhost:3001`
 
 ## 🔍 What to Look For
 
@@ -148,35 +148,23 @@ When Simple Mode is working correctly, you should see:
 
 ## 📦 Available Docker Images
 
-### Normal Mode (Full Branding)
+### Modo Normal (branding completo)
 
-**Docker Hub:**
-- `bentopdf/bentopdf:latest`
-- `bentopdf/bentopdf:v1.0.0` (versioned)
+Use imagens locais (`rodpdf:latest`) ou seu registro privado.
 
-**GitHub Container Registry:**
-- `ghcr.io/alam00000/bentopdf:latest`
-- `ghcr.io/alam00000/bentopdf:v1.0.0` (versioned)
+### Modo Simples (interface limpa)
 
-### Simple Mode (Clean Interface)
-
-**Docker Hub:**
-- `bentopdf/bentopdf-simple:latest`
-- `bentopdf/bentopdf-simple:v1.0.0` (versioned)
-
-**GitHub Container Registry:**
-- `ghcr.io/alam00000/bentopdf-simple:latest`
-- `ghcr.io/alam00000/bentopdf-simple:v1.0.0` (versioned)
+Use imagens locais (`rodpdf-simple:latest`) ou seu registro privado.
 
 ## 🚀 Production Deployment Examples
 
-### Internal Company Tool
+### Ferramenta interna
 
 ```yaml
 services:
-  bentopdf:
-    image: bentopdf/bentopdf-simple:latest
-    container_name: bentopdf
+  rodpdf:
+    image: rodpdf-simple:latest
+    container_name: rodpdf
     restart: unless-stopped
     ports:
       - '80:80'
