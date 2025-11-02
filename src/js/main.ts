@@ -28,7 +28,7 @@ const init = () => {
           <div class="container mx-auto px-4">
             <div class="flex justify-start items-center h-16">
               <div class="flex-shrink-0 flex items-center">
-                <img src="/logo.svg" alt="RW PDF Logo" class="h-8 w-8">
+                <img src="logo.svg" alt="RW PDF Logo" class="h-8 w-8">
                 <span class="text-white font-bold text-xl ml-2">RW PDF</span>
               </div>
             </div>
