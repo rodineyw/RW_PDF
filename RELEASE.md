@@ -191,49 +191,40 @@ git reset --hard HEAD~1
 
 ---
 
-## 🎯 **Release Type Guidelines**
+## 🎯 **Guia de tipos de release**
 
-| Scenario            | Command                 | Version Change  | When to Use                          |
-| ------------------- | ----------------------- | --------------- | ------------------------------------ |
-| **Bug Fix**         | `npm run release`       | `1.0.0 → 1.0.1` | Fixing bugs, small improvements      |
-| **New Feature**     | `npm run release:minor` | `1.0.0 → 1.1.0` | Adding features, backward compatible |
-| **Breaking Change** | `npm run release:major` | `1.0.0 → 2.0.0` | API changes, major rewrites          |
+| Cenário             | Comando                 | Mudança de versão | Quando usar                          |
+| ------------------- | ----------------------- | ------------------ | ------------------------------------ |
+| **Correção de bug** | `npm run release`       | `1.0.0 → 1.0.1`    | Correções, pequenas melhorias        |
+| **Nova feature**    | `npm run release:minor` | `1.0.0 → 1.1.0`    | Novas funcionalidades compatíveis    |
+| **Breaking change** | `npm run release:major` | `1.0.0 → 2.0.0`    | Mudanças que quebram compatibilidade |
 
 ---
 
-## 🔄 **What Happens After You Run a Release Command**
+## 🔄 **O que acontece após rodar o comando de release**
 
-### **Immediate Actions (Local):**
+### **Ações imediatas (local):**
 
-1. **Version Update**: `package.json` version gets bumped
-2. **Git Commit**: New commit created with "Release vX.X.X"
-3. **Git Tag**: Tag created (e.g., `v1.0.1`)
-4. **Git Push**: Everything pushed to GitHub
+1. **Atualização de versão**: `package.json` é incrementado
+2. **Git Commit**: Criado commit "Release vX.X.X"
+3. **Git Tag**: Criada tag (ex.: `v1.0.1`)
+4. **Git Push**: Tudo enviado ao GitHub
 
-### **Automatic Actions (GitHub):**
+### **Ações automáticas (GitHub):**
 
-1. **GitHub Actions Triggered**: Workflow starts building Docker image
-2. **Docker Build**: Multi-architecture image created
-3. **Docker Push**: Images pushed to Docker Hub with tags:
-   - `bentopdf/bentopdf:latest`
-   - `bentopdf/bentopdf:1.0.1`
-   - `bentopdf/bentopdf:v1.0.1`
+Se você usa CI/CD, configure seu próprio workflow para build e deploy conforme seu registro. Removemos referências a terceiros.
 
 ### **End Result:**
 
-Users can immediately pull your new version:
-
-```bash
-docker pull bentopdf/bentopdf:1.0.1
-```
+Após release, utilize seu registro privado (se aplicável) para distribuir imagens.
 
 ---
 
-## 🚨 **Before You Release - Prerequisites**
+## 🚨 **Antes de liberar - Pré‑requisitos**
 
 ### **1. Docker Hub Credentials Setup**
 
-You need to add these secrets to your GitHub repository:
+Se usar Actions, adicione os secrets ao seu repositório:
 
 1. Go to **Settings** → **Secrets and variables** → **Actions**
 2. Add these secrets:
@@ -302,7 +293,7 @@ npm run release
 3. **Git Tags**: `git tag --list` should show new tag
 4. **Version**: `cat package.json | grep version` should show updated version
 
-### **Undo Test Release:**
+### **Desfazer release de teste:**
 
 ```bash
 git tag -d v1.0.1
@@ -312,6 +303,6 @@ git reset --hard HEAD~1
 
 ---
 
-## 🎉 **That's It!**
+## 🎉 **É isso!**
 
-Your release system is now ready! Just follow the scenarios above based on your situation and run the appropriate `npm run release` command.
+Seu fluxo de release está pronto. Siga os cenários acima e rode o comando `npm run release` conforme necessário.
