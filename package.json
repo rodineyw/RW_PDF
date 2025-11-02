@@ -1,8 +1,8 @@
 {
-  "name": "RWPDF",
+  "name": "rw-consultoria",
   "private": true,
-  "version": "1.1.5",
-  "description": "RW PDF - Kit de ferramentas de PDF client-side, focado em privacidade.",
+  "version": "1.1.6",
+  "description": "RW Consultoria - Kit de ferramentas de PDF client-side, focado em privacidade.",
   "author": "RW Consultoria",
   "license": "Apache-2.0",
   "type": "module",
