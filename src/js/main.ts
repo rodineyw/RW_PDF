@@ -28,8 +28,8 @@ const init = () => {
           <div class="container mx-auto px-4">
             <div class="flex justify-start items-center h-16">
               <div class="flex-shrink-0 flex items-center">
-                <img src="logo.svg" alt="RW PDF Logo" class="h-8 w-8">
-                <span class="text-white font-bold text-xl ml-2">RW PDF</span>
+                <img src="logo.svg" alt="RW Consultoria Logo" class="h-8 w-8">
+                <span class="text-white font-bold text-xl ml-2">RW Consultoria</span>
               </div>
             </div>
           </div>
@@ -81,8 +81,8 @@ const init = () => {
         simpleFooter.innerHTML = `
           <div class="container mx-auto px-4">
             <div class="flex items-center mb-4">
-                <img src="/logo.svg" alt="RW PDF Logo" class="h-8 w-8 mr-2">
-              <span class="text-white font-bold text-lg">RW PDF</span>
+                <img src="logo.svg" alt="RW PDF Logo" class="h-8 w-8 mr-2">
+              <span class="text-white font-bold text-lg">RW Consultoria</span>
             </div>
             <p class="text-gray-400 text-sm">
               &copy; 2025 RW Consultoria. Todos os direitos reservados.
