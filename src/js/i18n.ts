@@ -54,6 +54,48 @@ export function tMessage(text: any): any {
 
 export function tProgress(text: any): any {
   if (typeof text !== 'string') return text;
+  
+  const progressMap: Record<string, string> = {
+    'Processando...': 'Processando...',
+    'Carregando...': 'Carregando...',
+    'Salvando...': 'Salvando...',
+    'Convertendo...': 'Convertendo...',
+    'Gerando PDF...': 'Gerando PDF...',
+    'Comprimindo...': 'Comprimindo...',
+    'Extraindo páginas...': 'Extraindo páginas...',
+    'Mesclando arquivos...': 'Mesclando arquivos...',
+    'Aplicando rotações...': 'Aplicando rotações...',
+    'Aplicando cortes...': 'Aplicando cortes...',
+    'Removendo páginas em branco...': 'Removendo páginas em branco...',
+    'Adicionando números de página...': 'Adicionando números de página...',
+    'Criptografando PDF...': 'Criptografando PDF...',
+    'Descriptografando PDF...': 'Descriptografando PDF...',
+    'Organizando páginas...': 'Organizando páginas...',
+    'Convertendo para JPG...': 'Convertendo para JPG...',
+    'Convertendo para PDF...': 'Convertendo para PDF...',
+    'Digitalizando documento...': 'Digitalizando documento...',
+    'Preenchendo formulário...': 'Preenchendo formulário...',
+    'Aplicando assinaturas...': 'Aplicando assinaturas...',
+    'Removendo anotações...': 'Removendo anotações...',
+    'Alterando permissões...': 'Alterando permissões...',
+    'Corrigindo dimensões...': 'Corrigindo dimensões...',
+    'Aplicando OCR...': 'Aplicando OCR...',
+    'Linearizando PDF...': 'Linearizando PDF...',
+    'Adicionando anexos...': 'Adicionando anexos...',
+    'Sanitizando PDF...': 'Sanitizando PDF...',
+    'Criando pôster...': 'Criando pôster...',
+    'Combinando páginas...': 'Combinando páginas...',
+    'Mesclando alternadamente...': 'Mesclando alternadamente...',
+    'Redacting content...': 'Aplicando redações...',
+    'Applying redactions...': 'Aplicando redações...',
+    'Applying signatures...': 'Aplicando assinaturas...',
+    'Applying rotations...': 'Aplicando rotações...',
+    'Applying crop...': 'Aplicando corte...',
+    'Applying form data...': 'Aplicando dados do formulário...'
+  };
+  
+  if (progressMap[text]) return progressMap[text];
+  
   if (text.startsWith('Rendering page previews')) {
     return text.replace('Rendering page previews', 'Renderizando prévias de páginas');
   }
@@ -79,4 +121,42 @@ export function tProgress(text: any): any {
     return text.replace('Converting ', 'Convertendo ');
   }
   return text;
+}
+
+// Função para traduzir textos de interface (descrições, botões, labels)
+export function tInterface(text: any): any {
+  if (typeof text !== 'string') return text;
+  
+  const interfaceMap: Record<string, string> = {
+    // Sign PDF interface
+    'Create your signature, select it, then click on the document to place. You can drag to move placed signatures.': 'Crie sua assinatura, selecione-a e clique no documento para posicionar. Você pode arrastar para mover as assinaturas posicionadas.',
+    'Apply Signatures & Download PDF': 'Aplicar Assinaturas e Baixar PDF',
+    'Undo Last Placement': 'Desfazer Último Posicionamento',
+    
+    // Markdown to PDF interface
+    'Markdown to PDF': 'Markdown para PDF',
+    'Write in Markdown, select your formatting options, and get a high-quality, multi-page PDF. <br><strong class="text-gray-300">Note:</strong> Images linked from the web (e.g., https://...) require an internet connection to be rendered.': 'Escreva em Markdown, selecione suas opções de formatação e obtenha um PDF de alta qualidade e múltiplas páginas. <br><strong class="text-gray-300">Nota:</strong> Imagens vinculadas da web (ex.: https://...) requerem conexão com a internet para serem renderizadas.',
+    'Page Format': 'Formato da Página',
+    'Orientation': 'Orientação',
+    'Margin Size': 'Tamanho da Margem',
+    'Markdown Editor': 'Editor Markdown',
+    'Create PDF from Markdown': 'Criar PDF do Markdown',
+    
+    // Common interface elements
+    'Apply': 'Aplicar',
+    'Save': 'Salvar',
+    'Download': 'Baixar',
+    'Upload': 'Enviar',
+    'Browse': 'Procurar',
+    'Select': 'Selecionar',
+    'Choose': 'Escolher',
+    'File': 'Arquivo',
+    'Files': 'Arquivos',
+    'Page': 'Página',
+    'Pages': 'Páginas',
+    'Loading': 'Carregando',
+    'Processing': 'Processando'
+  };
+  
+  return interfaceMap[text] ?? text;
 }

@@ -1,7 +1,7 @@
 import { resetState } from './state.js';
 import { formatBytes } from './utils/helpers.js';
 import { tesseractLanguages } from './config/tesseract-languages.js';
-import { tTitle, tMessage, tProgress } from './i18n.ts';
+import { tTitle, tMessage, tProgress, tInterface } from './i18n.ts';
 import { icons, createIcons } from 'lucide';
 import Sortable from 'sortablejs';
 
@@ -1055,25 +1055,25 @@ export const toolTemplates = {
         <button id="process-btn" class="hidden btn-gradient w-full mt-6">Inverter & Baixar</button>
     `,
   'md-to-pdf': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Markdown to PDF</h2>
-        <p class="mb-6 text-gray-400">Write in Markdown, select your formatting options, and get a high-quality, multi-page PDF. <br><strong class="text-gray-300">Note:</strong> Images linked from the web (e.g., https://...) require an internet connection to be rendered.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">${tInterface('Markdown to PDF')}</h2>
+    <p class="mb-6 text-gray-400">${tInterface('Write in Markdown, select your formatting options, and get a high-quality, multi-page PDF. <br><strong class="text-gray-300">Note:</strong> Images linked from the web (e.g., https://...) require an internet connection to be rendered.')}</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div>
-                <label for="page-format" class="block mb-2 text-sm font-medium text-gray-300">Page Format</label>
+                <label for="page-format" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Page Format')}</label>
                 <select id="page-format" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                     <option value="a4">A4</option>
                     <option value="letter">Letter</option>
                 </select>
             </div>
             <div>
-                <label for="orientation" class="block mb-2 text-sm font-medium text-gray-300">Orientation</label>
+                <label for="orientation" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Orientation')}</label>
                 <select id="orientation" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                     <option value="portrait">Portrait</option>
                     <option value="landscape">Landscape</option>
                 </select>
             </div>
             <div>
-                <label for="margin-size" class="block mb-2 text-sm font-medium text-gray-300">Margin Size</label>
+                <label for="margin-size" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Margin Size')}</label>
                 <select id="margin-size" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                     <option value="normal">Normal</option>
                     <option value="narrow">Narrow</option>
@@ -1082,10 +1082,10 @@ export const toolTemplates = {
             </div>
         </div>
         <div class="h-[50vh]">
-            <label for="md-input" class="block mb-2 text-sm font-medium text-gray-300">Markdown Editor</label>
+            <label for="md-input" class="block mb-2 text-sm font-medium text-gray-300">${tInterface('Markdown Editor')}</label>
             <textarea id="md-input" class="w-full h-full bg-gray-900 border border-gray-600 text-gray-300 rounded-lg p-3 font-mono resize-none" placeholder="# Welcome to Markdown..."></textarea>
         </div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Create PDF from Markdown</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">${tInterface('Create PDF from Markdown')}</button>
     `,
   'svg-to-pdf': () => `
         <h2 class="text-2xl font-bold text-white mb-4">SVG para PDF</h2>
@@ -1578,7 +1578,7 @@ export const toolTemplates = {
 
   'sign-pdf': () => `
     <h2 class="text-2xl font-bold text-white mb-4">Assinar PDF</h2>
-    <p class="mb-6 text-gray-400">Create your signature, select it, then click on the document to place. You can drag to move placed signatures.</p>
+    <p class="mb-6 text-gray-400">${tInterface('Create your signature, select it, then click on the document to place. You can drag to move placed signatures.')}</p>
     ${createFileInputHTML()}
     
     <div id="signature-editor" class="hidden mt-6">
@@ -1656,7 +1656,7 @@ export const toolTemplates = {
             <button id="fit-width-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600"><i data-lucide="minimize"></i></button>
             <button id="zoom-in-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600"><i data-lucide="zoom-in"></i></button>
             <div class="border-l border-gray-600 h-6 mx-2 hidden sm:block"></div>
-            <button id="undo-btn" class="btn p-2 rounded-full" title="Undo Last Placement"><i data-lucide="undo-2"></i></button>
+            <button id="undo-btn" class="btn p-2 rounded-full" title="${tInterface('Undo Last Placement')}"><i data-lucide="undo-2"></i></button>
         </div>
 
         <div id="canvas-container-sign" class="relative w-full overflow-auto bg-gray-900 rounded-lg border border-gray-600 h-[60vh] md:h-[80vh]">
@@ -1664,7 +1664,7 @@ export const toolTemplates = {
         </div>
 
     </div>
-    <button id="process-btn" class="hidden btn-gradient w-full mt-6">Apply Signatures & Download PDF</button>
+    <button id="process-btn" class="hidden btn-gradient w-full mt-6">${tInterface('Apply Signatures & Download PDF')}</button>
 `,
 
   'remove-annotations': () => `
