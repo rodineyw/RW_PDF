@@ -261,9 +261,9 @@ const createFileInputHTML = (options = {}) => {
         <div id="drop-zone" class="relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-600 rounded-xl cursor-pointer bg-gray-900 hover:bg-gray-700 transition-colors duration-300">
             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                 <i data-lucide="upload-cloud" class="w-10 h-10 mb-3 text-gray-400"></i>
-                <p class="mb-2 text-sm text-gray-400"><span class="font-semibold">Click to select a file</span> or drag and drop</p>
-                <p class="text-xs text-gray-500">${multiple ? 'PDFs or Images' : 'A single PDF file'}</p>
-                <p class="text-xs text-gray-500">Your files never leave your device.</p>
+                <p class="mb-2 text-sm text-gray-400"><span class="font-semibold">Clique para selecionar um arquivo</span> ou arraste e solte</p>
+                <p class="text-xs text-gray-500">${multiple ? 'PDFs ou Imagens' : 'Um único arquivo PDF'}</p>
+                <p class="text-xs text-gray-500">Seus arquivos nunca saem do seu dispositivo.</p>
             </div>
             <input id="file-input" type="file" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" ${multiple} accept="${acceptedFiles}">
         </div>
@@ -274,10 +274,10 @@ const createFileInputHTML = (options = {}) => {
             <!-- NEW: Add control buttons for multi-file uploads -->
             <div id="file-controls" class="hidden mt-4 flex gap-3">
                 <button id="add-more-btn" class="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
-                    <i data-lucide="plus"></i> Add More Files
+                    <i data-lucide="plus"></i> Adicionar mais arquivos
                 </button>
                 <button id="clear-files-btn" class="btn bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
-                    <i data-lucide="x"></i> Clear All
+                    <i data-lucide="x"></i> Limpar tudo
                 </button>
             </div>
         `
@@ -396,204 +396,204 @@ export const toolTemplates = {
     </div>
 `,
   encrypt: () => `
-  <h2 class="text-2xl font-bold text-white mb-4">Encrypt PDF</h2>
-  <p class="mb-6 text-gray-400">Add 256-bit AES password protection to your PDF.</p>
+  <h2 class="text-2xl font-bold text-white mb-4">Criptografar PDF</h2>
+  <p class="mb-6 text-gray-400">Adicionar proteção por senha AES 256‑bit ao seu PDF.</p>
   ${createFileInputHTML()}
   <div id="file-display-area" class="mt-4 space-y-2"></div>
   <div id="encrypt-options" class="hidden space-y-4 mt-6">
       <div>
-          <label for="user-password-input" class="block mb-2 text-sm font-medium text-gray-300">User Password</label>
-          <input required type="password" id="user-password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Password to open the PDF">
-          <p class="text-xs text-gray-500 mt-1">Required to open and view the PDF</p>
+          <label for="user-password-input" class="block mb-2 text-sm font-medium text-gray-300">Senha do Usuário</label>
+          <input required type="password" id="user-password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Senha para abrir o PDF">
+          <p class="text-xs text-gray-500 mt-1">Obrigatória para abrir e visualizar o PDF</p>
       </div>
       <div>
-          <label for="owner-password-input" class="block mb-2 text-sm font-medium text-gray-300">Owner Password (Optional)</label>
-          <input type="password" id="owner-password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Password for full permissions (recommended)">
-          <p class="text-xs text-gray-500 mt-1">Allows changing permissions and removing encryption</p>
+          <label for="owner-password-input" class="block mb-2 text-sm font-medium text-gray-300">Senha do Proprietário (opcional)</label>
+          <input type="password" id="owner-password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Senha para permissões completas (recomendado)">
+          <p class="text-xs text-gray-500 mt-1">Permite alterar permissões e remover a criptografia</p>
       </div>
 
       <!-- Restriction checkboxes (shown when owner password is entered) -->
       <div id="restriction-options" class="hidden p-4 bg-gray-800 border border-gray-700 rounded-lg">
-        <h3 class="font-semibold text-base mb-2 text-white">🔒 Restrict PDF Permissions</h3>
-        <p class="text-sm text-gray-400 mb-3">Select which actions to disable:</p>
+        <h3 class="font-semibold text-base mb-2 text-white">🔒 Restringir Permissões do PDF</h3>
+        <p class="text-sm text-gray-400 mb-3">Selecione quais ações deseja desativar:</p>
         <div class="space-y-2">
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-modify" checked>
-            <span>Disable all modifications (--modify=none)</span>
+            <span>Desativar todas as modificações (--modify=none)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-extract" checked>
-            <span>Disable text and image extraction (--extract=n)</span>
+            <span>Desativar extração de texto e imagem (--extract=n)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-print" checked>
-            <span>Disable all printing (--print=none)</span>
+            <span>Desativar toda impressão (--print=none)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-accessibility">
-            <span>Disable accessibility text copying (--accessibility=n)</span>
+            <span>Desativar cópia de texto para acessibilidade (--accessibility=n)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-annotate">
-            <span>Disable annotations (--annotate=n)</span>
+            <span>Desativar anotações (--annotate=n)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-assemble">
-            <span>Disable page assembly (--assemble=n)</span>
+            <span>Desativar montagem de páginas (--assemble=n)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-form">
-            <span>Disable form filling (--form=n)</span>
+            <span>Desativar preenchimento de formulários (--form=n)</span>
           </label>
           <label class="flex items-center space-x-2">
             <input type="checkbox" id="restrict-modify-other">
-            <span>Disable other modifications (--modify-other=n)</span>
+            <span>Desativar outras modificações (--modify-other=n)</span>
           </label>
         </div>
       </div>
 
       <div class="p-4 bg-yellow-900/20 border border-yellow-500/30 text-yellow-200 rounded-lg">
-          <h3 class="font-semibold text-base mb-2">⚠️ Security Recommendation</h3>
-          <p class="text-sm text-gray-300">For strong security, set both passwords. Without an owner password, the security restrictions (printing, copying, etc.) can be easily bypassed.</p>
+          <h3 class="font-semibold text-base mb-2">⚠️ Recomendação de Segurança</h3>
+          <p class="text-sm text-gray-300">Para maior segurança, defina ambas as senhas. Sem a senha de proprietário, as restrições (impressão, cópia, etc.) podem ser facilmente contornadas.</p>
       </div>
       <div class="p-4 bg-green-900/20 border border-green-500/30 text-green-200 rounded-lg">
-          <h3 class="font-semibold text-base mb-2">✓ High-Quality Encryption</h3>
-          <p class="text-sm text-gray-300">256-bit AES encryption without quality loss. Text remains selectable and searchable.</p>
+          <h3 class="font-semibold text-base mb-2">✓ Criptografia de Alta Qualidade</h3>
+          <p class="text-sm text-gray-300">Criptografia AES 256‑bit sem perda de qualidade. O texto permanece selecionável e pesquisável.</p>
       </div>
-      <button id="process-btn" class="btn-gradient w-full mt-6">Encrypt & Download</button>
+      <button id="process-btn" class="btn-gradient w-full mt-6">Criptografar & Baixar</button>
   </div>
 `,
   decrypt: () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Decrypt PDF</h2>
-        <p class="mb-6 text-gray-400">Upload an encrypted PDF and provide its password to create an unlocked version.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Descriptografar PDF</h2>
+        <p class="mb-6 text-gray-400">Envie um PDF criptografado e informe sua senha para criar uma versão desbloqueada.</p>
         ${createFileInputHTML()}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         <div id="decrypt-options" class="hidden space-y-4 mt-6">
             <div>
-                <label for="password-input" class="block mb-2 text-sm font-medium text-gray-300">Enter PDF Password</label>
-                <input type="password" id="password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Enter the current password">
+                <label for="password-input" class="block mb-2 text-sm font-medium text-gray-300">Informe a senha do PDF</label>
+                <input type="password" id="password-input" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5" placeholder="Informe a senha atual">
             </div>
-            <button id="process-btn" class="btn-gradient w-full mt-6">Decrypt & Download</button>
+            <button id="process-btn" class="btn-gradient w-full mt-6">Descriptografar & Baixar</button>
         </div>
         <canvas id="pdf-canvas" class="hidden"></canvas>
     `,
   organize: () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Organize PDF</h2>
-        <p class="mb-6 text-gray-400">Reorder, rotate, or delete pages. Drag and drop pages to reorder them.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Organizar PDF</h2>
+        <p class="mb-6 text-gray-400">Reordene, gire ou exclua páginas. Arraste e solte para reordenar.</p>
         ${createFileInputHTML()}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         <div id="page-organizer" class="hidden grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 my-6"></div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Save Changes</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Salvar Alterações</button>
     `,
 
   rotate: () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Rotate PDF</h2>
-        <p class="mb-6 text-gray-400">Rotate all or specific pages in a PDF document.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Rotacionar PDF</h2>
+        <p class="mb-6 text-gray-400">Gire todas as páginas ou páginas específicas em um documento PDF.</p>
         ${createFileInputHTML()}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         
         <div id="rotate-all-controls" class="hidden my-6">
             <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
-                <h3 class="text-sm font-semibold text-gray-400 mb-3 text-center">BATCH ACTIONS</h3>
+                <h3 class="text-sm font-semibold text-gray-400 mb-3 text-center">AÇÕES EM LOTE</h3>
                 <div class="flex justify-center gap-4">
                     <button id="rotate-all-left-btn" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-200 bg-gray-800 border border-gray-600 rounded-lg shadow-sm hover:bg-gray-700 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 transform transition-all duration-150 active:scale-95">
                         <i data-lucide="rotate-ccw" class="mr-2 h-4 w-4"></i>
-                        Rotate All Left
+                        Girar Tudo à Esquerda
                     </button>
                     <button id="rotate-all-right-btn" class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-200 bg-gray-800 border border-gray-600 rounded-lg shadow-sm hover:bg-gray-700 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 transform transition-all duration-150 active:scale-95">
                         <i data-lucide="rotate-cw" class="mr-2 h-4 w-4"></i>
-                        Rotate All Right
+                        Girar Tudo à Direita
                     </button>
                 </div>
             </div>
         </div>
         <div id="page-rotator" class="hidden grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 my-6"></div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Save Rotations</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Salvar Rotações</button>
     `,
 
   'add-page-numbers': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Add Page Numbers</h2>
-        <p class="mb-6 text-gray-400">Add customizable page numbers to your PDF file.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Adicionar Números de Página</h2>
+        <p class="mb-6 text-gray-400">Adicionar números de página personalizáveis ao seu PDF.</p>
         ${createFileInputHTML()}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         <div id="pagenum-options" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             <div>
-                <label for="position" class="block mb-2 text-sm font-medium text-gray-300">Position</label>
+                <label for="position" class="block mb-2 text-sm font-medium text-gray-300">Posição</label>
                 <select id="position" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
-                    <option value="bottom-center">Bottom Center</option>
-                    <option value="bottom-left">Bottom Left</option>
-                    <option value="bottom-right">Bottom Right</option>
-                    <option value="top-center">Top Center</option>
-                    <option value="top-left">Top Left</option>
-                    <option value="top-right">Top Right</option>
+                    <option value="bottom-center">Centro Inferior</option>
+                    <option value="bottom-left">Inferior Esquerda</option>
+                    <option value="bottom-right">Inferior Direita</option>
+                    <option value="top-center">Centro Superior</option>
+                    <option value="top-left">Superior Esquerda</option>
+                    <option value="top-right">Superior Direita</option>
                 </select>
             </div>
             <div>
-                <label for="font-size" class="block mb-2 text-sm font-medium text-gray-300">Font Size</label>
+                <label for="font-size" class="block mb-2 text-sm font-medium text-gray-300">Tamanho da Fonte</label>
                 <input type="number" id="font-size" value="12" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
             </div>
             <div>
-                <label for="number-format" class="block mb-2 text-sm font-medium text-gray-300">Format</label>
+                <label for="number-format" class="block mb-2 text-sm font-medium text-gray-300">Formato</label>
                 <select id="number-format" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-2.5">
                     <option value="default">1, 2, 3...</option>
-                    <option value="page_x_of_y">Page 1/N, 2/N...</option>
+                    <option value="page_x_of_y">Página 1/N, 2/N...</option>
                 </select>
             </div>
             <div>
-                <label for="text-color" class="block mb-2 text-sm font-medium text-gray-300">Text Color</label>
+                <label for="text-color" class="block mb-2 text-sm font-medium text-gray-300">Cor do Texto</label>
                 <input type="color" id="text-color" value="#000000" class="w-full h-[42px] bg-gray-700 border border-gray-600 rounded-lg p-1 cursor-pointer">
             </div>
         </div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Add Page Numbers</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Adicionar Números de Página</button>
     `,
   'pdf-to-jpg': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">PDF to JPG</h2>
-        <p class="mb-6 text-gray-400">Convert each page of a PDF file into a high-quality JPG image.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">PDF para JPG</h2>
+        <p class="mb-6 text-gray-400">Converter cada página de um PDF em uma imagem JPG de alta qualidade.</p>
         ${createFileInputHTML()}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
         <div id="jpg-preview" class="hidden text-center mt-6">
-            <p class="mb-4 text-white">Click "Download All as ZIP" to get images for all pages.</p>
-            <button id="process-btn" class="btn-gradient w-full mt-6">Download All as ZIP</button>
+            <p class="mb-4 text-white">Clique em "Baixar Tudo em ZIP" para obter imagens de todas as páginas.</p>
+            <button id="process-btn" class="btn-gradient w-full mt-6">Baixar Tudo em ZIP</button>
         </div>
     `,
   'jpg-to-pdf': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">JPG to PDF</h2>
-        <p class="mb-6 text-gray-400">Convert one or more JPG images into a single PDF file.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">JPG para PDF</h2>
+        <p class="mb-6 text-gray-400">Converter uma ou mais imagens JPG em um único arquivo PDF.</p>
         ${createFileInputHTML({ multiple: true, accept: 'image/jpeg', showControls: true })}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Convert to PDF</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Converter para PDF</button>
     `,
   'scan-to-pdf': () => `
-        <h2 class="text-2xl font-bold text-white mb-4">Scan to PDF</h2>
-        <p class="mb-6 text-gray-400">Use your device's camera to scan documents and save them as a PDF. On desktop, this will open a file picker.</p>
+        <h2 class="text-2xl font-bold text-white mb-4">Digitalizar para PDF</h2>
+        <p class="mb-6 text-gray-400">Use a câmera do seu dispositivo para digitalizar documentos e salvá-los como PDF. No desktop, abrirá um seletor de arquivos.</p>
         ${createFileInputHTML({ accept: 'image/*' })}
         <div id="file-display-area" class="mt-4 space-y-2"></div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Create PDF from Scans</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Criar PDF a partir das Digitalizações</button>
     `,
 
   crop: () => `
-    <h2 class="text-2xl font-bold text-white mb-4">Crop PDF</h2>
-    <p class="mb-6 text-gray-400">Click and drag to select a crop area on any page. You can set different crop areas for each page.</p>
+    <h2 class="text-2xl font-bold text-white mb-4">Cortar PDF</h2>
+    <p class="mb-6 text-gray-400">Clique e arraste para selecionar uma área de corte em qualquer página. Você pode definir áreas diferentes para cada página.</p>
     ${createFileInputHTML()}
     <div id="crop-editor" class="hidden">
         <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4 p-3 bg-gray-900 rounded-lg border border-gray-700">
             <div id="page-nav" class="flex items-center gap-2"></div>
             <div class="border-l border-gray-600 h-6 mx-2 hidden md:block"></div>
             <div id="zoom-controls" class="flex items-center gap-2">
-                <button id="zoom-out-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Zoom Out"><i data-lucide="zoom-out" class="w-5 h-5"></i></button>
-                <button id="fit-page-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Fit to View"><i data-lucide="minimize" class="w-5 h-5"></i></button>
-                <button id="zoom-in-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Zoom In"><i data-lucide="zoom-in" class="w-5 h-5"></i></button>
+                <button id="zoom-out-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Reduzir"><i data-lucide="zoom-out" class="w-5 h-5"></i></button>
+                <button id="fit-page-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Ajustar à visão"><i data-lucide="minimize" class="w-5 h-5"></i></button>
+                <button id="zoom-in-btn" class="btn p-2 rounded-full bg-gray-700 hover:bg-gray-600" title="Ampliar"><i data-lucide="zoom-in" class="w-5 h-5"></i></button>
             </div>
              <div class="border-l border-gray-600 h-6 mx-2 hidden md:block"></div>
             <div id="crop-controls" class="flex items-center gap-2">
-                 <button id="clear-crop-btn" class="btn bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-4 py-2 rounded-lg text-sm" title="Clear crop on this page">Clear Page</button>
-                 <button id="clear-all-crops-btn" class="btn bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg text-sm" title="Clear all crop selections">Clear All</button>
+                 <button id="clear-crop-btn" class="btn bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-4 py-2 rounded-lg text-sm" title="Limpar corte nesta página">Limpar Página</button>
+                 <button id="clear-all-crops-btn" class="btn bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg text-sm" title="Limpar todas as seleções de corte">Limpar Tudo</button>
             </div>
         </div>
         <div id="canvas-container" class="relative w-full overflow-auto bg-gray-900 rounded-lg border border-gray-600" style="height: 70vh;">
             <canvas id="canvas-editor" class="mx-auto cursor-crosshair"></canvas>
         </div>
-        <button id="process-btn" class="btn-gradient w-full mt-6">Apply Crop & Save PDF</button>
+        <button id="process-btn" class="btn-gradient w-full mt-6">Aplicar Corte & Salvar PDF</button>
     </div>
 `,
   compress: () => `
