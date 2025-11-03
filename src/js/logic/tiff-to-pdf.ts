@@ -81,7 +81,7 @@ export async function tiffToPdf() {
     const pdfBytes = await pdfDoc.save();
     downloadFile(
       new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' }),
-      'from_tiff.pdf'
+      'documento_tiff.pdf'
     );
   } catch (e) {
     console.error(e);

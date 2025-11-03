@@ -1739,11 +1739,11 @@ export const toolTemplates = {
     <div id="cropper-ui-container" class="hidden mt-6">
         
         <div class="p-3 bg-gray-900 rounded-lg border border-gray-700 mb-6">
-            <p class="text-sm text-gray-300"><strong class="text-white">How it works:</strong></p>
+            <p class="text-sm text-gray-300"><strong class="text-white">Como Funciona:</strong></p>
             <ul class="list-disc list-inside text-xs text-gray-400 mt-1 space-y-1">
-                <li><strong class="text-white">Live Preview:</strong> Veja a sua seleção de cultivo em tempo real antes de aplicá-la.</li>
-                <li><strong class="text-white">Non-Destructive Mode:</strong> Este é o modo padrão. Ele simplesmente "oculta" o conteúdo cortado ajustando as margens da página. O texto e os dados originais são preservados no arquivo.</li>
-                <li><strong class="text-white">Destructive Mode:</strong> Esta opção remove permanentemente o conteúdo cortado, achatando o PDF. Use-a para máxima segurança e tamanho de arquivo menor, mas observe que ela removerá o texto selecionável.</li>
+                <li><strong class="text-white">Pré-Visualização ao Vivo:</strong> Veja a sua seleção de cultivo em tempo real antes de aplicá-la.</li>
+                <li><strong class="text-white">Modo Não Destrutivo:</strong> Este é o modo padrão. Ele simplesmente "oculta" o conteúdo cortado ajustando as margens da página. O texto e os dados originais são preservados no arquivo.</li>
+                <li><strong class="text-white">Modo Destrutivo:</strong> Esta opção remove permanentemente o conteúdo cortado, achatando o PDF. Use-a para máxima segurança e tamanho de arquivo menor, mas observe que ela removerá o texto selecionável.</li>
             </ul>
         </div>
         

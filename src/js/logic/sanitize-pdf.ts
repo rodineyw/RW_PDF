@@ -54,7 +54,7 @@ export async function sanitizePdf() {
         flattenFormsInDoc(pdfDoc);
         changesMade = true;
       } catch (e) {
-        console.warn(`Could not flatten forms: ${e.message}`);
+        console.warn(`Não foi possível flaterar os formulários: ${e.message}`);
         try {
           const catalogDict = pdfDoc.catalog.dict;
           if (catalogDict.has(PDFName.of('AcroForm'))) {
@@ -580,12 +580,12 @@ export async function sanitizePdf() {
     const sanitizedPdfBytes = await pdfDoc.save();
     downloadFile(
       new Blob([sanitizedPdfBytes], { type: 'application/pdf' }),
-      'sanitized.pdf'
+      'documento-sanitizado.pdf'
     );
-    showAlert('Success', 'PDF foi sanitizado e baixado.');
+    showAlert('Sucesso', 'PDF foi sanitizado e baixado.');
   } catch (e) {
-    console.error('Sanitization Error:', e);
-    showAlert('Error', `Erro ao sanitizar PDF: ${e.message}`);
+    console.error('Erro ao sanitizar PDF:', e);
+    showAlert('Erro', `Erro ao sanitizar PDF: ${e.message}`);
   } finally {
     hideLoader();
   }

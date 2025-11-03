@@ -37,7 +37,7 @@ function saveCurrentCrop() {
  * @param {number} num The page number to render.
  */
 async function displayPageAsImage(num: any) {
-  showLoader(`Rendering Page ${num}...`);
+  showLoader(`Renderizando a Página ${num}...`);
 
   try {
     const page = await cropperState.pdfDoc.getPage(num);
@@ -185,7 +185,7 @@ async function performFlatteningCrop(cropData: any) {
 
   for (let i = 0; i < totalPages; i++) {
     const pageNum = i + 1;
-    showLoader(`Processing page ${pageNum} of ${totalPages}...`);
+    showLoader(`Processando página ${pageNum} de ${totalPages}...`);
 
     if (cropData[pageNum]) {
       const page = await cropperState.pdfDoc.getPage(pageNum);

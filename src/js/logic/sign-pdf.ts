@@ -537,7 +537,7 @@ export async function applyAndSaveSignatures() {
     const newPdfBytes = await state.pdfDoc.save();
     downloadFile(
       new Blob([newPdfBytes], { type: 'application/pdf' }),
-      'signed.pdf'
+      'documento-com-assinaturas.pdf'
     );
   } catch (e) {
     console.error(e);

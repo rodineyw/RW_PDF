@@ -22,7 +22,7 @@ export async function rotate() {
     const rotatedPdfBytes = await state.pdfDoc.save();
     downloadFile(
       new Blob([rotatedPdfBytes], { type: 'application/pdf' }),
-      'rotated.pdf'
+      'documento-com-rotacoes.pdf'
     );
   } catch (e) {
     console.error(e);

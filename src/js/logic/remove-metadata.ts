@@ -53,7 +53,7 @@ export async function removeMetadata() {
     const newPdfBytes = await state.pdfDoc.save();
     downloadFile(
       new Blob([newPdfBytes], { type: 'application/pdf' }),
-      'metadata-removed.pdf'
+      'documento-sem-metadados.pdf'
     );
   } catch (e) {
     console.error(e);

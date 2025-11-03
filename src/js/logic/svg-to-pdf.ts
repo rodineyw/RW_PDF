@@ -54,7 +54,7 @@ export async function svgToPdf() {
     const pdfBytes = await pdfDoc.save();
     downloadFile(
       new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' }),
-      'from_svgs.pdf'
+      'documento_svgs.pdf'
     );
   } catch (e) {
     console.error(e);

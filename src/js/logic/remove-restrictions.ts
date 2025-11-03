@@ -63,7 +63,7 @@ export async function removeRestrictions() {
     }
 
     const blob = new Blob([outputFile], { type: 'application/pdf' });
-    downloadFile(blob, `unrestricted-${file.name}`);
+    downloadFile(blob, `documento-sem-restricoes-${file.name}`);
 
     hideLoader();
 
