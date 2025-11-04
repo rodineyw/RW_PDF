@@ -280,15 +280,15 @@ export async function compress() {
     let usedMethod;
 
     if (algorithm === 'vector') {
-      showLoader('Running Vector (Smart) compression...');
+      showLoader('Executando compressão Vetorial (Smart)...');
       resultBytes = await performSmartCompression(arrayBuffer, smartSettings);
       usedMethod = 'Vector';
     } else if (algorithm === 'photon') {
-      showLoader('Running Photon (Rasterize) compression...');
+      showLoader('Executando compressão Photon (Rasterize)...');
       resultBytes = await performLegacyCompression(arrayBuffer, legacySettings);
       usedMethod = 'Photon';
     } else {
-      showLoader('Running Automatic (Vector first)...');
+      showLoader('Executando compressão Automática (Vetorial primeiro)...');
       const vectorResultBytes = await performSmartCompression(
         arrayBuffer,
         smartSettings
@@ -298,8 +298,8 @@ export async function compress() {
         resultBytes = vectorResultBytes;
         usedMethod = 'Vector (Automatic)';
       } else {
-        showAlert('Vector failed to reduce size. Trying Photon...', 'info');
-        showLoader('Running Automatic (Photon fallback)...');
+        showAlert('Compressão Vetorial não reduziu o tamanho. Tentando Photon...', 'info');
+        showLoader('Executando compressão Automática (Photon fallback)...');
         resultBytes = await performLegacyCompression(
           arrayBuffer,
           legacySettings
@@ -316,15 +316,15 @@ export async function compress() {
 
     if (savings > 0) {
       showAlert(
-        'Compression Complete',
-        `Method: **${usedMethod}**. ` +
-          `File size reduced from ${originalSize} to ${compressedSize} (Saved ${savingsPercent}%).`
+        'Compressão Concluída',
+        `Método: **${usedMethod}**. ` +
+          `Tamanho do arquivo reduzido de ${originalSize} para ${compressedSize} (Salvo ${savingsPercent}%).`
       );
     } else {
       showAlert(
-        'Compression Finished',
-        `Method: **${usedMethod}**. ` +
-          `Could not reduce file size. Original: ${originalSize}, New: ${compressedSize}.`,
+        'Compressão Finalizada',
+        `Método: **${usedMethod}**. ` +
+          `Não foi possível reduzir o tamanho do arquivo. Original: ${originalSize}, Novo: ${compressedSize}.`,
         // @ts-expect-error TS(2554) FIXME: Expected 2 arguments, but got 3.
         'warning'
       );
@@ -332,12 +332,12 @@ export async function compress() {
 
     downloadFile(
       new Blob([resultBytes], { type: 'application/pdf' }),
-      'compressed-final.pdf'
+      'arquivo_comprimido.pdf'
     );
   } catch (e) {
     showAlert(
-      'Error',
-      `An error occurred during compression. Error: ${e.message}`
+      'Erro',
+      `Ocorreu um erro durante a compressão. Erro: ${e.message}`
     );
   } finally {
     hideLoader();
