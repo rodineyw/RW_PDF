@@ -169,7 +169,7 @@ async function performSmartCompression(arrayBuffer: any, settings: any) {
           URL.revokeObjectURL(imageUrl);
         }
       } catch (error) {
-        console.warn('Skipping an uncompressible image in smart mode:', error);
+        console.warn('Ignorando uma imagem incompressível no modo inteligente:', error);
       }
     }
   }

@@ -346,7 +346,7 @@ async function handleSinglePdfUpload(toolId, file) {
 
         resultsDiv.classList.remove('hidden');
       } catch (e) {
-        console.error('Failed to view metadata or fields:', e);
+        console.error('Falha ao visualizar metadados ou campos:', e);
         showAlert(
           'Erro',
           'Não foi possível analisar o PDF completamente. Ele pode estar corrompido ou ter uma estrutura incomum.'
