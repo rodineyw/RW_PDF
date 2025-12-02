@@ -11,30 +11,13 @@ const init = () => {
     import.meta.url
   ).toString();
 
-  // Handle simple mode - hide branding sections but keep logo and copyright
+  // Handle simple mode - mostrar somente as ferramentas
   if (__SIMPLE_MODE__) {
     const hideBrandingSections = () => {
-      // Hide navigation but keep logo
+      // Ocultar completamente a navegação
       const nav = document.querySelector('nav');
       if (nav) {
-        // Hide the entire nav but we'll create a minimal one with just logo
         nav.style.display = 'none';
-
-        // Create a simple nav with just logo on the right
-        const simpleNav = document.createElement('nav');
-        simpleNav.className =
-          'bg-gray-800 border-b border-gray-700 sticky top-0 z-30';
-        simpleNav.innerHTML = `
-          <div class="container mx-auto px-4">
-            <div class="flex justify-start items-center h-16">
-              <div class="flex-shrink-0 flex items-center">
-                <img src="logo.svg" alt="RW Consultoria Logo" class="h-8 w-8">
-                <span class="text-white font-bold text-xl ml-2">RW Consultoria</span>
-              </div>
-            </div>
-          </div>
-        `;
-        document.body.insertBefore(simpleNav, document.body.firstChild);
       }
 
       const heroSection = document.getElementById('hero-section');
@@ -71,25 +54,10 @@ const init = () => {
         supportSection.style.display = 'none';
       }
 
-      // Hide footer but keep copyright
+      // Ocultar completamente o rodapé
       const footer = document.querySelector('footer');
       if (footer) {
         footer.style.display = 'none';
-
-        const simpleFooter = document.createElement('footer');
-        simpleFooter.className = 'mt-16 border-t-2 border-gray-700 py-8';
-        simpleFooter.innerHTML = `
-          <div class="container mx-auto px-4">
-            <div class="flex items-center mb-4">
-                <img src="logo.svg" alt="RW PDF Logo" class="h-8 w-8 mr-2">
-              <span class="text-white font-bold text-lg">RW Consultoria</span>
-            </div>
-            <p class="text-gray-400 text-sm">
-              &copy; 2025 RW Consultoria. Todos os direitos reservados.
-            </p>
-          </div>
-        `;
-        document.body.appendChild(simpleFooter);
       }
 
       const sectionDividers = document.querySelectorAll('.section-divider');
