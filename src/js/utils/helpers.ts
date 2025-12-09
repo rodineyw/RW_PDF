@@ -164,13 +164,15 @@ export async function initializeQpdf() {
   showLoader(tProgress('Iniciando o motor PDF...'));
   try {
     qpdfInstance = await createModule({
-      locateFile: () => '/qpdf.wasm',
+      locateFile: () => 'qpdf.wasm',
     });
   } catch (error) {
     console.error('Falha ao inicializar qpdf-wasm:', error);
     showAlert(
       tTitle('Erro de Inicialização'),
-      tMessage('Não foi possível carregar o motor PDF. Por favor, recarregue a página e tente novamente.')
+      tMessage(
+        'Não foi possível carregar o motor PDF. Por favor, recarregue a página e tente novamente.'
+      )
     );
     throw error;
   } finally {
